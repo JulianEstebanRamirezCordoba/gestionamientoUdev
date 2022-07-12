@@ -1,4 +1,3 @@
-
 <?php
 	require_once '../util/util.php';
 	define("USUARIOVALIDO", 3);

@@ -1,5 +1,4 @@
-<html lang="en">
-<!-- Llego Alejandro el Mejor 06/07/2022 -->
+
 <?php
 	require_once '../util/util.php';
 	define("USUARIOVALIDO", 3);
@@ -12,7 +11,7 @@
 
 ?>
 <head>
-	<title>Time Admin UDEV</title>
+	<title>Gestionamiento UDEV</title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">

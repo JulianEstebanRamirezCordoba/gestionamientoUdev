@@ -24,8 +24,9 @@
         "usu_nombre", "usu_apellido"));
         define("CAMPOS_DATA_BASE", array("usu_email", "usu_password", "usu_estado"));
         $valoresConsulta = array($email, $password, ESTADO_USUARIOS);
+        $limit = "LIMIT 1";
 
-        $consulta = $utilModelo->consultaDatosUnicos(TABLA_DATA_BASE, CAMPOS_EXTRACCION, CAMPOS_DATA_BASE, $valoresConsulta);
+        $consulta = $utilModelo->consultaDatosUnicos(TABLA_DATA_BASE, CAMPOS_EXTRACCION, CAMPOS_DATA_BASE, $valoresConsulta, $limit);
 
             while($estrutura = mysqli_fetch_array($consulta)){
                 if($estrutura != null){

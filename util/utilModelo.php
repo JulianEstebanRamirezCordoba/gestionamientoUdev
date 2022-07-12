@@ -64,7 +64,7 @@
 
         } 
 
-        function consultaDatosUnicos($nombreTabla = "", $camposExtraccion = array("*"), $camposConsult, $valoresConsult){
+        function consultaDatosUnicos($nombreTabla = "", $camposExtraccion = array("*"), $camposConsult, $valoresConsult, $limite = ""){
             global $conexion;
             $condicion = "WHERE";
             $extraccion = "";
@@ -82,9 +82,9 @@
 
             }
             
-            $consulta = "SELECT $extraccion FROM $nombreTabla $condicion limit 1;";
+            $consulta = "SELECT $extraccion FROM $nombreTabla $condicion $limite;";
             $query = mysqli_query($conexion, $consulta);
-
+            
             return $query;
 
         }
@@ -113,17 +113,6 @@
         $query = mysqli_query($conexion, $consultaQuery);
 
         return $query;
-
-        }
-        
-        function consultarVariasTablas($campos, $valores, $condiciones) {
-            global $conexion;
-
-            $consulta = "SELECT $campos FROM $valores WHERE $condiciones";
-            $query = mysqli_query($conexion, $consulta);
-            
-            // echo "$consulta";
-            return $query;
 
         }
     }

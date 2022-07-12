@@ -8,7 +8,7 @@ require '../PHPMailer/SMTP.php';
 
 class enviarCorreos{
     
-   function enviarCodigo($destino, $asuntoCorr = "", $cuerpoMensajeEnviar){
+   function enviarCodigo($destino, $asuntoCorr, $cuerpoMensajeEnviar){
        $email = new PHPMailer(true);
             try{
                 $email->SMTPDebug = 0;
@@ -23,7 +23,7 @@ class enviarCorreos{
                 $email->Port = 587;                                     
 
             
-                $email->setFrom('julianesteban@alwaysdata.net', 'Time Admin Mejorando Fronteras EDU');
+                $email->setFrom('julianesteban@alwaysdata.net', 'Gestionando tus Salones Mejorando Fronteras EDU');
                 $email->addAddress($destino, '');       
 
         
@@ -35,9 +35,7 @@ class enviarCorreos{
 
              }catch (Exception $e) {
                 echo "<h2 class='login-form-link'> Error de conexion con el servicio 
-                <br>$e<h2>";
-
-                header("Location: ../inicio/restaurarContraseña/visualEnvioCorr.php"); 
+                <br> $e";
             
             return false;
 

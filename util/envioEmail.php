@@ -13,17 +13,17 @@ class enviarCorreos{
             try{
                 $email->SMTPDebug = 0;
                 $email->isSMTP();
-                $email->Host = "smtp-julianesteban.alwaysdata.net";                     
+                $email->Host = "smtp-prroyectjulian.alwaysdata.net";                     
                 $email->SMTPAuth = true;
             
 
-                $email->Username = 'julianesteban@alwaysdata.net';                     
-                $email->Password = 'osquitarPerro';                            
+                $email->Username = 'prroyectjulian@alwaysdata.net';                     
+                $email->Password = 'AdminJulian1513';                            
                 $email->STMPSecure = 'tls';
                 $email->Port = 587;                                     
 
             
-                $email->setFrom('julianesteban@alwaysdata.net', 'Gestionando tus Salones Mejorando Fronteras EDU');
+                $email->setFrom('prroyectjulian@alwaysdata.net', 'Gestionando tus Salones Mejorando Fronteras EDU');
                 $email->addAddress($destino, '');       
 
         
@@ -33,6 +33,8 @@ class enviarCorreos{
                 $email->AltBody = 'Funcion no definida';
                 $email->send();
 
+                return true;
+
              }catch (Exception $e) {
                 echo "<h2 class='login-form-link'> Error de conexion con el servicio 
                 <br> $e";
@@ -40,6 +42,9 @@ class enviarCorreos{
             return false;
 
             }
+
+        return false;
+
     }
 }
 ?>

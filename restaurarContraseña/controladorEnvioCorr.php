@@ -27,37 +27,46 @@ session_start();
         global $utilModelo;
 
         $correoUsuario = filter_input(INPUT_POST, "Validaemail");
-        $enviarValidar = array($correoUsuario);
-        $validaCampo = array("usu_email");
-        $limit = "LIMIT 1";
 
-        $consultaValidarCorreo = $utilModelo->consultaDatosUnicos(TABLAUSUARIO, CAMPO, $validaCampo, $enviarValidar, $limit);
+        if($correoUsuario != ""){
 
-            if($consultaValidarCorreo->num_rows <= 0){
-                echo "Error De usuario no existente";
+            $enviarValidar = array($correoUsuario);
+            $validaCampo = array("usu_email");
+            $limit = "LIMIT 1";
+
+            $consultaValidarCorreo = $utilModelo->consultaDatosUnicos(TABLAUSUARIO, CAMPO, $validaCampo, $enviarValidar, $limit);
+
+                if($consultaValidarCorreo->num_rows <= 0){
+                    header("Location: visualEnvioCorr.php");
             
-            }else{
-                while($extraccion = mysqli_fetch_assoc($consultaValidarCorreo)){
-                    if($extraccion != null){
-                $_SESSION['validarID'] = $extraccion['usu_id'];
+                }else{
+                    while($extraccion = mysqli_fetch_assoc($consultaValidarCorreo)){
+                        if($extraccion != null){
+                    $_SESSION['validarID'] = $extraccion['usu_id'];
+                        }
                     }
-                }
 
-            $codigoValidarResect = $utilU->generarCodigo();
-            $envioExitoso = subirDatos($codigoValidarResect, $_SESSION['validarID'][0]);    
+                $codigoValidarResect = $utilU->generarCodigo();
+                $envioExitoso = subirDatos($codigoValidarResect, $_SESSION['validarID'][0]);    
             
-            switch ($envioExitoso) {
-                case true:
-                    enviarCorr($correoUsuario);
-                    break;
-                case false:
-                    echo "Julian Coloca el JavaScript error Ventana flotante";
-                    break;
-                default:
-                    echo "No se que paso";
-                    break;
+                switch ($envioExitoso) {
+                    case true:
+                        enviarCorr($correoUsuario);
+                        break;
+                    case false:
+                        echo "<script>
+                        alert('Error al guardar la informacion requerida porfavor comuniquese \n
+                        con area de mantenimentos')
+                        </script>";
+                        break;
+                    default:
+                    header("Location: ../inicio/cierreSesion.php");
+                        break;
+                }
             }
-        }  
+        }else{
+            header("Location: visualEnvioCorr.php"); 
+        }      
     }
 
     function subirDatos($codigoEnvio, $idDeEnvio){
@@ -123,19 +132,50 @@ session_start();
             }
         }
 
+        switch ($adactarDatos['tipo']) {
+            case 0:
+                $tipo = "Administrador";
+                break;
+            case 1:
+                $tipo = "Docente";
+                break;
+            case 2:
+                $tipo = "Monitor";
+                break;    
+            default:
+                $tipo = "Usuario Externo";
+                break;
+        }
+
+        switch ($adactarDatos['pertenece']) {
+            case 0:
+                $instituto = "Udev Global";
+                break;
+            case 1:
+                $instituto = "Familia Compubuga";
+                break;
+            case 2:
+                $instituto = "Familia Moscaty";
+                break;
+            default:
+                $instituto = "Sin un instituto definido";
+                break;
+        }
 
 
-        $asunto = "Tonces Bro esto es una prueva";
-        $contenidoMensaje = "<h6>Hola perro</h6>";
+        $asunto = "Puta";
+        $contenidoMensaje = "Hola mundo";
 
         $seEnvia = $corresponsal->enviarCodigo($correoUsuario, $asunto, $contenidoMensaje);
 
         if($seEnvia == true){
-            echo "Ventana certificando que se mando todo bien";
-            die();
+          
+            header("Location: resetearPassword/VisualRestVal.php");
+
         }else{
-            echo "puta esta mierda no funciono";
-            die();
+            echo "<script>
+            alert('Error al enviar el correo por favor comuniquece con el area comercial')
+            </script>";
         }
     }
 

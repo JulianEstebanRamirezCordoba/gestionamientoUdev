@@ -11,15 +11,14 @@
 	<meta name="keywords" content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, Flash Able, Flash Able bootstrap admin template">
 	<meta name="author" content="Codedthemes" />
 
-	
 	<link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
 	
 	<link rel="stylesheet" href="../assets/fonts/fontawesome/css/fontawesome-all.min.css">
 	
 	<link rel="stylesheet" href="../assets/plugins/animation/css/animate.min.css">
 
-
 	<link rel="stylesheet" href="../assets/css/style.css">
+
 </head>
 
 
@@ -38,8 +37,8 @@
 							</div>
 						<input type="email" name = "Validaemail" id = "Validaemail" class="form-control" placeholder="Correo electronico existente">
 							</div>  
-							<button type="input" name = "enviarCorreo" class="btn btn-primary mb-3">Enviar Codigo</button>
-							<button type="input" name = "cerrar" class="btn btn-primary mb-3">Cancelar</button>
+							<button name = "enviarCorreo" id = "botonEnviar" class="btn btn-primary mb-3" onclick="validarMandarDatos()">Enviar Codigo</button>
+							<button name = "cerrar" class="btn btn-primary mb-3">Cancelar</button>
                 	</form>
 				</div>
 			</div>
@@ -47,6 +46,23 @@
 	</div>
 	<script src="../assets/js/vendor-all.min.js"></script>
 	<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	<script>
+
+		function validarMandarDatos(){
+			var correo = document.getElementById("Validaemail").value;
+			if(correo === "" || correo === null){
+				Swal.fire(
+  				'Alerta',
+  				'Correo Inesistente por favor ingrese un correo existente',
+  				'error'
+				) 
+			}
+		}
+
+	</script>
+
 </body>
 </html>
 

@@ -5,7 +5,7 @@ session_start();
     define("TABLARESTABLECER", "restablecer_password");
     define("CAMPO", array("usu_id"));
 
-    if(isset($_POST['enviarCorreo'])){
+    if(isset(filter_input(INPUT_POST, 'enviarCorreo'))){
         require_once "../conexion.php";
         require_once "../util/envioEmail.php";
         include_once "../util/util.php";
@@ -37,7 +37,23 @@ session_start();
             $consultaValidarCorreo = $utilModelo->consultaDatosUnicos(TABLAUSUARIO, CAMPO, $validaCampo, $enviarValidar, $limit);
 
                 if($consultaValidarCorreo->num_rows <= 0){
-                    header("Location: visualEnvioCorr.php");
+                echo "<body>
+                <script src=\"//cdn.jsdelivr.net/npm/sweetalert2@11\"></script>";
+                echo " <script>
+                Swal.fire({
+                    title: 'Usuario no encontrado',
+                    text: 'El correo no se encuentra registrado en el aplicativo',
+                    icon: 'warning',
+                    showCancelButton: false,
+                    confirmButtonColor: '#ff5733',
+                    confirmButtonText: 'Volver'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href='visualEnvioCorr.php';
+                    }
+                  })
+                    </script>
+                    </body>";
             
                 }else{
                     while($extraccion = mysqli_fetch_assoc($consultaValidarCorreo)){
@@ -54,10 +70,23 @@ session_start();
                         enviarCorr($correoUsuario);
                         break;
                     case false:
-                        echo "<script>
-                        alert('Error al guardar la informacion requerida porfavor comuniquese \n
-                        con area de mantenimentos')
-                        </script>";
+                        echo "<body>
+                        <script src=\"//cdn.jsdelivr.net/npm/sweetalert2@11\"></script>";
+                        echo " <script>
+                        Swal.fire({
+                            title: 'Alerta de error',
+                            text: 'Error del sistema comuniquese con el area de mantenimiento sera cerrado el aplicativo',
+                            icon: 'error',
+                            showCancelButton: false,
+                            confirmButtonColor: '#ff5733',
+                            confirmButtonText: 'Salir'
+                          }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href='inicio/cierreSesion.php';
+                            }
+                          })
+                            </script>
+                            </body>";
                         break;
                     default:
                     header("Location: ../inicio/cierreSesion.php");
@@ -66,6 +95,7 @@ session_start();
             }
         }else{
             header("Location: visualEnvioCorr.php"); 
+
         }      
     }
 
@@ -168,14 +198,38 @@ session_start();
 
         $seEnvia = $corresponsal->enviarCodigo($correoUsuario, $asunto, $contenidoMensaje);
 
-        if($seEnvia == true){
-          
-            header("Location: resetearPassword/VisualRestVal.php");
+        if($seEnvia == true){ 
+            header("Location: codigoPass/visualCode.php");
 
         }else{
-            echo "<script>
-            alert('Error al enviar el correo por favor comuniquece con el area comercial')
-            </script>";
+            echo "<body>
+            <script src=\"//cdn.jsdelivr.net/npm/sweetalert2@11\"></script>";
+            echo " <script>
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                  confirmButton: 'btn btn-success',
+                  cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+              })
+              
+              swalWithBootstrapButtons.fire({
+                title: 'Error al enviado del correo',
+                text: 'Por favor llamar a administracion para arreglar el problema',
+                icon: 'error',
+                showCancelButton: true,
+                cancelButtonText: 'Salir',
+                reverseButtons: false
+              }).then((result) => {
+                if (
+                  result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    window.location.href='inicio/cierreSesion.php';
+                  )
+                }
+              })
+                </script>
+                </body>";
         }
     }
 

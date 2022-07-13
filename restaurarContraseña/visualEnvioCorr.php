@@ -51,7 +51,7 @@
 	<script>
 
 		function validarMandarDatos(){
-			var correo = document.getElementById("Validaemail").value;
+			let correo = document.getElementById("Validaemail").value;
 			if(correo === "" || correo === null){
 				Swal.fire(
   				'Alerta',

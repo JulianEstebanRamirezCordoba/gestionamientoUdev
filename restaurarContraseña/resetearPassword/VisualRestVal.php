@@ -1,5 +1,10 @@
 <html lang="en">
 <head>
+<?php
+
+
+?>
+
 	<title>Rest Contraseña</title>
 
 	<meta charset="utf-8">
@@ -21,20 +26,20 @@
 
 <body>
 <div class=" pcoded-main-container">
-	<div class="col-md-7">
+	<div class="col-md-8">
 		<div class="card">
 			<div class="card-body">
-				<h4 class="mb-4 f-w-450" align="center"> Contraseña nueva </h4>
+				<h4 class="mb-4 f-w-450 text-center"> Contraseña nueva </h4>
 
                 <form action="RestValPassControlador.php" method="post">
                 	<div class="form-group" id="passwordIni">
                         <input type="password" name="password" onkeyup="validarPassword();" id="password" class=" form-control span4 " placeholder="Contraseña" tabindex="2" required> 
                     </div>
                     <div class="form-group" id="passwordVal">
-                        <input type="password" onkeyup="validarPassword();" name="rPassword" id="rPassword" tabindex="2" class=" form-control span4" placeholder="Confirmar contraseña" required>
+                        <input type="password" onkeyup="validarPassword();" name="passwordConfi" id="passwordConfi" tabindex="2" class=" form-control span4" placeholder="Confirmar contraseña" required>
                     </div>
-					<div align="center">		
-						<button name = "enviarCorreo" id = "modificarPass" class="btn btn-primary mb-3">Enviar Codigo</button>
+					<div class="row justify-content-center">		
+						<button name = "enviarCorreo" id = "modificarPass" class="btn btn-primary mb-3">Cambiar Contraseña</button>
 					</div>	
                 </form>
 			</div>
@@ -45,6 +50,15 @@
 	<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    
+	<script>
+		let passIni = document.getElementById('password').value;
+		let passConfi = document.getElementById('passwordConfi').value;
+
+		function validarPassword(){
+			
+		}
+
+	</script>
 
 </body>
 </html>

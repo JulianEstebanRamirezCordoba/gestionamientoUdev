@@ -82,9 +82,9 @@
 
             }
             
-            $consulta = "SELECT $extraccion FROM $nombreTabla $condicion $limite;";
+            $consulta = "SELECT $extraccion FROM $nombreTabla $condicion $limite;"; 
             $query = mysqli_query($conexion, $consulta);
-            
+
             return $query;
 
         }

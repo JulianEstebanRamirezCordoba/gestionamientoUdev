@@ -5,7 +5,7 @@ session_start();
     define("TABLARESTABLECER", "restablecer_password");
     define("CAMPO", array("usu_id"));
 
-    if(isset(filter_input(INPUT_POST, 'enviarCorreo'))){
+    if(isset($_POST['enviarCorreo'])){
         require_once "../conexion.php";
         require_once "../util/envioEmail.php";
         include_once "../util/util.php";
@@ -82,7 +82,7 @@ session_start();
                             confirmButtonText: 'Salir'
                           }).then((result) => {
                             if (result.isConfirmed) {
-                                window.location.href='inicio/cierreSesion.php';
+                                window.location.href='../inicio/cierreSesion.php';
                             }
                           })
                             </script>
@@ -199,7 +199,7 @@ session_start();
         $seEnvia = $corresponsal->enviarCodigo($correoUsuario, $asunto, $contenidoMensaje);
 
         if($seEnvia == true){ 
-            header("Location: codigoPass/visualCode.php");
+            header("Location: visualCode.php");
 
         }else{
             echo "<body>
@@ -224,7 +224,7 @@ session_start();
                 if (
                   result.dismiss === Swal.DismissReason.cancel
                 ) {
-                    window.location.href='inicio/cierreSesion.php';
+                    window.location.href='../inicio/cierreSesion.php';
                   )
                 }
               })

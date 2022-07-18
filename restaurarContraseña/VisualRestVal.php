@@ -1,7 +1,12 @@
 <html lang="en">
 <head>
 <?php
+require_once '../util/util.php';
 
+if($_SESSION['validarID'] == null || $_SESSION['validarID'] == ""){
+	header("Location: ../inicio/cierreSesion.php");
+
+}
 
 ?>
 
@@ -14,13 +19,13 @@
 	<meta name="keywords" content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, Flash Able, Flash Able bootstrap admin template">
 	<meta name="author" content="Codedthemes" />
 
-	<link rel="icon" href="../../assets/img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
 	
-	<link rel="stylesheet" href="../../assets/fonts/fontawesome/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="../assets/fonts/fontawesome/css/fontawesome-all.min.css">
 	
-	<link rel="stylesheet" href="../../assets/plugins/animation/css/animate.min.css">
+	<link rel="stylesheet" href="../assets/plugins/animation/css/animate.min.css">
 
-	<link rel="stylesheet" href="../../assets/css/style.css">
+	<link rel="stylesheet" href="../assets/css/style.css">
 
 </head>
 
@@ -56,6 +61,7 @@
 
 		function validarPassword(){
 			
+
 		}
 
 	</script>

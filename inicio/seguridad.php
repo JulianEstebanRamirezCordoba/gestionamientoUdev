@@ -34,10 +34,10 @@
                     $estrutura['usu_estado'], $estrutura['tipo_usuario']);
 
                     $_SESSION['datosUsuarios']=array($estrutura['usu_nombre'], $estrutura['usu_apellido']);
+                }
             }
-    }
    
-    $util -> activoUsuario($usuarioDefect);
+        $util -> activoUsuario($usuarioDefect);
 
     }
 

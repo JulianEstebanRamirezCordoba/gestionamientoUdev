@@ -1,10 +1,12 @@
 <?php
+	define("tipo", 3);
+
 	require_once '../util/util.php';
-	define("USUARIOVALIDO", 3);
+	define("USUARIOVALIDO", tipo);
 
 	if(isset($_SESSION['usuario']) && isset($_SESSION['datosUsuarios'])){
 		$inicioSeguro = new util();
-		$inicioSeguro->activoUsuario(3);
+		$inicioSeguro->activoUsuario(tipo);
 
 	}
 

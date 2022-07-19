@@ -124,13 +124,12 @@ session_start();
                     $idValida = array('id'=>$id_rest['res_id']);
                     }
                 }
-                $campoEditado = array('res_codigo');
-                $valoresEditado = array($codigoEnvio);
+                $campoEditado = array('res_fecha', 'res_codigo');
+                $valoresEditado = array($fechaCambio, $codigoEnvio);
                 $campoConsultaEdita = "id_usuario2";
                 $utilModelo->actualizarDatos(TABLARESTABLECER, $campoEditado, $valoresEditado, $campoConsultaEdita, $idValida['id']);
         
-                return true;
-            
+                return true;  
             }
         }
 

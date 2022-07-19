@@ -39,7 +39,7 @@
 						<input type="number" name = "codigo" id = "codigo" class="form-control" placeholder="Ingrese el codigo">
 					</div>
 					<div class="row justify-content-center">		
-						<button name = "ValidarCode" id = "ValidarCode" class="btn btn-primary mb-3">Validar Codigo</button>
+						<button name = "ValidarCode" id = "ValidarCode" onclick="validarCode()" class="btn btn-primary mb-3">Validar Codigo</button>
 					</div>	
                 </form>
 			</div>
@@ -49,5 +49,17 @@
 
 <script src="../assets/js/vendor-all.min.js"></script>
 <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
 </body>
+	<script>
+		let codigo = document.getElementById('codigo');
+
+		function validarCode(){
+			if(codigo.value == "" || correo.value == null){
+				alert("No puedes degar esta casilla en blanco");
+			}
+
+		}
+	</script>
+
 </html>

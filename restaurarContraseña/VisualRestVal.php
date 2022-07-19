@@ -1,9 +1,7 @@
 <html lang="en">
 <head>
 <?php
-require_once '../util/util.php';
-
-if($_SESSION['validarID'] == null || $_SESSION['validarID'] == ""){
+if($_SESSION['cambio_pass'] == null || $_SESSION['cambio_pass'] == ""){
 	header("Location: ../inicio/cierreSesion.php");
 
 }

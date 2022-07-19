@@ -32,7 +32,6 @@ session_start();
         
         $consulta = $utilModelo->consultaDatosUnicos(TABLA_RES, $extraccion, $camposConsult, $valoresConsult, $limite);
         if($consulta->num_rows == 1){
-            echo "Se pudo";
             while($result = mysqli_fetch_assoc($consulta)){
                 if($result != null){
                     $_SESSION['cambio_pass'] = array('id'=>$result["res_id"], 'usuario'=>$result['id_usuario2'],
@@ -47,8 +46,10 @@ session_start();
 
                 if($_SESSION['cambio_pass']['fecha'] == $fechaHoy){
                   $camposActualizar = array(RES_CODE, "res_fecha");
-                  $valoresActualizar = array(null, $fechaHoy);
+                  $valoresActualizar = array(NULL, $fechaHoy);
                   $utilModelo->actualizarDatos(TABLA_RES, $camposActualizar, $valoresActualizar, RES_USU2, $usuario);
+
+                  unset($_SESSION['validarID']);
 
                   header("Location: VisualRestVal.php");
 
@@ -57,11 +58,14 @@ session_start();
                   $actualizar = array(RES_CODE);
                   $utilModelo->actualizarDatos(TABLA_RES, $actualizar, $valorCode, RES_USU2, $usuario);
 
+                  unset($_SESSION['validarID']);
+                  unset($_SESSION['cambio_pass']);
+
                     echo "<body>
                     <script src=\"//cdn.jsdelivr.net/npm/sweetalert2@11\"></script>";
                     echo " <script>
                     Swal.fire({
-                        title: 'Alerta de caducacion del codigo',
+                        title: 'Alerta caducacion del codigo',
                         text: 'El codigo se vuelve no util despues de que el servicio se actualize que es cada madrugada al finaliar dia presente',
                         icon: 'alert',
                         showCancelButton: false,
@@ -75,7 +79,6 @@ session_start();
                         </script>
                         </body>";  
 
-                    unset($_SESSION['validarID']);
                 }
             }else{
                 echo "<body>
@@ -108,11 +111,10 @@ session_start();
                     </body>";
 
             }
+        }else{
+          unset($_SESSION['validarID']);
+          header("Location: visualEnvioCorr.php");
 
-        }
-
-            
+        }      
     }
-    
-
 ?>

@@ -36,7 +36,7 @@
 					<h4 class="mb-4 f-w-500 text-center"> Validacion Codigo </h4>
                 <form action="validarCodeControl.php" method="post">
 					<div class="mb-4">
-						<input type="number" name = "codigo" id = "codigo" class="form-control" placeholder="Ingrese el codigo">
+						<input type="number" minlength="4" name = "codigo" id = "codigo" class="form-control" placeholder="Ingrese el codigo">
 					</div>
 					<div class="row justify-content-center">		
 						<button name = "ValidarCode" id = "ValidarCode" onclick="validarCode()" class="btn btn-primary mb-3">Validar Codigo</button>
@@ -49,6 +49,7 @@
 
 <script src="../assets/js/vendor-all.min.js"></script>
 <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 	<script>
@@ -58,7 +59,6 @@
 			if(codigo.value == "" || correo.value == null){
 				alert("No puedes degar esta casilla en blanco");
 			}
-
 		}
 	</script>
 

@@ -38,7 +38,6 @@ session_start();
                 'fecha'=>$result["res_fecha"]);
                 }
             }
-
             if(isset($_SESSION['cambio_pass'])){
                 $fechaHoy = $util->fechaActual();
                 
@@ -46,15 +45,14 @@ session_start();
 
                 if($_SESSION['cambio_pass']['fecha'] == $fechaHoy){
                   $camposActualizar = array(RES_CODE, "res_fecha");
-                  $valoresActualizar = array(NULL, $fechaHoy);
+                  $valoresActualizar = array(000, $fechaHoy);
                   $utilModelo->actualizarDatos(TABLA_RES, $camposActualizar, $valoresActualizar, RES_USU2, $usuario);
-
                   unset($_SESSION['validarID']);
 
                   header("Location: VisualRestVal.php");
 
                 }else{ 
-                  $valorCode = array(NULL);
+                  $valorCode = array(000);
                   $actualizar = array(RES_CODE);
                   $utilModelo->actualizarDatos(TABLA_RES, $actualizar, $valorCode, RES_USU2, $usuario);
 

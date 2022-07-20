@@ -55,7 +55,7 @@
 							</div>
 							<input type="password" name = password id = "password" class="form-control" placeholder="contraseña">
 						</div>  
-						<button type = "input" class="btn btn-primary mb-3" name="btnGuardar" id="guardar">Iniciar sesion</button>
+						<button type = "input" class="btn btn-primary mb-3" name="btnGuardar" onclick="validarMandarDatos()" id="guardar">Iniciar sesion</button>
                         </form>
 
 						<p class="mb-3 text-muted">Olvidastes tu contaseña ?   <a href="../restaurarContraseña/visualEnvioCorr.php" class="f-w-450"> Restablecer mi contraceña</a></p>
@@ -71,7 +71,7 @@
 
 <script src="../assets/js/vendor-all.min.js"></script>
 <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <div class="footer-fab">
     <div class="b-bg">
@@ -79,13 +79,26 @@
     </div>
     <div class="fab-hover">
         <ul class="list-unstyled">
-            <li><a href="" target="_blank" data-text="Creadores Time Admin" class="btn btn-icon btn-rounded btn-info m-0"><i class="feather icon-layers"></i></a></li>
+            <li><a href="../sobre.html" target="_blank" data-text="Creadores Time Admin" class="btn btn-icon btn-rounded btn-info m-0"><i class="feather icon-layers"></i></a></li>
             <li><a href="" target="_blank" data-text="Manual Time Admin" class="btn btn-icon btn-rounded btn-primary m-0"><i class="feather icon feather icon-book"></i></a></li>
         </ul>
     </div>
 </div>
+<script>
 
+function validarMandarDatos(){
+	let correo = document.getElementById("email").value;
+	let password = document.getElementById("password").value;
+	if(correo === "" || correo === null || password === null || password === ""){
+		Swal.fire(
+		  'Alerta',
+		  'Los campos deben traer tu correo y tu contraseña Asignada',
+		  'warning'
+		) 
+	}
+}
 
+</script>
 </body>
 
 </html>

@@ -61,7 +61,9 @@ if($_SESSION['cambio_pass'] == null || $_SESSION['cambio_pass'] == ""){
 
 		function validarCamposBacios(){
 			if(passIni !== "" || passIni !== null && passConfi !== "" || passConfi !== null){
-				
+				if(passIni == passConfi){
+
+				}
 
 			}else{
 				

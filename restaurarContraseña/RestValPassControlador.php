@@ -8,7 +8,7 @@
 
         if($_SESSION['cambio_pass']['usuario'] != null || $_SESSION['cambio_pass']['usuario'] != ""){
             $usuario = $_SESSION['cambio_pass']['usuario'];
-            $valoresTraer = array("usu_password", "usu_estado");
+            $valoresTraer = array("usu_id", "usu_password", "usu_estado");
             $camposCosult = array("usu_id");
             $valoresConsult = array($usuario);
             $limit = "LIMIT 1";
@@ -17,11 +17,11 @@
                 
                 while($result = mysqli_fetch_assoc($consultaDatosVal)){
                     if($result != null){
-                        $valoresUsuarios = array('pass'=>$result['usu_password'], 'estado'=>$result['usu_estado']);
+                        $valoresUsuarios = array('id'=>$result['usu_id'], 'pass'=>$result['usu_password'], 'estado'=>$result['usu_estado']);
                     }
                 }
 
-            Actualizar($valoresUsuarios['pass'], $valoresUsuarios['estado']);
+            Actualizar($valoresUsuarios['id'], $valoresUsuarios['pass'], $valoresUsuarios['estado']);
 
         }else{
             echo "<body>
@@ -56,29 +56,78 @@
 
     }
 
-    function Actualizar($passwordActual, $estadoUsuario){
+    function Actualizar($id, $passwordActual, $estadoUsuario){
         global $utilModelo;
 
         $passwordNueva = filter_input(INPUT_POST, 'password');
 
         if($passwordActual != $passwordNueva){
             if($estadoUsuario == 1){
-                echo "<body>
-                <script src=\"//cdn.jsdelivr.net/npm/sweetalert2@11\"></script>"; 
-                echo "Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Your work has been saved',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })";
+                $campoActu = array("password");
+                $valoresActu = array($passwordNueva);
+                $campoConsulta = array("usu_id");
+                $valorConsulta = array($id);
+
+                $utilModelo->actualizarDatos(TABLA, $campoActu, $valoresActu, $campoConsulta, $valorConsulta);
 
             }else{
-
+                echo "<body>
+            <script src=\"//cdn.jsdelivr.net/npm/sweetalert2@11\"></script>";
+            echo " <script>
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+                          
+            swalWithBootstrapButtons.fire({
+                title: 'Usuario no activo',
+                text: 'El usuario se encuentra inactivo por favor comunicate con administraccion',
+                icon: 'error',
+                showCancelButton: true,
+                cancelButtonText: 'Ok',
+                reverseButtons: false
+            }).then((result) => {
+                if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ){
+                    window.location.href='../inicio/cierreSesion.php';
+                )}
+            })
+            </script>
+                </body>"; 
 
             }
         }else{
-
+            echo "<body>
+            <script src=\"//cdn.jsdelivr.net/npm/sweetalert2@11\"></script>";
+            echo " <script>
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+                          
+            swalWithBootstrapButtons.fire({
+                title: 'Contraseña que tal no recuerdes',
+                text: 'La contraseña antes colocada ya a sido utilizada antes',
+                icon: 'alert',
+                showCancelButton: true,
+                cancelButtonText: 'Ok',
+                reverseButtons: false
+            }).then((result) => {
+                if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ){
+                    window.location.href='../inicio/cierreSesion.php';
+                )}
+            })
+            </script>
+                </body>" 
 
         }
     }

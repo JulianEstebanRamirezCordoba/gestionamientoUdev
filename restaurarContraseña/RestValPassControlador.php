@@ -61,9 +61,6 @@
 
         $passwordNueva = filter_input(INPUT_POST, 'password');
 
-        echo $passwordActual;
-        
-
         if($passwordActual != $passwordNueva){
             if($estadoUsuario == 1){
                 $campoActu = array("password");
@@ -72,7 +69,6 @@
                 $valorConsulta = array($id);
 
                 $utilModelo->actualizarDatos(TABLA, $campoActu, $valoresActu, $campoConsulta, $valorConsulta);
-
                 unset($_SESSION['cambio_pass']);
 
             }else{

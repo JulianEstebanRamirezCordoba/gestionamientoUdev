@@ -2,13 +2,11 @@
 <head>
 <?php
 session_start();
-
 if($_SESSION['cambio_pass'] == null || $_SESSION['cambio_pass'] == ""){
 	header("Location: ../inicio/cierreSesion.php");
 
 }
-
-?>
+?> 
 
 	<title>Rest Contraseña</title>
 
@@ -38,13 +36,13 @@ if($_SESSION['cambio_pass'] == null || $_SESSION['cambio_pass'] == ""){
 
                 <form action="RestValPassControlador.php" method="post">
                 	<div class="form-group" id="passwordIni">
-                        <input type="password" name="password" onkeyup="validarCamposBacios();" id="password" class=" form-control span4 " placeholder="Contraseña" tabindex="2" required> 
+                        <input type="password" name="password" minlength="4" maxlength="20" onkeyup="validarCampos()" id="password" class=" form-control span4 " placeholder="Contraseña" tabindex="2" required> 
                     </div>
                     <div class="form-group" id="passwordVal">
-                        <input type="password" onkeyup="validarCamposBacios();" name="passwordConfi" id="passwordConfi" tabindex="2" class=" form-control span4" placeholder="Confirmar contraseña" required>
+                        <input type="password" onkeyup="validarCampos()" name="passwordConfi" id="passwordConfi" tabindex="2" class=" form-control span4" placeholder="Confirmar contraseña" required>
                     </div>
 					<div class="row justify-content-center">		
-						<button name = "enviarCorreo" id = "modificarPass" class="btn btn-primary mb-3">Cambiar Contraseña</button>
+						<button name = "modificarPass" id="modificarPass" disabled = "true" class="btn btn-primary mb-3">Cambiar Contraseña</button>
 					</div>	
                 </form>
 			</div>
@@ -56,20 +54,21 @@ if($_SESSION['cambio_pass'] == null || $_SESSION['cambio_pass'] == ""){
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    
 	<script>
+		function validarCampos(){
 		let passIni = document.getElementById('password').value;
 		let passConfi = document.getElementById('passwordConfi').value;
 
-		function validarCamposBacios(){
-			if(passIni !== "" || passIni !== null && passConfi !== "" || passConfi !== null){
+			if(passIni != null && passConfi != null){
 				if(passIni == passConfi){
+					document.getElementById('modificarPass').disabled = false;
 
+				}else{
+					document.getElementById('modificarPass').disabled = true;
 				}
-
-			}else{
-				
 			}
-
 		}
+			
+
 
 
 	</script>

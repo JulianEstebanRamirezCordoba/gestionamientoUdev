@@ -61,6 +61,9 @@
 
         $passwordNueva = filter_input(INPUT_POST, 'password');
 
+        echo $passwordActual;
+        
+
         if($passwordActual != $passwordNueva){
             if($estadoUsuario == 1){
                 $campoActu = array("password");
@@ -69,6 +72,8 @@
                 $valorConsulta = array($id);
 
                 $utilModelo->actualizarDatos(TABLA, $campoActu, $valoresActu, $campoConsulta, $valorConsulta);
+
+                unset($_SESSION['cambio_pass']);
 
             }else{
                 echo "<body>
@@ -113,7 +118,7 @@
             })
                           
             swalWithBootstrapButtons.fire({
-                title: 'Contraseña que tal no recuerdes',
+                title: 'Contraseña que tal vez no recuerdes',
                 text: 'La contraseña antes colocada ya a sido utilizada antes',
                 icon: 'alert',
                 showCancelButton: true,
@@ -127,7 +132,7 @@
                 )}
             })
             </script>
-                </body>" 
+                </body>";
 
         }
     }

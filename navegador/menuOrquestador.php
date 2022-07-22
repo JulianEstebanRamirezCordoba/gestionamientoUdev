@@ -121,7 +121,6 @@ session_start();
 								?></span>
 							</div>
 							<ul class="pro-body">
-								<li><a href="" class="dropdown-item"><i class="feather icon-settings"></i> Opciones De Administrador</a></li>
 								<li><a href="" class="dropdown-item"><i class="feather icon-user"></i> Perfil</a></li>
 								<li><a href="../inicio/cierreSesion.php" class="dropdown-item"><i class="feather icon-lock"></i> Cerrar Sesion</a></li>
 							</ul>

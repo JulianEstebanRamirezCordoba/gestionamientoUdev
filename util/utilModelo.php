@@ -21,7 +21,8 @@
 
             }
 
-            $consulta = "INSERT INTO `$nombreTabla` ($camposConstrein) VALUES ($valoresConstrein);";
+            $consulta = "INSERT INTO `$nombreTabla` ($camposConstrein) 
+            VALUES ($valoresConstrein);";
             $query = mysqli_query($conexion, $consulta);
 
             return $query;
@@ -39,7 +40,9 @@
   
             }
 
-            $consulta = "UPDATE `$nombreTabla` SET $valoresConstrain WHERE $campoCondicion = $condiconIgual";
+            $consulta = "UPDATE `$nombreTabla` 
+            SET $valoresConstrain 
+            WHERE $campoCondicion = '$condiconIgual';";
             $query = mysqli_query($conexion, $consulta);
 
             return $query;
@@ -57,7 +60,9 @@
                 
             }
 
-            $consulta = "SELECT * FROM $nombreTabla $condicion";
+            $consulta = "SELECT * 
+            FROM $nombreTabla 
+            $condicion";
             $query = mysqli_query($conexion, $consulta);
 
             return $query;
@@ -82,7 +87,10 @@
 
             }
             
-            $consulta = "SELECT $extraccion FROM $nombreTabla $condicion $limite;"; 
+            $consulta = "SELECT $extraccion 
+            FROM $nombreTabla 
+            $condicion 
+            $limite;"; 
             $query = mysqli_query($conexion, $consulta);
 
             return $query;
@@ -100,7 +108,9 @@
 
             }
 
-            $sql = "SELECT COUNT($campoContar) AS op_resultado FROM $nombreTabla $consulta;";
+            $sql = "SELECT COUNT($campoContar) AS op_resultado 
+            FROM $nombreTabla 
+            $consulta;";
             $query = mysqli_query($conexion, $sql);
 
             return $query;
@@ -109,7 +119,9 @@
         function subConsultas($nombreTabla, $valoresExtraccion, $consulta){
         global $conexion;
 
-        $consultaQuery = "SELECT $valoresExtraccion FROM $nombreTabla $consulta";
+        $consultaQuery = "SELECT $valoresExtraccion 
+        FROM $nombreTabla 
+        $consulta";
         $query = mysqli_query($conexion, $consultaQuery);
 
         return $query;

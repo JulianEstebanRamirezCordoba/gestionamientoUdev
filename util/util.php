@@ -67,7 +67,9 @@
 
         function consultaOpTotal($nombreTabla, $campoExtraccion, $consulta){
             global $conexion;
-            $sql = "SELECT COUNT($campoExtraccion) AS op_total FROM $nombreTabla WHERE $consulta";
+            $sql = "SELECT COUNT($campoExtraccion) AS op_total 
+            FROM $nombreTabla 
+            WHERE $consulta";
             $query = mysqli_query($conexion, $sql);
 
             return $query;

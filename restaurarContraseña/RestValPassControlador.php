@@ -63,13 +63,15 @@
 
         if($passwordActual != $passwordNueva){
             if($estadoUsuario == 1){
-                $campoActu = array("password");
+                $campoActu = array("usu_password");
                 $valoresActu = array($passwordNueva);
-                $campoConsulta = array("usu_id");
-                $valorConsulta = array($id);
+                $campoConsulta = "usu_id";
+                $valorConsulta = $id;
 
                 $utilModelo->actualizarDatos(TABLA, $campoActu, $valoresActu, $campoConsulta, $valorConsulta);
                 unset($_SESSION['cambio_pass']);
+                                                            
+                header("Location: ../inicio/cierresesion.php");
 
             }else{
                 echo "<body>

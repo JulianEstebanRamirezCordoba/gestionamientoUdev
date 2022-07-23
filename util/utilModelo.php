@@ -43,10 +43,6 @@
             $consulta = "UPDATE `$nombreTabla` 
             SET $valoresConstrain 
             WHERE $campoCondicion = '$condiconIgual';";
-
-            echo $consulta;
-            die();
-
             $query = mysqli_query($conexion, $consulta);
 
             return $query;

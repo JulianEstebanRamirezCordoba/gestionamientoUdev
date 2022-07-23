@@ -73,9 +73,8 @@
                                         while ($fila = mysqli_fetch_array($result)) {
                                             if ($fila != NULL) {
 
-                                                $datos=
-                                                    $fila[0]."||".
-                                                    $fila[1]."||";
+                                                $datos=$fila[0]."||".
+                                                      $fila[1]."||";
                                             }
                                                echo "
                                                 <tr>

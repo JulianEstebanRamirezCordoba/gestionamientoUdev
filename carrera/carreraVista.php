@@ -236,7 +236,7 @@
                                                         
                                                           $utilModelo = new utilModelo();
                                                             $tabla = "carrera";
-                                                            $result = $utilModelo->consultarVariasTablas("*",$tabla,"1");
+                                                            $result = $utilModelo->subConsultas($tabla,"*","1");
                                                             while ($fila = mysqli_fetch_array($result)) {
                                                                 if ($fila != NULL) {
 

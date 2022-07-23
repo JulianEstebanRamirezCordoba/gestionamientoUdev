@@ -5,11 +5,8 @@
 	<?php
 session_start();
 
-	  include_once "../util/utilModelo.php";
 	  include_once "../util/util.php";
-
 	  $util = new util();
-	  $utilModelo = new utilModelo();
 
 		if($_SESSION['usuario'] != null || $_SESSION['usuario'][0] != null){
 			define("nombreUsuario", $_SESSION['datosUsuarios'][0]);
@@ -68,21 +65,20 @@ session_start();
 					class="nav-link"><span class="pcoded-micon"><i class="feather icon-home"></i>
 		    		</span><span class="pcoded-mtext">Inicio</span></a></li>';
 	  				
-					$EnEsperaDeConfirmacion = '<li class="nav-item"><a href="" class="nav-link"><span 
-					class="pcoded-micon"><i class="feather icon-home"></i></span><span 
-					class="pcoded-mtext">Funcion 1</span></a></li>';
-
-					$EnEsperaDeConfirmacion2 = '<li class="nav-item"><a href="" class="nav-link"><span 
-					class="pcoded-micon"><i class="feather icon-home"></i></span><span 
-					class="pcoded-mtext">Funcion 2</span></a></li>';
+					$InformeUsuarios =  '<li class="nav-item pcoded-hasmenu">
+					<a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Usuarios</span></a>
+					<ul class="pcoded-submenu">
+						<li class=""><a href="" class="">Informes Usuarios</a></li>
+						<li class=""><a href="" class="">Crear Usuarios</a></li>
+					</ul>
+					</li>';
 
 					$visualCarreras = '<li class="nav-item"><a href="../carrera/carreraVista.php" class="nav-link"><span 
 					class="pcoded-micon"><i class="feather icon-home"></i></span><span 
 					class="pcoded-mtext">Carreras</span></a></li>';
 
                     $util->validarVista(0, $visualDassboard);
-                    $util->validarVista(0, $EnEsperaDeConfirmacion);
-					$util->validarVista(0, $EnEsperaDeConfirmacion2);
+                    $util->validarVista(0, $InformeUsuarios);
 					$util->validarVista(0, $visualCarreras);
 
 					?>
@@ -103,12 +99,6 @@ session_start();
 		<div class="collapse navbar-collapse">
 			<ul class="navbar-nav ml-auto">
 				<li>
-					<div class="dropdown">
-						<a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon feather icon-bell"></i></a>
-						<div class="dropdown-menu dropdown-menu-right notification">
-							<div class="noti-head">
-				</li>
-				<li>
 					<div class="dropdown drp-user">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<i class="icon feather icon-settings"></i>
@@ -121,7 +111,7 @@ session_start();
 								?></span>
 							</div>
 							<ul class="pro-body">
-								<li><a href="../perfilUsuario/visualPerfil.php" class="dropdown-item"><i class="feather icon-user"></i> Perfil</a></li>
+								<li><a href="../cambiarPassword/visualCambiarPass.php" class="dropdown-item"><i class="feather icon-"></i> Cambiar contraseña</a></li>
 								<li><a href="../inicio/cierreSesion.php" class="dropdown-item"><i class="feather icon-lock"></i> Cerrar Sesion</a></li>
 							</ul>
 						</div>

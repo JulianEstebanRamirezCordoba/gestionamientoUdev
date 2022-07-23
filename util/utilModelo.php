@@ -51,18 +51,11 @@
       
         function consultaTodosDatos($nombreTabla, $camposConsult, $valoresConsult){
             global $conexion;
-            $condicion = "WHERE";
-
-            for($index = 0; $index < count($camposConsult); $index++){
-                $condicion = ($index == (count($camposConsult) - 1)) ? $condicion."`". $camposConsult[$index]."` = '"
-                .$valoresConsult[$index]."'" : $condicion."`".$camposConsult[$index]."`= '".$valoresConsult[$index].
-                "' AND ";
-                
-            }
+            $condicion = $camposConsult . " = '" . $valoresConsult . "'";
 
             $consulta = "SELECT * 
             FROM $nombreTabla 
-            $condicion";
+            WHERE $condicion;";
             $query = mysqli_query($conexion, $consulta);
 
             return $query;

@@ -32,7 +32,7 @@ $_SESSION['mensajeOk']="Accion realizada";
 }else if(isset($_POST['modificar_materia'])){
     echo "modificar <br>";
 
-    $id = $_POST['id'];
+    $id = $_POST['codigoE'];
 
    //$campos es el nombre de los campos tal cual aparece en la base de datos
 $camposActualizar = array("mat_nombre");

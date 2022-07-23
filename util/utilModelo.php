@@ -43,6 +43,10 @@
             $consulta = "UPDATE `$nombreTabla` 
             SET $valoresConstrain 
             WHERE $campoCondicion = '$condiconIgual';";
+
+            echo $consulta;
+            die();
+
             $query = mysqli_query($conexion, $consulta);
 
             return $query;
@@ -121,7 +125,7 @@
 
         $consultaQuery = "SELECT $valoresExtraccion 
         FROM $nombreTabla 
-        $consulta";
+        WHERE $consulta";
         $query = mysqli_query($conexion, $consultaQuery);
 
         return $query;

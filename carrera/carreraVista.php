@@ -236,8 +236,12 @@
                                                         
                                                           $utilModelo = new utilModelo();
                                                             $tabla = "carrera";
+<<<<<<< HEAD
                                                             $camposConsult = array("car_id",)
                                                             $result = $utilModelo->consultaTodosDatos($tabla, $camposConsult , "NOT NULL");
+=======
+                                                            $result = $utilModelo->subConsultas($tabla,"*","1");
+>>>>>>> 8fb01dfaccaa0c361407c03d9e1548dedd76bda3
                                                             while ($fila = mysqli_fetch_array($result)) {
                                                                 if ($fila != NULL) {
 

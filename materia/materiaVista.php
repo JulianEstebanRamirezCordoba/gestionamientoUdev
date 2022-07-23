@@ -69,13 +69,12 @@
 
                                         $utilModelo = new utilModelo();
                                         $tabla = "materia";
-                                        $result = $utilModelo->consultarVariasTablas("*",$tabla,"1");
+                                        $result = $utilModelo->subConsultas($tabla,"*","1");
                                         while ($fila = mysqli_fetch_array($result)) {
                                             if ($fila != NULL) {
 
-                                                $datos=
-                                                    $fila[0]."||".
-                                                    $fila[1]."||";
+                                                $datos=$fila[0]."||".
+                                                      $fila[1]."||";
                                             }
                                                echo "
                                                 <tr>
@@ -145,7 +144,10 @@
 
       <div class="form-group">
                              
-                                <label for="Name">Nombre de la materia</label>
+                                <label for="Name">Nombre de la materia</label> 
+                                <div class="form-group">
+                                  <input id="codigoE" name="codigoE" type="hidden">
+                                </div>
                                 <div class="form-group ">
                                     <input   type="text" name="nombre_materia" id="nombre_materia" tabindex="1" class=" form-control span4"
                                            placeholder="Nombre de la materia" value="" required>
@@ -177,18 +179,12 @@
     </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-    <button type="submit" name="eliminar" id="eliminar"class="btn btn-primary">Desactivar</button>
+    <button type="submit" name="eliminar"  id="eliminar"class="btn btn-primary">Desactivar</button>
   </div>
 
   </form>
 </div>
 <!-- Fin modal -->
-
-
-                                        
-                                    </body>
-                                    </html>
-                                    <!-- Termina código html para la intefaz -->
 								</div>
 						    </div>
                         </div>
@@ -210,7 +206,7 @@
 
        $("#codigoE").val(d[0]);
        $("#idEliminar").val(d[0]);
-       $("#nombre_materia").val(d[1]);,
+       $("#nombre_materia").val(d[1]);
       
     }
 

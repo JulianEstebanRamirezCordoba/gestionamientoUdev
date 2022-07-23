@@ -78,10 +78,15 @@ session_start();
 					class="pcoded-micon"><i class="feather icon-home"></i></span><span 
 					class="pcoded-mtext">Carreras</span></a></li>';
 
+					$visualmaterias = '<li class="nav-item"><a href="../materia/materiaVista.php" class="nav-link"><span 
+					class="pcoded-micon"><i class="feather icon-home"></i></span><span 
+					class="pcoded-mtext">Materias</span></a></li>';
+
                     $util->validarVista(0, $visualDassboard);
                     $util->validarVista(0, $EnEsperaDeConfirmacion);
 					$util->validarVista(0, $EnEsperaDeConfirmacion2);
 					$util->validarVista(0, $visualCarreras);
+					$util->validarVista(0, $visualmaterias);
 
 					?>
 			</div>

@@ -236,7 +236,8 @@
                                                         
                                                           $utilModelo = new utilModelo();
                                                             $tabla = "carrera";
-                                                            $result = $utilModelo->consultarVariasTablas("*",$tabla,"1");
+                                                            $camposConsult = array("car_id",)
+                                                            $result = $utilModelo->consultaTodosDatos($tabla, $camposConsult , "NOT NULL");
                                                             while ($fila = mysqli_fetch_array($result)) {
                                                                 if ($fila != NULL) {
 

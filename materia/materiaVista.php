@@ -80,7 +80,7 @@
                                                 <tr>
                                                     <td> $fila[0] </td>
                                                     <td> $fila[1] </td>                                                     
-                                                    <td class=\"td-actions\"><a  data-toggle=\"modal\" href=\"#modalEditar\" onclick=\"agregarForm('$datos');\" class=\"btn btn-small btn-info\"><i class=\"bi bi-pencil-square\"></i></a><a href=\"#modalEliminar\"  onclick=\"agregarForm('$datos');\" data-toggle=\"modal\" class=\"btn btn-danger btn-small\"><i class=\"btn-icon-only icon-remove\"> </i></a></td>
+                                                    <td class=\"td-actions\"><a  data-toggle=\"modal\" href=\"#modalEditar\" onclick=\"agregarForm('$datos');\" class=\"btn btn-small btn-info\"><i class=\"bi bi-pencil-square\"></i></a><a onclick=\"eliminar();\" data-toggle=\"modal\" class=\"btn btn-danger btn-small\"><i class=\"feather icon-lock\"> </i></a></td>
                                                 </tr>";
 
             
@@ -162,29 +162,6 @@
   </form>
 </div>
 <!-- Fin Modal Editar -->
-
-
-<!-- inicio modal eliminar -->
-<div id="modalEliminar" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Eliminar Materia</h3>
-  </div>
-  <div class="modal-body">
-
-      <form action="materiaControlador.php" method="post" >
-
-                                  <input id="idEliminar" name="idEliminar" type="hidden">
-                                  <h3>¿Seguro desea desactivar la materia?</h3>
-    </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-    <button type="submit" name="eliminar"  id="eliminar"class="btn btn-primary">Desactivar</button>
-  </div>
-
-  </form>
-</div>
-<!-- Fin modal -->
 								</div>
 						    </div>
                         </div>
@@ -208,6 +185,27 @@
        $("#idEliminar").val(d[0]);
        $("#nombre_materia").val(d[1]);
       
+    }
+
+    function eliminar(){
+      Swal.fire({
+  title: 'Eliminar',
+  text: "Estas seguro que deseas eliminar este dato",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire(
+      'Eliminar!',
+      'Se eliminara este dato',
+      'success',
+      window.location.href='materiaControlador.php'
+    )
+  }
+})
     }
 
   </script>

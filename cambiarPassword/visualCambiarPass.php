@@ -27,7 +27,7 @@
 				<h4 class="mb-4 f-w-450 text-center"> Contraseña nueva </h4>
                 <form action="RestValPassControlador.php" method="post">
                     <div class="form-group" id="passwordAnti">
-                        <input type="password" name="passwordAntigua" onkeyup="validarCampos()" id="password" class=" form-control span4 " placeholder="Ingrese su contraseña anterior" tabindex="2" required> 
+                        <input type="password" name="passwordAntigua" onkeyup="" id="passwordAntigua" class=" form-control span4 " placeholder="Ingrese su contraseña anterior" tabindex="2" required> 
                     </div>
                     <div class="form-group" id="passwordIni">
                         <input type="password" name="password" minlength="4" maxlength="20" onkeyup="validarCampos()" id="password" class=" form-control span4 " placeholder="Contraseña" tabindex="2" required> 
@@ -60,6 +60,19 @@
 					document.getElementById('modificarPass').disabled = true;
 				}
 			}
+		}
+
+		function validarPassAntigua(){
+		let passAntigua = document.getElementById('passwordAntigua').value;
+
+			if(passAntigua != null || passAntigua != ""){
+				if(){
+					document.getElementById('modificarPass').disabled = false;
+
+				}else{
+					document.getElementById('modificarPass').disabled = true;
+				}
+
 		}
 			
 

@@ -46,7 +46,7 @@
 
                                         <!-- Button trigger modal -->
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalGuardar">
-                                            AÑADIR NUEVA MATERIA                                  
+                                            MERIA HORARIO                                
                                         </button>
 
                                   <!-- [ dark-table ] start -->
@@ -57,8 +57,9 @@
                                                 <table class="table table-dark">
                                                     <thead>
                                                     <tr>
-                                                <th scope="col">IDENTIFICADOR DE LA MATERIA</th>
-                                                <th scope="col">NOMBRE DE LA MATERIA</th>                                              
+                                                <th scope="col">IDENTIFICADOR MATERIA HORARIO</th>
+                                                <th scope="col">IDENTIFICADOR DE MATERIA</th>     
+                                                <th scope="col">IDENTIFICADOR DE HORARIO</th>                                          
                                                 <th class="td-actions">EDITAR/ELIMINAR</th>
                                             </tr>
                                             </thead>
@@ -68,7 +69,7 @@
                                         <?php
 
                                         $utilModelo = new utilModelo();
-                                        $tabla = "materia";
+                                        $tabla = "materia_asignada_horario";
                                         $result = $utilModelo->consultarVariasTablas("*",$tabla,"1");
                                         while ($fila = mysqli_fetch_array($result)) {
                                             if ($fila != NULL) {
@@ -76,11 +77,13 @@
                                                 $datos=
                                                     $fila[0]."||".
                                                     $fila[1]."||";
+                                                    $fila[2]."||";
                                             }
                                                echo "
                                                 <tr>
                                                     <td> $fila[0] </td>
-                                                    <td> $fila[1] </td>                                                     
+                                                    <td> $fila[1] </td>     
+                                                    td> $fila[2] </td>                                                  
                                                     <td class=\"td-actions\"><a  data-toggle=\"modal\" href=\"#modalEditar\" onclick=\"agregarForm('$datos');\" class=\"btn btn-small btn-info\"><i class=\"bi bi-pencil-square\"></i></a><a href=\"#modalEliminar\"  onclick=\"agregarForm('$datos');\" data-toggle=\"modal\" class=\"btn btn-danger btn-small\"><i class=\"btn-icon-only icon-remove\"> </i></a></td>
                                                 </tr>";
 
@@ -100,18 +103,22 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">AÑADIR NUEVA MATERIA</h5>
+        <h5 class="modal-title" id="exampleModalLabel">AÑADIR </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-      <form class="span8" action="materiaControlador.php" method="post" >
+      <form class="span8" action="mhControlador.php" method="post" >
 
 
                         <div class="form-group  ">
-                            <input   type="text" name="nombre_materia" id="nombre_materia" tabindex="1" class=" form-control span4"
-                                    placeholder="Nombre de la materia" value="" required>
+                            <input   type="text" name="identificador_materia" id="identificador_materia" tabindex="1" class=" form-control span4"
+                                    placeholder="Identificador de la materia" value="" required>
+                        </div>
+                        <div class="form-group  ">
+                            <input   type="text" name="identificador_horario" id="identificador_horario" tabindex="1" class=" form-control span4"
+                                    placeholder="Identificador del horario" value="" required>
                         </div>
                         
 
@@ -120,13 +127,37 @@
 <!-- Cierre modal -->
 <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
 <!-- Boton envio datos -->
-<button type="submit" name="guardarMateria" id="guardarMateria"class="btn btn-primary">Guardar</button>
+<button type="submit" name="guardarMh" id="guardarMh"class="btn btn-primary">Guardar</button>
 </div>
 
 </form>
       </div>
     </div>
   </div>
+</div>
+   <!-- Inicio Modal Guardar -->
+   <div class="modal fade" id="modalGuardar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">AÑADIR</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form class="span8" action="mhControlador.php" method="post" >
+
+
+                        <div class="form-group  ">
+                            <input   type="text" name="identificador_materia" id="identificador_materia" tabindex="1" class=" form-control span4"
+                                    placeholder="Identificador de la carrera" value="" required>
+                        </div>
+                        <div class="form-group  ">
+                            <input   type="text" name="identificador_horario" id="identificador_horario" tabindex="1" class=" form-control span4"
+                                    placeholder="Identificador de la carrera" value="" required>
+                        </div>
+
 </div>
 
 <!-- Inicio Modal Editar -->
@@ -140,21 +171,30 @@
         </button>
       </div>
       <div class="modal-body">
-      <form class="span8" action="materiaControlador.php" method="post" >
+      <form class="span8" action="mhControlador.php" method="post" >
 
 
       <div class="form-group">
                              
-                                <label for="Name">Nombre de la materia</label>
+                                <label for="Name">Identificador de la materia</label>
                                 <div class="form-group ">
-                                    <input   type="text" name="nombre_materia" id="nombre_materia" tabindex="1" class=" form-control span4"
-                                           placeholder="Nombre de la materia" value="" required>
+                                    <input   type="text" name="identificador_materia" id="identificador_materia" tabindex="1" class=" form-control span4"
+                                           placeholder="Identificador de la materia" value="" required>
+                                </div>
+                                <label for="Name">Identificador de la materia</label>
+                                <div class="form-group ">
+                                    <input   type="text" name="identificador_horario" id="identificador_horario" tabindex="1" class=" form-control span4"
+                                           placeholder="Identificador del horario" value="" required>
                                 </div>
                                
     </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-    <button type="submit" name="modificar_materia" id="modificar_materia"class="btn btn-primary">Modificar</button>
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrarr</button>
+    <button type="submit" name="identificador_materia" id="identificador_materia"class="btn btn-primary">Modificar</button>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrarr</button>
+    <button type="submit" name="identificador_horario" id="identificador_horario"class="btn btn-primary">Modificar</button>
   </div>
 
   </form>
@@ -166,11 +206,11 @@
 <div id="modalEliminar" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Eliminar Materia</h3>
+    <h3 id="myModalLabel">Eliminar Mh</h3>
   </div>
   <div class="modal-body">
 
-      <form action="materiaControlador.php" method="post" >
+      <form action="mhControlador.php" method="post" >
 
                                   <input id="idEliminar" name="idEliminar" type="hidden">
                                   <h3>¿Seguro desea desactivar la materia?</h3>
@@ -210,7 +250,8 @@
 
        $("#codigoE").val(d[0]);
        $("#idEliminar").val(d[0]);
-       $("#nombre_materia").val(d[1]);,
+       $("#identificador_materia").val(d[1]);,
+       $("#identificador_horario").val(d[2]);,
       
     }
 

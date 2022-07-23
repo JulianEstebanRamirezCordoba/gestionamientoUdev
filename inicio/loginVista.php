@@ -1,3 +1,4 @@
+<html lang="en">
 <?php
 	define("tipo", 3);
 

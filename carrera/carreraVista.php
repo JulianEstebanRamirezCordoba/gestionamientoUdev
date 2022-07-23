@@ -382,7 +382,7 @@
                               </div>
     </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerraarr</button>
     <button type="submit" name="modificarCarrera" id="modificarCarrera"class="btn btn-primary">Modificar</button>
   </div>
 

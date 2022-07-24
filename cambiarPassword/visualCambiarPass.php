@@ -46,12 +46,25 @@ if(isset($_SESSION['usuario'])){
 	<link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
+<?php
+    if(isset($_SESSION['okPass'])) {
+
+?>
+<script>existo($_SESSION['okPass'], 'Existo en la operacion')</script>		
+<?php
+	}else if(isset($_SESSION['errorPass'])){
+?>
+<script>existo($_SESSION['errorPass'], 'Error no se actualizo correctamente tu contraseña')</script>
+<?php	
+	}
+?>
+
 <div class=" pcoded-main-container">
 	<div class="col-md-8">
 		<div class="card">
 			<div class="card-body">
 				<h4 class="mb-4 f-w-450 text-center"> Contraseña nueva </h4>
-                <form action="RestValPassControlador.php" method="post">
+                <form action="controlCambiarPass.php" method="post">
                     <div class="form-group" id="passwordAnti">
                         <input type="password" name="passwordAntigua" onkeyup="" id="passwordAntigua" onkeydown="validarPassAntigua()" class=" form-control span4 " placeholder="Ingrese su contraseña anterior" tabindex="2" required> 
                     </div>
@@ -63,7 +76,7 @@ if(isset($_SESSION['usuario'])){
                     </div>
 					<div class="row justify-content-center">		
 						<button name = "modificarPass" id="modificarPass" disabled = "true" class="btn btn-primary mb-3">Cambiar Contraseña</button>					
-						<button name = "cancelar" id="cancelar" class="btn btn-primary mb-3">Cancelar </button>
+						<button name = "cerrar" class="btn btn-primary mb-3" onclick="salir()">Cancelar</button>
 					</div>	
                 </form>
 			</div>
@@ -98,6 +111,36 @@ if(isset($_SESSION['usuario'])){
 			}else{
 				document.getElementById('modificarPass').disabled = true;
 			}
+		}
+
+		function existo(mostrar, title){
+				let timerInterval
+			Swal.fire({
+  			title: title,
+  			html: mostrar,
+  			timer: 2000,
+  			timerProgressBar: true,
+  			didOpen: () => {
+    			Swal.showLoading()
+    			const b = Swal.getHtmlContainer().querySelector('b')
+    			timerInterval = setInterval(() => {
+      			b.textContent = Swal.getTimerLeft()
+    			}, 100)
+  			},
+  			willClose: () => {
+    			clearInterval(timerInterval)
+  			}
+			}).then((result) => {
+  			if (result.dismiss === Swal.DismissReason.timer) {
+    			console.log('I was closed by the timer')
+  			}
+			})
+		}
+
+
+		
+		function salir(){
+			window.location.href='../complementoDassboard/dassboard.php';
 		}
 
 	</script>

@@ -68,8 +68,8 @@ session_start();
 					$InformeUsuarios =  '<li class="nav-item pcoded-hasmenu">
 					<a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Usuarios</span></a>
 					<ul class="pcoded-submenu">
-						<li class=""><a href="" class="">Informes Usuarios</a></li>
-						<li class=""><a href="" class="">Crear Usuarios</a></li>
+						<li class=""><a href="../informeUsuarios/visualInforUser.php" class="">Informes Usuarios</a></li>
+						<li class=""><a href="../informeUsuarios/visualCreacionUser.php" class="">Crear Usuarios</a></li>
 					</ul>
 					</li>';
 

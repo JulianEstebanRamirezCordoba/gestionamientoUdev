@@ -12,9 +12,6 @@
 	$porsentajes = $controlDass->porsentajeUser(TOTALUSUARIOS, $numeroUdev, $numeroCompubuga, $numeroMoscati, $numeroDesactivos);
 
 ?>
-<!-- JavaScritp Julian No tocar el mismo eliminara el mensaje cuando sea requerido -->
-		<!-- swal("", "No puede dejar ningun campo en blanco!", "warning"); -->
-		<!-- document.forma.guardar.disabled = true; -->
 	<div class="pcoded-main-container">
 		<div class="pcoded-wrapper">
 			<div class="pcoded-content">

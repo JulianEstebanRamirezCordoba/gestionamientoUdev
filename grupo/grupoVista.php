@@ -8,7 +8,7 @@
 
 <head>
 
-    <title>CARRERAS</title>
+    <title>GRUPOS</title>
     <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 11]>
@@ -193,12 +193,12 @@
                                     <div class="row align-items-center">
                                         <div class="col-md-12">
                                             <div class="page-header-title">
-                                                <h5 class="m-b-10">Bootstrap Basic Tables</h5>
+                                                <h3 class="m-b-10">GRUPOS</h3>
                                             </div>
                                             <ul class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
-                                                <li class="breadcrumb-item"><a href="#!">Bootstrap Table</a></li>
-                                                <li class="breadcrumb-item"><a href="#!">Basic Tables</a></li>
+                                                <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-users"></i></a></li>
+                                                <li class="breadcrumb-item"><a href="#!">Creación de grupos</a></li>
+                                                <li class="breadcrumb-item"><a href="#!">Edición de grupos</a></li>
                                             </ul>
                                         </div>
                                     </div>

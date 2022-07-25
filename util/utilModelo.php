@@ -64,7 +64,7 @@
             FROM $nombreTabla 
             $condicion";
             $query = mysqli_query($conexion, $consulta);
-
+            
             return $query;
 
         } 

@@ -73,9 +73,9 @@ session_start();
 					</ul>
 					</li>';
 
-					$visualCarreras = '<li class="nav-item"><a href="../carrera/carreraVista.php" class="nav-link"><span 
-					class="pcoded-micon"><i class="feather icon-home"></i></span><span 
-					class="pcoded-mtext">Carreras</span></a></li>';
+					$visualGrupos = '<li class="nav-item"><a href="../grupo/grupoVista.php" class="nav-link"><span 
+					class="pcoded-micon"><i class="feather icon-users"></i></span><span 
+					class="pcoded-mtext">Grupos</span></a></li>';
 
 					$visualmaterias = '<li class="nav-item"><a href="../materia/materiaVista.php" class="nav-link"><span 
 					class="pcoded-micon"><i class="feather icon-home"></i></span><span 
@@ -83,7 +83,7 @@ session_start();
 
                     $util->validarVista(0, $visualDassboard);
                     $util->validarVista(0, $InformeUsuarios);
-					$util->validarVista(0, $visualCarreras);
+					$util->validarVista(0, $visualGrupos);
 					$util->validarVista(0, $visualmaterias);
 
 					?>

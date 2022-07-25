@@ -214,17 +214,17 @@
                                         <div class="card-header">
                                           <!-- Button trigger modal -->
                                           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalGuardar">
-                                            AÑADIR NUEVA CARRERA                                   
+                                            AÑADIR NUEVO GRUPO                                  
                                           </button>
 
                                         <div class="card-body table-border-style">
                                             <div class="table-responsive">
-                                                <table class="table table-dark" border = "2">
+                                                <table class="table table-triped" border = "2">
                                                     <thead>
                                                         <tr>
-                                                          <th scope="col">IDENTIFICADOR CARRERA</th>
-                                                          <th scope="col">NOMBRE DE LA CARRERA</th>
-                                                          <th scope="col">CÓDIGO DE LA CARREA</th>
+                                                          <th scope="col">IDENTIFICADOR GRUPO</th>
+                                                          <th scope="col">NOMBRE DEL GRUPO</th>
+                                                          <th scope="col">CÓDIGO DEL GRUPO</th>
                                                           <th scope="col">CICLO</th>
                                                           <th scope="col">CANTIDAD DE ESTUDIANTES</th>
                                                           <th scope="col">ESTADO</th>
@@ -235,7 +235,7 @@
                                                         <?php 
                                                         
                                                           $utilModelo = new utilModelo();
-                                                            $tabla = "carrera";
+                                                            $tabla = "grupo";
                                                             $result = $utilModelo->subConsultas($tabla,"*","1");
                                                             while ($fila = mysqli_fetch_array($result)) {
                                                                 if ($fila != NULL) {
@@ -270,9 +270,9 @@
                                                                       <td> $fila[4] </td>
                                                                       <td> $estado </td>    
                                                                       <td class=\"td-actions\"><a  data-toggle=\"modal\" href=\"#modalEditar\" onclick=\"agregarForm('$datos');
-                                                                      \" class=\"btn btn-small btn-info\"><i class=\"bi bi-pencil-square\"></i></a>
-                                                                      <a href=\"#modalDelete\" onclick=\"agregarForm('$datos');
-                                                                      \" data-toggle=\"modal\" class=\"btn btn-danger btn-small\"><i class=\"btn-icon-only icon-remove\"> </i></a></td>
+                                                                      \" class=\"btn btn-small btn-info\"><i class=\"feather icon-edit\"></i></a>
+                                                                      <a href=\"#modalEliminar\" onclick=\"agregarForm('$datos');
+                                                                      \" data-toggle=\"modal\" class=\"btn btn-danger btn-small\"><i class=\"feather icon-trash\"> </i></a></td>
                                                                   </tr>";
 
             
@@ -301,30 +301,30 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">AÑADIR NUEVA CARRERA</h5>
+        <h5 class="modal-title" id="exampleModalLabel">AÑADIR NUEV0 GRUPO</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-      <form class="span8" action="carreraControlador.php" method="post" >
+      <form class="span8" action="grupoControlador.php" method="post" >
 
 
                         <div class="form-group  ">
-                            <input   type="text" name="nombre_carrera" id="nombre" tabindex="1" class=" form-control span4"
-                                    placeholder="Nombre de la carrera" value="" required>
+                            <input   type="text" name="nombre_grupo" id="nombre" tabindex="1" class=" form-control span4"
+                                    placeholder="Nombre del grupo" value="" required>
                         </div>
                         <div class="form-group  ">
-                            <input   type="text" name="codigo_carrera" id="codigo" tabindex="1" class=" form-control span4"
-                                    placeholder="Código de la carrera" value="" required>
+                            <input   type="text" name="codigo_grupo" id="codigo" tabindex="1" class=" form-control span4"
+                                    placeholder="Código del grupo" value="" required>
                         </div>
                         <div class="form-group  ">
-                            <input   type="text" name="ciclo_carrera" id="ciclo" tabindex="1" class=" form-control span4"
-                                    placeholder="Ciclo de la carrera" value="" required>
+                            <input   type="text" name="ciclo_grupo" id="ciclo" tabindex="1" class=" form-control span4"
+                                    placeholder="Ciclo del grupo" value="" required>
                         </div>
                         <div class="form-group  ">
-                            <input   type="number" name="cantidadEstudiantes_carrera" id="cantidadEstudiantes" tabindex="1" class=" form-control span4"
-                                    placeholder="Cantidad de estudiantes de la carrera" value="" required>
+                            <input   type="number" name="cantidadEstudiantes_grupo" id="cantidadEstudiantes" tabindex="1" class=" form-control span4"
+                                    placeholder="Cantidad de estudiantes del grupo" value="" required>
                         </div>
 
 </div>
@@ -332,7 +332,7 @@
 <!-- Cierre modal -->
 <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
 <!-- Boton envio datos -->
-<button type="submit" name="guardarCarrera" id="guardarCarrera"class="btn btn-primary">Guardar</button>
+<button type="submit" name="guardarGrupo" id="guardarGrupo"class="btn btn-primary">Guardar</button>
 </div>
 
 </form>
@@ -353,7 +353,7 @@
         </button>
       </div>
       <div class="modal-body">
-      <form class="span8" action="carreraControlador.php" method="post" >
+      <form class="span8" action="grupoControlador.php" method="post" >
 
 
       <div class="form-group">
@@ -361,78 +361,69 @@
                                   </div>
                               <div class="form-group   ">
                                 <label for="Name">Nombre de la carrera:</label>
-                                    <input   type="text" name="nombre_carrera" id="nombre_carrera" tabindex="1" class=" form-control span4"
+                                    <input   type="text" name="nombre_grupo" id="nombre_grupo" tabindex="1" class=" form-control span4"
                                            placeholder="Nombre de la carrera" value="" required>
                                 </div>
                                 <label for="Name">Código de la carrera:</label>
                                 <div class="form-group   ">
-                                    <input   type="text" name="codigo_carrera" id="codigo_carrera" tabindex="1" class=" form-control span4"
+                                    <input   type="text" name="codigo_grupo" id="codigo_grupo" tabindex="1" class=" form-control span4"
                                            placeholder="Código de la carrera" value="" required>
                                 </div>
-                                <label for="Name">Ciclo de la carrera</label>
+                                <label for="Name">Ciclo del grupo</label>
                                 <div class="form-group ">
-                                    <input   type="text" name="ciclo_carrera" id="ciclo_carrera" tabindex="1" class=" form-control span4"
+                                    <input   type="text" name="ciclo_grupo" id="ciclo_grupo" tabindex="1" class=" form-control span4"
                                            placeholder="Ciclo de la carrera" value="" required>
                                 </div>
-                                <label for="Name">Cantidad estudiantes de la carrera:</label>
+                                <label for="Name">Cantidad estudiantes del grupo:</label>
                                 <div class="form-group   ">
-                                    <input   type="text" name="cantidadEstudiantes_carrera" id="cantidadEstudiantes_carrera" tabindex="1" class=" form-control span4"
-                                           placeholder="Cantidad estudiantes de la carrera" value="" required>
-                              </div>
-    </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerraarr</button>
-    <button type="submit" name="modificarCarrera" id="modificarCarrera"class="btn btn-primary">Modificar</button>
-  </div>
-
-  </form>
-</div>
-<!-- Fin Modal Editar -->
-
-<!-- Inicio Modal Editar -->
-<div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">EDITAR REGISTROS</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <form class="span8" action="carreraControlador.php" method="post" >
-
-
-      <div class="form-group">
-                                  <input id="codigoE" name="id" type="hidden">
-                                  </div>
-                              <div class="form-group   ">
-                                <label for="Name">Nombre de la carrera:</label>
-                                    <input   type="text" name="nombre_carrera" id="nombre_carrera" tabindex="1" class=" form-control span4"
-                                           placeholder="Nombre de la carrera" value="" required>
-                                </div>
-                                <label for="Name">Código de la carrera:</label>
-                                <div class="form-group   ">
-                                    <input   type="text" name="codigo_carrera" id="codigo_carrera" tabindex="1" class=" form-control span4"
-                                           placeholder="Código de la carrera" value="" required>
-                                </div>
-                                <label for="Name">Ciclo de la carrera</label>
-                                <div class="form-group ">
-                                    <input   type="text" name="ciclo_carrera" id="ciclo_carrera" tabindex="1" class=" form-control span4"
-                                           placeholder="Ciclo de la carrera" value="" required>
-                                </div>
-                                <label for="Name">Cantidad estudiantes de la carrera:</label>
-                                <div class="form-group   ">
-                                    <input   type="text" name="cantidadEstudiantes_carrera" id="cantidadEstudiantes_carrera" tabindex="1" class=" form-control span4"
+                                    <input   type="text" name="cantidadEstudiantes_grupo" id="cantidadEstudiantes_grupo" tabindex="1" class=" form-control span4"
                                            placeholder="Cantidad estudiantes de la carrera" value="" required>
                               </div>
     </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-    <button type="submit" name="modificarCarrera" id="modificarCarrera"class="btn btn-primary">Modificar</button>
+    <button type="submit" name="modificarGrupo" id="modificarGrupo"class="btn btn-primary">Modificar</button>
   </div>
 
   </form>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fin Modal Editar -->
+
+<!-- Inicio Modal Eliminar -->
+<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ACTIVAR/DESACTIVAR REGISTROS</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form class="span8" action="grupoControlador.php" method="post" >
+
+
+      <div class="form-group">
+                                <div>
+                                <input id="idEliminar" name="idEliminar" type="hidden">
+                                </div>
+                                <div>
+                                <input id="modificarEstado" name="modificarEstado" type="hidden">
+                                </div>
+                                <H4>¿SEGUR@ QUE DESEA MODIFICAR EL ESTADO DEL GRUPO?</H4>
+    </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+    <button type="submit" name="eliminarGrupo" id="eliminarGrupo"class="btn btn-primary">Modificar</button>
+  </div>
+
+  </form>
+        </div>
+    </div>
+  </div>
 </div>
 
     <!-- Warning Section start -->
@@ -494,10 +485,11 @@
 
        $("#codigoE").val(d[0]);
        $("#idEliminar").val(d[0]);
-       $("#nombre_carrera").val(d[1]);
-       $("#codigo_carrera").val(d[2]);
-       $("#ciclo_carrera").val(d[3]);
-       $("#cantidadEstudiantes_carrera").val(d[4]);
+       $("#nombre_grupo").val(d[1]);
+       $("#codigo_grupo").val(d[2]);
+       $("#ciclo_grupo").val(d[3]);
+       $("#cantidadEstudiantes_grupo").val(d[4]);
+       $("#modificarEstado").val(d[5]);
     }
 
   </script>

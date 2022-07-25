@@ -46,19 +46,6 @@ if(isset($_SESSION['usuario'])){
 	<link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-<?php
-    if(isset($_SESSION['okPass'])) {
-
-?>
-<script>existo($_SESSION['okPass'], 'Existo en la operacion')</script>		
-<?php
-	}else if(isset($_SESSION['errorPass'])){
-?>
-<script>existo($_SESSION['errorPass'], 'Error no se actualizo correctamente tu contraseña')</script>
-<?php	
-	}
-?>
-
 <div class=" pcoded-main-container">
 	<div class="col-md-8">
 		<div class="card">

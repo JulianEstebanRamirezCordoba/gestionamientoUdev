@@ -24,12 +24,9 @@ global $utilModelo;
         $campoCondicion = "usu_id";
         $idUsuario = $_SESSION['usuario'][0];
 
-        echo $idUsuario;
-        die();
-
         $val = $utilModelo->actualizarDatos($nombreTabla, $campoActualizar, $valorActalizar, $campoCondicion, $idUsuario);
 
-            if($val >= $idUsuario){
+            if($val == $idUsuario){
                 $_SESSION['okPass'] = "Se a realizado la accion favorablemente";
                 header("Location: visualCambiarPass.php");
 

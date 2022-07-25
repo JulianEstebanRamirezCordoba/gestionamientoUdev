@@ -25,9 +25,9 @@ require_once "../navegador/menuOrquestador.php";
                                         <div class="card-header">
                                             <h6>Sistema Gestion Udevo</h6>
                                                 <br>
-                                            <form action="" method="post">
+                                            <form action="controlInforUser.php" method="post">
                                                 <div class="col-md-6">
-                                                    <input class="form-control" id = "buscar" name = "buscar" type="text" placeholder="Buscar. . ." readonly>
+                                                    <input class="form-control" id = "buscar" name = "buscar" type="text" placeholder="Buscar. . .">
                                                 </div>
                                             </form>
 
@@ -43,19 +43,14 @@ require_once "../navegador/menuOrquestador.php";
                                                             <th>Apellido</th>
                                                             <th>Correo</th>
                                                             <th>Cedula</th>
+                                                            <th>Contacto</th>
                                                             <th>Instuticion</th>
                                                             <th>Tipo Usuario</th>
                                                             <th>Estado Usuario</th>
                                                             <th>Opciones Admin</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-                                                            <td>@mdo</td>
-                                                        </tr>
+                                                    <tbody id="tabla">
                                                         
                                                     </tbody>
                                                 </table>
@@ -70,7 +65,27 @@ require_once "../navegador/menuOrquestador.php";
             </div>
         </div>
     </section>
+    <script>
+        getDatos()
+        document.getElementById('buscar').addEventListener('keyup', getDatos)
 
+        function getDatos(){
+            let input = document.getElementById("buscar").value
+            let content = document.getElementById("tabla")
+            let url = "controlInfoUser.php"
+            let formaData = new FormData()
+            formaData.append('buscar', input)
+
+            fetch(url, {
+            method: "POST",
+            body: formaData
+            }).then(response => response.json())
+            .then(data=> {
+             content.innerHTML = data
+            }).catch(err => console.log(err))
+            
+        }
+    </script>
     <script src="../assets/js/vendor-all.min.js"></script>
     <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="../assets/js/pcoded.min.js"></script>

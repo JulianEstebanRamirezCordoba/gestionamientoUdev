@@ -51,7 +51,7 @@ if($result->num_rows >= 1){
         $visual .= '<td>'.$instituto.'</td>';
         $visual .= '<td>'.$tipoUser.'</td>';
         $visual .= '<td>'.$estado.'</td>';
-        $visual .= '<td><a data-toggle="modal" href="#editar">Editar</a></td>';
+        $visual .= '<td><a data-toggle="modal" href="#editar" >Editar</a></td>';
         $visual .= '</tr>';
     }
 }else{
@@ -105,16 +105,6 @@ function convereeUsuario($tipoUsuario){
     }
 
     return $retornoTipo;
-
-}
-
-function actualizarDatos(){
-
-
-}
-
-function insertarDatos(){
-    
 
 }
 

@@ -1,4 +1,3 @@
-
 <?php
 require_once "../navegador/menuOrquestador.php";
 ?>
@@ -75,7 +74,7 @@ require_once "../navegador/menuOrquestador.php";
                         </button>
                     </div>
                     <div class="modal-body">
-                        
+
                         <div class="modal-footer">
                             <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
                             <button type="submit" name="modificar_materia" id="modificar_materia"class="btn btn-primary">Modificar</button>

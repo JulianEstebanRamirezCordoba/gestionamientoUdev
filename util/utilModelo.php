@@ -49,7 +49,7 @@
 
         }
       
-        function consultaTodosDatos($nombreTabla, $camposConsult, $valoresConsult){
+        function consultaTodosDatos($nombreTabla, $camposConsult = " 1 ", $valoresConsult = " 1 "){
             global $conexion;
             $condicion = $camposConsult . " = '" . $valoresConsult . "'";
 

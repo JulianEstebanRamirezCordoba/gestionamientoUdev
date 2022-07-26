@@ -26,8 +26,8 @@ global $utilModelo;
 
         $val = $utilModelo->actualizarDatos($nombreTabla, $campoActualizar, $valorActalizar, $campoCondicion, $idUsuario);
 
-            if($val == $idUsuario){
-                $_SESSION['okPass'] = "Se a realizado la accion favorablemente";
+            if($val == 1){
+                $_SESSION['OkPass'] = "Se a realizado la accion favorablemente";
                 header("Location: visualCambiarPass.php");
 
             }else{

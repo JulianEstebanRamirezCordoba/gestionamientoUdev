@@ -51,6 +51,45 @@ if(isset($_SESSION['usuario'])){
 		<div class="card">
 			<div class="card-body">
 				<h4 class="mb-4 f-w-450 text-center"> Contraseña nueva </h4>
+				<?php
+      				if(isset($_SESSION['OkPass'])) {
+  				?>
+  				<div class="form-group">
+      				<div class="row">
+    	  				<div class="col-lg-12">
+              				<div class="text-center">
+                      				<div class="alert alert-success" role="alert">
+                        		<?php
+						   			echo $_SESSION['OkPass'];
+						  		?>
+                      				</div>
+                  				</div>
+              				</div>
+          				</div>
+      				</div>
+  				<?php
+      					unset($_SESSION['OkPass']);
+      				}else if(isset($_SESSION['errorPass'])){
+
+  				?>
+  				<div class="form-group">
+      				<div class="row">
+    	  				<div class="col-lg-12">
+              				<div class="text-center">
+                      				<div class="alert alert-error" role="alert">
+                        		<?php
+						   			echo $_SESSION['errorPass'];
+						  		?>
+                      				</div>
+                  				</div>
+              				</div>
+          				</div>
+      				</div>
+  				<?php
+      					unset($_SESSION['errorPass']);
+      				}
+
+  				?>
                 <form action="controlCambiarPass.php" method="post">
                     <div class="form-group" id="passwordAnti">
                         <input type="password" name="passwordAntigua" onkeyup="" id="passwordAntigua" onkeydown="validarPassAntigua()" class=" form-control span4 " placeholder="Ingrese su contraseña anterior" tabindex="2" required> 
@@ -61,9 +100,14 @@ if(isset($_SESSION['usuario'])){
                     <div class="form-group" id="passwordVal">
                         <input type="password" onkeyup="validarCampos()" name="passwordConfi" id="passwordConfi" tabindex="2" class=" form-control span4" placeholder="Confirmar contraseña" required>
                     </div>
+					<div id="contenedor" >
+						<p id="ErrorPasswordAntigua"></p>
+						<br>
+						<p id="ErrorConfiPassword"></p>
+					</div>
 					<div class="row justify-content-center">		
 						<button name = "modificarPass" id="modificarPass" disabled = "true" class="btn btn-primary mb-3">Cambiar Contraseña</button>					
-						<button name = "cerrar" class="btn btn-primary mb-3" onclick="salir()">Cancelar</button>
+						<button class="btn btn-primary mb-3"><a style="color: #FDFEFE;" href="../complementoDassboard/dassboard.php">Cancelar</a></button>
 					</div>	
                 </form>
 			</div>
@@ -79,8 +123,9 @@ if(isset($_SESSION['usuario'])){
 		let passIni = document.getElementById('password').value;
 		let passConfi = document.getElementById('passwordConfi').value;
 	
+			if(passIni != null && passConfi != null || passConfi != "" || passIni != ""){
+				
 
-			if(passIni != null && passConfi != null){
 				if(passIni == passConfi){
 					document.getElementById('modificarPass').disabled = false;
 				}else{
@@ -99,37 +144,6 @@ if(isset($_SESSION['usuario'])){
 				document.getElementById('modificarPass').disabled = true;
 			}
 		}
-
-		function existo(mostrar, title){
-				let timerInterval
-			Swal.fire({
-  			title: title,
-  			html: mostrar,
-  			timer: 2000,
-  			timerProgressBar: true,
-  			didOpen: () => {
-    			Swal.showLoading()
-    			const b = Swal.getHtmlContainer().querySelector('b')
-    			timerInterval = setInterval(() => {
-      			b.textContent = Swal.getTimerLeft()
-    			}, 100)
-  			},
-  			willClose: () => {
-    			clearInterval(timerInterval)
-  			}
-			}).then((result) => {
-  			if (result.dismiss === Swal.DismissReason.timer) {
-    			console.log('I was closed by the timer')
-  			}
-			})
-		}
-
-
-		
-		function salir(){
-			window.location.href='../complementoDassboard/dassboard.php';
-		}
-
 	</script>
 
 </body>

@@ -36,8 +36,7 @@ session_start();
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	
 </head>
-
-<body class="">
+<body>
 	
 	 <div class="loader-bg">
 		<div class="loader-track">
@@ -87,20 +86,11 @@ session_start();
 					$util->validarVista(0, $visualmaterias);
 
 					?>
+				</ul>
 			</div>
 		</div>
 	</nav>
 	<header class="navbar pcoded-header navbar-expand-lg navbar-light headerpos-fixed">
-		<div class="m-header">
-			<a class="mobile-menu" id="mobile-collapse1" href="#!"><span></span></a>
-			<a href="index.html" class="b-brand">
-				<img src="../assets/img/" alt="" class="logo images">
-				<img src="../assets/img/" alt="" class="logo-thumb images">
-			</a>
-		</div>
-		<a class="mobile-menu" id="mobile-header" href="#!">
-			<i class="feather icon-more-horizontal"></i>
-		</a>
 		<div class="collapse navbar-collapse">
 			<ul class="navbar-nav ml-auto">
 				<li>
@@ -111,13 +101,15 @@ session_start();
 						<div class="dropdown-menu dropdown-menu-right profile-notification">
 							<div class="pro-head">
 								<img src="../assets/img/user.png" class="img-radius" alt="User-Profile-Image">
-								<span><?php
+								<span>
+								<?php
 								   echo nombreUsuario." ".apellidoUsuario;
-								?></span>
+								?>
+								</span>
 							</div>
 							<ul class="pro-body">
-								<li><a href="../cambiarPassword/visualCambiarPass.php" class="dropdown-item"><i class="feather icon-"></i> Cambiar contraseña</a></li>
-								<li><a href="../inicio/cierreSesion.php" class="dropdown-item"><i class="feather icon-lock"></i> Cerrar Sesion</a></li>
+								<li><a href="../cambiarPassword/visualCambiarPass.php" class="dropdown-item"><i class="feather icon-edit"></i> Cambiar contraseña</a></li>
+								<li><a href="../inicio/cierreSesion.php" class="dropdown-item"><i class="feather icon-log-in"></i> Cerrar Sesion</a></li>
 							</ul>
 						</div>
 					</div>

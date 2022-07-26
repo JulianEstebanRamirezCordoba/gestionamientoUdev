@@ -49,18 +49,36 @@ function insertarDatos(){
             header("Location: visualCreacionUser.php");
 
         }else{
-
+            $_SESSION['enviadoIncorrecto'] = "El registro no se a realizado correctamente";
+            header("Location: visualCreacionUser.php");
 
         }
-    }else{
 
+    }else{
+        echo "<body>
+        <script src=\"//cdn.jsdelivr.net/npm/sweetalert2@11\"></script>";
+        echo " <script>
+        Swal.fire({
+            title: 'Alerta Usuario ya registrado',
+            text: 'El usuario ya existe en nuestra pagina por favor verifica esta informnacion',
+            icon: 'alert',
+            showCancelButton: false,
+            confirmButtonColor: '#ff5733',
+            confirmButtonText: 'Ok'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href='visualCreacionUser.php';
+            }
+            })
+            </script>
+            </body>";
 
     }
 }
 
 function actualizarDatos(){
     global $utilModelo;
-    
+
 
 }
 

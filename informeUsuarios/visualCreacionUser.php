@@ -1,7 +1,6 @@
 <?php
 require_once "../navegador/menuOrquestador.php";
 ?>
-
     <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
@@ -11,7 +10,7 @@ require_once "../navegador/menuOrquestador.php";
                             <div class="page-header">
                                 <div class="page-block">
                                     <div class="row align-items-center">
-                                        <div class="col-md-12">
+                                        <div class="col-md-5">
                                             <div class="page-header-title">
                                                 <h5 class="m-b-10">Forma Usuarios</h5>
                                             </div>
@@ -55,6 +54,45 @@ require_once "../navegador/menuOrquestador.php";
                                                         <div class="mb-4">
                                                         <button type="submit" name="registrar" id="registrar" class="btn btn-primary">Registrar</button>
                                                         </div>
+                                                        <?php
+      				                                        if(isset($_SESSION['enviadoBien'])) {
+  				                                        ?>
+  				                                        <div class="form-group">
+      				                                        <div class="row">
+    	  				                                        <div class="col-lg-6">
+              				                                        <div class="text-center">
+                      				                                        <div class="alert alert-success" role="alert">
+                        		                                        <?php
+						   			                                        echo $_SESSION['enviadoBien'];
+						  		                                        ?>
+                      				                                        </div>
+                  				                                        </div>
+              				                                        </div>
+          				                                        </div>
+      				                                        </div>
+  				                                        <?php
+      					                                        unset($_SESSION['enviadoBien']);
+      				                                        }else if(isset($_SESSION['enviadoIncorrecto'])){
+
+  				                                        ?>
+  				                                            <div class="form-group">
+      				                                            <div class="row">
+    	  				                                            <div class="col-lg-6">
+              				                                            <div class="text-center">
+                      				                                            <div class="alert alert-error" role="alert">
+                        		                                            <?php
+						   			                                            echo $_SESSION['enviadoIncorrecto'];
+						  		                                            ?>
+                      				                                            </div>
+                  				                                            </div>
+              				                                            </div>
+          				                                            </div>
+      				                                            </div>
+  				                                        <?php
+      					                                    unset($_SESSION['enviadoIncorrecto']);
+      				                                        }
+
+  				                                        ?>
                                                 </div>
                                                 <div class="col-md-6">
                                                         <div class="form-group">
@@ -72,7 +110,8 @@ require_once "../navegador/menuOrquestador.php";
                                                         <div class="form-group">
                                                             <label for="exampleFormControlSelect1">Instituto</label>
                                                             <select class="form-control" id="instituoSelect" name="instituoSelect">
-                                                                <option value="0">UDEV</option>
+                                                            <option value="">Seleccione</option>
+                                                                <option value="0">Udev</option>
                                                                 <option value="1">Compubuga</option>
                                                                 <option value="2">Moscati</option>
                                                             </select>
@@ -80,6 +119,7 @@ require_once "../navegador/menuOrquestador.php";
                                                         <div class="form-group">
                                                             <label for="exampleFormControlSelect1">Tipo Usuario</label>
                                                             <select class="form-control" id="tipoSelect" name="tipoSelect">
+                                                            <option value="">Seleccione</option>
                                                                 <option value="0">Administrativo</option>
                                                                 <option value="1">Docente</option>
                                                                 <option value="2">Monitor</option>
@@ -103,7 +143,28 @@ require_once "../navegador/menuOrquestador.php";
     <script src="../assets/js/pcoded.min.js"></script>
 
     <script>
+    function validarCampos(){
+        let email = document.getElementById().value;
+        let password = document.getElementById().value;
+        let instituto = document.getElementById().value;
+        let tipo = document.getElementById().value;
+        let contacto = document.getElementById().value;
+        let documento = document.getElementById().value;
+
+        if(tipo == "" || instituto == ""){
+
         
+        }else if(email == null || email == "" && password == "" || password == null){
+            
+
+        }else if(documento == "" || documento == null && contacto == "" || contacto == null){
+
+            
+        }
+
+
+
+    }
     </script>
 </body>
 </html>

@@ -47,7 +47,7 @@ require_once "../navegador/menuOrquestador.php";
                                                             <th>Instuticion</th>
                                                             <th>Tipo Usuario</th>
                                                             <th>Estado Usuario</th>
-                                                            <th>Opciones Admin</th>
+                                                            <th>Opciones</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="tabla">
@@ -65,6 +65,27 @@ require_once "../navegador/menuOrquestador.php";
             </div>
         </div>
     </section>
+        <div class="modal fade" id="editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modificar Informacion</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+                            <button type="submit" name="modificar_materia" id="modificar_materia"class="btn btn-primary">Modificar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     <script>
         getDatos()
         document.getElementById('buscar').addEventListener('keyup', getDatos)
@@ -84,6 +105,10 @@ require_once "../navegador/menuOrquestador.php";
              content.innerHTML = data
             }).catch(err => console.log(err))
             
+        }
+
+        function optimizar(infoUser){
+
         }
     </script>
     <script src="../assets/js/vendor-all.min.js"></script>

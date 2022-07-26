@@ -74,21 +74,22 @@
             
         }
 
-        function convertidorEstado($estadoExtraccion){
-            switch ($estadoExtraccion) {
+        function converEstado($estado){
+            switch ($estado) {
                 case 0:
-                   $desactivo = "Inactivo";
-                   return $desactivo;
+                    $estadoUser = "Inactivo";
                     break;
                 case 1:
-                    $cativo = "Activo";
-                    return $cativo;
+                    $estadoUser = "Activo";
                     break;
+                    
                 default:
-                    return "Dato No manejado";
+                    $estadoUser = "Estado confuso modificarlo";
                     break;
             }
-
+        
+            return $estadoUser;
+        
         }
 
     }

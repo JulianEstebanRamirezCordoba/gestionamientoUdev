@@ -27,6 +27,7 @@
                 }
 
             }else{
+                $_SESSION['errorInicio'] = "Correo o contraseña errornea verifique";
                 header('Location: ../index.php');
                 exit();
 

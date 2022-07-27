@@ -38,16 +38,13 @@ if(isset($_SESSION['usuario'])){
 	<meta name="author" content="Codedthemes" />
 
 	<link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
-	
 	<link rel="stylesheet" href="../assets/fonts/fontawesome/css/fontawesome-all.min.css">
-	
 	<link rel="stylesheet" href="../assets/plugins/animation/css/animate.min.css">
-
 	<link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-<div class=" pcoded-main-container">
-	<div class="col-md-8">
+<div class="pcoded-main-container-password">
+	<div class="col-md-8 mt-5">
 		<div class="card">
 			<div class="card-body">
 				<h4 class="mb-4 f-w-450 text-center"> Contraseña nueva </h4>
@@ -76,7 +73,7 @@ if(isset($_SESSION['usuario'])){
       				<div class="row">
     	  				<div class="col-lg-12">
               				<div class="text-center">
-                      				<div class="alert alert-error" role="alert">
+                      				<div class="alert alert-warning" role="alert">
                         		<?php
 						   			echo $_SESSION['errorPass'];
 						  		?>
@@ -94,16 +91,17 @@ if(isset($_SESSION['usuario'])){
                     <div class="form-group" id="passwordAnti">
                         <input type="password" name="passwordAntigua" onkeyup="" id="passwordAntigua" onkeydown="validarPassAntigua()" class=" form-control span4 " placeholder="Ingrese su contraseña anterior" tabindex="2" required> 
                     </div>
+					<div>
+						<p class="ErrorPasswordAntigua"></p>
+					</div>
                     <div class="form-group" id="passwordIni">
-                        <input type="password" name="password" minlength="4" maxlength="20" onkeyup="validarCampos()" id="password" class=" form-control span4 " placeholder="Contraseña" tabindex="2" required> 
+                        <input type="password" name="password" minlength="6" maxlength="20" onkeyup="validarCampos()" id="password" class=" form-control span4 " placeholder="Contraseña" tabindex="2" required> 
                     </div>
                     <div class="form-group" id="passwordVal">
                         <input type="password" onkeyup="validarCampos()" name="passwordConfi" id="passwordConfi" tabindex="2" class=" form-control span4" placeholder="Confirmar contraseña" required>
                     </div>
-					<div id="contenedor" >
-						<p id="ErrorPasswordAntigua"></p>
-						<br>
-						<p id="ErrorConfiPassword"></p>
+					<div class="Erro">
+					<p class="ErrorConfiPassword" id="errConfi"></p>
 					</div>
 					<div class="row justify-content-center">		
 						<button name = "modificarPass" id="modificarPass" disabled = "true" class="btn btn-primary mb-3">Cambiar Contraseña</button>					
@@ -122,13 +120,16 @@ if(isset($_SESSION['usuario'])){
 		function validarCampos(){
 		let passIni = document.getElementById('password').value;
 		let passConfi = document.getElementById('passwordConfi').value;
+		let confi = document.getElementById("errConfi");
+		let ErrorConfi = document.querySelector('.Erro');
 	
 			if(passIni != null && passConfi != null || passConfi != "" || passIni != ""){
-				
-
 				if(passIni == passConfi){
 					document.getElementById('modificarPass').disabled = false;
+					confi.textContent = "";
 				}else{
+					confi.textContent = "Las contraseñas de confirmacion no conciden ";
+				    ErrorConfi.classList.toggle('Errores');
 					document.getElementById('modificarPass').disabled = true;
 				}
 			}
@@ -138,8 +139,9 @@ if(isset($_SESSION['usuario'])){
 		let passAntigua = document.getElementById('passwordAntigua').value;
 		let passActual = '<?=$passActual?>';
 
-			if(passAntigua == PassExtraAntigua){
+			if(passAntigua == PassActual){
 				document.getElementById('modificarPass').disabled = false;
+
 			}else{
 				document.getElementById('modificarPass').disabled = true;
 			}

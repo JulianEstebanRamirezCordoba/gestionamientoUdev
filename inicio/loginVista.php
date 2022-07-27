@@ -58,8 +58,28 @@
 						</div>  
 						<button type = "input" class="btn btn-primary mb-3" name="btnGuardar" onclick="validarMandarDatos()" id="guardar">Iniciar sesion</button>
                         </form>
-
 						<p class="mb-3 text-muted">Olvidastes tu contaseña ?   <a href="../restaurarContraseña/visualEnvioCorr.php" class="f-w-450"> Restablecer mi contraceña</a></p>
+					
+						<?php
+      						if(isset($_SESSION['errorInicio'])) {
+  						?>
+  						<div class="form-group">
+      						<div class="row">
+    	  						<div class="col-lg-12">
+              						<div class="text-center">
+                      						<div class="alert alert-warning" role="alert">
+                        				<?php
+						   					echo $_SESSION['errorInicio'];
+						  				?>
+                      						</div>
+                  						</div>
+              						</div>
+          						</div>
+      						</div>
+  						<?php
+      							unset($_SESSION['errorInicio']);
+							}
+  						?>
 					</div>
 				</div>
 				<div class="col-md-6 d-none d-md-block">
@@ -91,11 +111,7 @@ function validarMandarDatos(){
 	let correo = document.getElementById("email").value;
 	let password = document.getElementById("password").value;
 	if(correo === "" || correo === null || password === null || password === ""){
-		Swal.fire(
-		  'Alerta',
-		  'Los campos deben traer tu correo y tu contraseña Asignada',
-		  'warning'
-		) 
+		alert("Se encuentra un campo vacio");
 	}
 }
 

@@ -192,8 +192,12 @@ session_start();
         }
 
 
-        $asunto = "Puta";
-        $contenidoMensaje = "Hola mundo";
+        $asunto = "Hola este es un mensaje para dar solucion a tu recuperacion de contraseña";
+        $contenidoMensaje = "Has pedido una nueva contraseña para tu cuenta" . $adactarDatos['nombre']. 
+        " " . $adactarDatos['apellido'] . "solicitada en la fecha " . $adactarDatos['fecha'] . "." .
+        "<h4>" . $adactarDatos['codigoReset'] . "</h4>". 
+        "El instituto de formacion " . $instituto . "<br>" . 
+        "El tipo que te dertemina en el institucionalmente " . $tipo;
 
         $seEnvia = $corresponsal->enviarCodigo($correoUsuario, $asunto, $contenidoMensaje);
 

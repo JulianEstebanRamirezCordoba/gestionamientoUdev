@@ -36,23 +36,22 @@ require_once "../navegador/menuOrquestador.php";
                                                     <form action="controlCreacionUser.php" method="POST">
                                                     <div class="form-group">
                                                             <label>Nombres</label>
-                                                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre completo">
+                                                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre completo" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="correo">Correo Electronico</label>
-                                                            <input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailHelp" placeholder="correo electronico">
-                                                            <small id="emailHelp" class="form-text text-muted">Campo Obligatorio</small>
+                                                            <input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailHelp" placeholder="correo electronico" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputPassword1">Contraseña</label>
-                                                            <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
+                                                            <input type="password" class="form-control" id="password" name="password" minlength="6" maxlength="20" placeholder="Contraseña" required>
                                                         </div>
                                                         <div class="form-group form-check">
-                                                            <input type="checkbox" class="form-check-input" id="cheVal">
+                                                            <input type="checkbox" class="form-check-input" id="cheVal" required>
                                                             <label class="form-check-label" for="cheVal">Acepto Terminos</label>
                                                         </div>
                                                         <div class="mb-4">
-                                                        <button type="submit" name="registrar" id="registrar" class="btn btn-primary">Registrar</button>
+                                                        <button type="submit" name="registrar" id="registrar" onclick="validarCampos()" class="btn btn-primary">Registrar</button>
                                                         </div>
                                                         <?php
       				                                        if(isset($_SESSION['enviadoBien'])) {
@@ -77,9 +76,9 @@ require_once "../navegador/menuOrquestador.php";
   				                                        ?>
   				                                            <div class="form-group">
       				                                            <div class="row">
-    	  				                                            <div class="col-lg-6">
+    	  				                                            <div class="col-lg-12">
               				                                            <div class="text-center">
-                      				                                            <div class="alert alert-error" role="alert">
+                      				                                            <div class="alert alert-warning" role="alert">
                         		                                            <?php
 						   			                                            echo $_SESSION['enviadoIncorrecto'];
 						  		                                            ?>
@@ -97,15 +96,15 @@ require_once "../navegador/menuOrquestador.php";
                                                 <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>Apellidos</label>
-                                                            <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Apellido">
+                                                            <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Apellido" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Documento Identificacion</label>
-                                                            <input type="number" id = "identificacion" name="identificacion" class="form-control" placeholder="Cedula o Tarjeta identidad">
+                                                            <input type="number" id = "identificacion" name="identificacion" class="form-control" placeholder="Cedula o Tarjeta identidad" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Contacto </label>
-                                                            <input type="number" id="numeroCel" name="numeroCel" class="form-control" placeholder="Numero telefonico">
+                                                            <input type="number" id="numeroCel" name="numeroCel" class="form-control" placeholder="Numero telefonico" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleFormControlSelect1">Instituto</label>
@@ -119,7 +118,7 @@ require_once "../navegador/menuOrquestador.php";
                                                         <div class="form-group">
                                                             <label for="exampleFormControlSelect1">Tipo Usuario</label>
                                                             <select class="form-control" id="tipoSelect" name="tipoSelect">
-                                                            <option value="">Seleccione</option>
+                                                                <option value="">Seleccione</option>
                                                                 <option value="0">Administrativo</option>
                                                                 <option value="1">Docente</option>
                                                                 <option value="2">Monitor</option>
@@ -144,27 +143,28 @@ require_once "../navegador/menuOrquestador.php";
 
     <script>
     function validarCampos(){
-        let email = document.getElementById().value;
-        let password = document.getElementById().value;
-        let instituto = document.getElementById().value;
-        let tipo = document.getElementById().value;
-        let contacto = document.getElementById().value;
-        let documento = document.getElementById().value;
-
-        if(tipo == "" || instituto == ""){
-
-        
-        }else if(email == null || email == "" && password == "" || password == null){
+        let instituto = document.getElementById("instituoSelect").value;
+        let tipo = document.getElementById("tipoSelect").value;
+        let contra = document.getElementById("password").value;
             
-
-        }else if(documento == "" || documento == null && contacto == "" || contacto == null){
-
-            
+        if(contra.length <= 6){
+            Swal.fire({
+                icon: 'alert',
+                title: 'contraseña muy insegura',
+                text: 'La contraseña es demaciado corta porfavor ingrese una mas segura',
+                footer: '<a href="../inicio/manual/index.html">Si tienes dudas en el manejo vea al Manual</a>'
+            })
         }
-
-
-
-    }
+        
+        if(tipo == "" || instituto == ""){
+            Swal.fire({
+                icon: 'alert',
+                title: 'Se tiene que seleccionar',
+                text: 'Seleccione un tipo o un instituto ya que estan vacios',
+                footer: '<a href="../inicio/manual/index.html">Si tienes dudas en el manejo vea al Manual</a>'
+            })
+        }
+        }
     </script>
 </body>
 </html>

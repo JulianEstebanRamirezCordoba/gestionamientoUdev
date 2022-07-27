@@ -23,7 +23,7 @@
 
 
 <body>
-	<div class=" pcoded-main-container">
+	<div class="pcoded-main-container-password">
 		<div class="col-md-8">
 			<div class="card">
 				<div class="card-body">

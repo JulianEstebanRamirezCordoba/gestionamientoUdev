@@ -28,7 +28,7 @@ if($_SESSION['cambio_pass'] == null || $_SESSION['cambio_pass'] == ""){
 </head>
 
 <body>
-<div class=" pcoded-main-container">
+<div class="pcoded-main-container-password">
 	<div class="col-md-8">
 		<div class="card">
 			<div class="card-body">
@@ -57,9 +57,9 @@ if($_SESSION['cambio_pass'] == null || $_SESSION['cambio_pass'] == ""){
 		function validarCampos(){
 		let passIni = document.getElementById('password').value;
 		let passConfi = document.getElementById('passwordConfi').value;
-
+		
 			if(passIni != null && passConfi != null){
-				if(passIni == passConfi){
+				if(passIni == passConfi && passIni.length <= 6){
 					document.getElementById('modificarPass').disabled = false;
 
 				}else{

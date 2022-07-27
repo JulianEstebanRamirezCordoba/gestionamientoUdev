@@ -29,7 +29,7 @@
 </head>
 
 <body>
-<div class="pcoded-main-container">
+<div class="pcoded-main-container-password">
 	<div class="col-md-6">
 		<div class="card">
 			<div class="card-body">

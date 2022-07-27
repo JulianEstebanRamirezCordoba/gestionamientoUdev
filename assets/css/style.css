@@ -2901,9 +2901,24 @@ pre[class*=language-]:before {
     float: unset;
     right: 0;
     top: 0;
-    margin-top: 100px;
+    margin-top: 10px;
     margin-left: 264px;
     min-height: 100vh;
+    transition: all 0.3s ease-in-out;
+}
+
+.pcoded-main-container-password{
+    position: relative;
+    margin: 0 auto;
+    padding-top: 0;
+    display: block;
+    clear: both;
+    float: unset;
+    right: 0;
+    top: 0;
+    margin-top: 100px;
+    margin-left: 264px;
+    min-height: 70vh;
     transition: all 0.3s ease-in-out;
 }
 
@@ -8507,6 +8522,22 @@ table.dataTable tbody > tr.selected td.select-checkbox:after, table.dataTable tb
 .switch.switch-info input[type=checkbox]:checked + .cr:before {
     background: #0288d1;
 }
+
+.errores {
+    background-color: #fa978c;
+    width: 60%;
+    height: 30px;
+    border: 1px solid #fa978c;
+    margin: 10px 0; 
+    border-radius: 5px;
+}
+
+.ErrorPasswordAntigua, .ErrorConfiPassword {
+    color: red;
+    padding: 5px;
+
+}
+
 
 /**====== Switches css end ======**/
 

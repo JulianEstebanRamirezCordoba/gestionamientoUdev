@@ -41,6 +41,9 @@ if($_SESSION['cambio_pass'] == null || $_SESSION['cambio_pass'] == ""){
                     <div class="form-group" id="passwordVal">
                         <input type="password" onkeyup="validarCampos()" name="passwordConfi" id="passwordConfi" tabindex="2" class=" form-control span4" placeholder="Confirmar contraseña" required>
                     </div>
+					<div class="Erro">
+					<p class="ErrorConfiPassword" id="errConfi"></p>
+					</div>
 					<div class="row justify-content-center">		
 						<button name = "modificarPass" id="modificarPass" disabled = "true" class="btn btn-primary mb-3">Cambiar Contraseña</button>
 					</div>	
@@ -57,12 +60,17 @@ if($_SESSION['cambio_pass'] == null || $_SESSION['cambio_pass'] == ""){
 		function validarCampos(){
 		let passIni = document.getElementById('password').value;
 		let passConfi = document.getElementById('passwordConfi').value;
+		let confi = document.getElementById("errConfi");
+		let ErrorConfi = document.querySelector('.Erro');
 		
 			if(passIni != null && passConfi != null){
 				if(passIni == passConfi && passIni.length <= 6){
 					document.getElementById('modificarPass').disabled = false;
+					confi.textContent = "";
 
 				}else{
+					confi.textContent = "Las contraseñas de confirmacion no conciden ";
+				    ErrorConfi.classList.toggle('Errores');
 					document.getElementById('modificarPass').disabled = true;
 				}
 			}

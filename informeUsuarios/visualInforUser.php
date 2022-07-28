@@ -22,10 +22,9 @@ require_once "../navegador/menuOrquestador.php";
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h6>Sistema Gestion Udevo</h6>
-                                                <br>
+                                            <h6 class="row">Sistema Gestion Udevo</h6>
                                             <form action="controlInforUser.php" method="post">
-                                                <div class="col-md-6">
+                                                <div class="col-md-5">
                                                     <input class="form-control" id = "buscar" name = "buscar" type="text" placeholder="Buscar. . .">
                                                 </div>
                                             </form>
@@ -74,16 +73,65 @@ require_once "../navegador/menuOrquestador.php";
                         </button>
                     </div>
                     <div class="modal-body">
-
-                        <div class="modal-footer">
-                            <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                            <button type="submit" name="modificar_materia" id="modificar_materia"class="btn btn-primary">Modificar</button>
+                        <div class="row">
+                            <div class="col-md-6"> 
+                                <form action="controlCreacionUser.php" method="POST">
+                                <div class="form-group">
+                                    <label>Nombres</label>
+                                        <input type="text" class="form-control" id="actualizarNombre" name="actualizarNombre" placeholder="Nombre completo" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="correo">Correo Electronico</label>
+                                        <input type="email" class="form-control" id="actualizarCorreo" name="actualizarCorreo" aria-describedby="emailHelp" placeholder="correo electronico" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Estado Usuario</label>
+                                        <select class="form-control" id="actualizarEstado" name="actualizarEstado">
+                                            <option value="1">Activo</option>
+                                            <option value="0">Desactivo</option>
+                                        </select>
+                                    </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Tipo Usuario</label>
+                                        <select class="form-control" id="actualizarTipo" name="actualizarTipo">
+                                            <option value="0">Administrativo</option>
+                                            <option value="1">Docente</option>
+                                            <option value="2">Monitor</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Apellidos</label>
+                                            <input type="text" id="actualizarApellido" name="actualizarApellido" class="form-control" placeholder="Apellido" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Documento Identificacion</label>
+                                            <input type="number" id = "actualizarIdentificacion" name="actualizarIdentificacion" class="form-control" placeholder="Cedula o Tarjeta identidad" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Contacto </label>
+                                            <input type="number" id="actualizarNumeroCel" name="actualizarNumeroCel" class="form-control" placeholder="Numero telefonico" required>
+                                    </div>
+                                    <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Instituto</label>
+                                        <select class="form-control" id="actualizarInstituto" name="actualizarInstituto">
+                                            <option value="0">Udev</option>
+                                            <option value="1">Compubuga</option>
+                                            <option value="2">Moscati</option>
+                                        </select>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+                                        <button type="submit" name="modificarUsuario" id="modificarUsuario"class="btn btn-primary">Modificar</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
 
     <script>
         getDatos()

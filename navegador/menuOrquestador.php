@@ -11,6 +11,10 @@ session_start();
 		if($_SESSION['usuario'] != null || $_SESSION['usuario'][0] != null){
 			define("nombreUsuario", $_SESSION['datosUsuarios'][0]);
 			define("apellidoUsuario", $_SESSION['datosUsuarios'][1]);
+			$admin = 0;
+			$docentes = 1;
+			$monitor = 2;
+			$extra = 3;
 
 		}else{
 			header("Location: ../inicio/cierreSesion.php");
@@ -63,7 +67,6 @@ session_start();
 					$visualDassboard = '<li class="nav-item"><a href="../complementoDassboard/dassboard.php" 
 					class="nav-link"><span class="pcoded-micon"><i class="feather icon-home"></i>
 		    		</span><span class="pcoded-mtext">Inicio</span></a></li>';
-	  				
 					$InformeUsuarios =  '<li class="nav-item pcoded-hasmenu">
 					<a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Usuarios</span></a>
 					<ul class="pcoded-submenu">
@@ -71,19 +74,21 @@ session_start();
 						<li class=""><a href="../informeUsuarios/visualCreacionUser.php" class="">Crear Usuarios</a></li>
 					</ul>
 					</li>';
-
 					$visualCarreras = '<li class="nav-item"><a href="../carrera/carreraVista.php" class="nav-link"><span 
 					class="pcoded-micon"><i class="feather icon-home"></i></span><span 
 					class="pcoded-mtext">Carreras</span></a></li>';
-
 					$visualmaterias = '<li class="nav-item"><a href="../materia/materiaVista.php" class="nav-link"><span 
 					class="pcoded-micon"><i class="feather icon-home"></i></span><span 
 					class="pcoded-mtext">Materias</span></a></li>';
 
-                    $util->validarVista(0, $visualDassboard);
-                    $util->validarVista(0, $InformeUsuarios);
-					$util->validarVista(0, $visualCarreras);
-					$util->validarVista(0, $visualmaterias);
+                    $util->validarVista($admin, $visualDassboard);
+                    $util->validarVista($admin, $InformeUsuarios);
+					$util->validarVista($admin, $visualCarreras);
+					$util->validarVista($admin, $visualmaterias);
+
+					$util->validarVista($docentes, $visualDassboard);
+
+					$util->validarVista($monitor, $visualDassboard);
 
 					?>
 				</ul>

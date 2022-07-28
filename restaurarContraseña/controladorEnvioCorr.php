@@ -194,7 +194,10 @@ session_start();
 
         $asunto = "Hola este es un mensaje para dar solucion a tu recuperacion de contraseña";
         $contenidoMensaje = "Has pedido una nueva contraseña para tu cuenta" . $adactarDatos['nombre']. 
-        " " . $adactarDatos['apellido'] . "solicitada en la fecha " . $adactarDatos['fecha'] . "." .
+        " " . $adactarDatos['apellido'] . "solicitada en la fecha " . $adactarDatos['fecha'] . ".<br>" .
+        "Udev te acompaña con tu informacion y para tu seguridad te mandamos el codigo al problema identificado con el codigo " . $adactarDatos['res_id'] .
+        " asi tambien en la aplicacion si poses dudas podras dirigiste al apartado del manual para dudas" .
+        "<br><br> <<Codigo>>" .
         "<h4>" . $adactarDatos['codigoReset'] . "</h4>". 
         "El instituto de formacion " . $instituto . "<br>" . 
         "El tipo que te dertemina en el institucionalmente " . $tipo;

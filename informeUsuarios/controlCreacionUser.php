@@ -5,6 +5,10 @@ include_once "../util/util.php";
 $util = new util();
 $utilModelo = new utilModelo();
 
+if(!isset($_SESSION['usuario'])){
+    header("Location: ../inicio/loginVista.php");
+}
+
 define("TABLA", "usuario");
 
 

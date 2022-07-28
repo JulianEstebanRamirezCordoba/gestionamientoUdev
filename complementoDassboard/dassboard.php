@@ -18,7 +18,7 @@
 				<div class="pcoded-inner-content">
 					<div class="main-body">
 						<div class="page-wrapper">
-						<div class="page-header">
+							<div class="page-header">
 								<div class="page-block">
 									<div class="row align-items-center">
 										<div class="col-md-12">
@@ -110,6 +110,26 @@
 									</div>
 								</div>
 						    </div>
+							<div class="col-sm-12">
+									<div class="card">
+										<div class="card-header">
+											<img src="" alt="">
+											<h3 class="mb-2 f-w-500 text-center">Bienvenidos</h3>
+											<img src="" alt="">
+										</div>
+										<div class="card-body">
+											<br>
+											<p class="text-muted mb-4 text-center">Atravez de este espacio podras subir la informacion, 
+												visualizar tus asignaciones, horarios, materias, aulas y instituciones.</p>
+											<div class="clearfix"></div>
+											<p class="text-muted mb-4 text-center">Estaremos atentos a cualquier dificultad que tengas o se te presente</p>
+											<div class="clearfix"></div>
+											<p class="text-muted mb-0 text-center">Para informacion mas detallada sobre el manejo de la plataforma consulte el manual o contactate con administracion
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
                         </div>
 					</div>
                 </div>

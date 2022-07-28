@@ -45,7 +45,7 @@ require_once "../navegador/menuOrquestador.php";
                                                             <th>Instuticion</th>
                                                             <th>Tipo Usuario</th>
                                                             <th>Estado Usuario</th>
-                                                            <th>Opciones</th>
+                                                            <th>Editado</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="tabla">

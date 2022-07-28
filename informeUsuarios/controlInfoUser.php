@@ -3,7 +3,6 @@ require_once "../conexion.php";
 include_once "../util/util.php";
 
 $util = new util();
-if(isset($_SESSION['usuario'])){
     define("TABLA_USER", "usuario");
 
     $column = ['usu_id', 'usu_nombre', 'usu_apellido', 'usu_email', 'usu_identificacion', 
@@ -101,8 +100,7 @@ echo json_encode($visual, JSON_UNESCAPED_UNICODE);
     return $retornoTipo;
 
     }
-
-}else{
+if(!isset($_SESSION['usuario'])){
     header("Location: ../inicio/loginVista.php");
 }
 ?>

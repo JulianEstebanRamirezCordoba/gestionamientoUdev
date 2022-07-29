@@ -36,7 +36,14 @@ $util = new util();
     $visual = "";
 
     if($result->num_rows >= 1){
-        while($informe = $result->fetch_assoc()){
+        while($informe = $result->fetch_array()){
+            if($informe != null){
+                $informacionUsuario = $informe[0] . "," . $informe[1] . "," . $informe[2] . ","
+                . $informe[3] . "," . $informe[4] . "," . $informe[5] . "," . $informe[6] . ","
+                . $informe[7] . "," . $informe[8];
+
+            }
+
             $instituto = converInstituto($informe['usu_institucion']);
             $tipoUser = convereeUsuario($informe['tipo_usuario']);
             $estado = $util->converEstado($informe['usu_estado']);
@@ -51,12 +58,12 @@ $util = new util();
             $visual .= '<td>'.$instituto.'</td>';
             $visual .= '<td>'.$tipoUser.'</td>';
             $visual .= '<td>'.$estado.'</td>';
-            $visual .= '<td><a data-toggle="modal" href="#editar" >Editar</a></td>';
+            $visual .= "<td><a data-toggle=\"modal\" href=\"#editar\" onclick=\"sincronizar('$informacionUsuario')\">Editar</a></td>";
             $visual .= '</tr>';
         }
     }else{
         $visual .= '<tr>';
-        $visual .= '<td colspan="7" class="row justify-content-center">Sin resultados en la busqueda</td>';
+        $visual .= '<td colspan="7" class="mb-2 f-w-500 text-center">Sin resultados en la busqueda</td>';
         $visual .= '</tr>'; 
 
     }

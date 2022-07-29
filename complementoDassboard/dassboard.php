@@ -39,7 +39,7 @@
 										<div class="card-body">
 											<div class="row align-items-center m-b-15">
 												<div class="col">
-													<h6 class="m-b-5 text-white">Usuarios Hibridos UDEV</h6>
+													<h6 class="m-b-5 text-white">Usuarios Familias  UDEV</h6>
 													<h3 class="m-b-0 text-white"><?php
 													echo $numeroUdev?></h3>
 												</div>
@@ -119,7 +119,7 @@
 										</div>
 										<div class="card-body">
 											<br>
-											<p class="text-muted mb-4 text-center">Atravez de este espacio podras subir la informacion, 
+											<p class="text-muted mb-4 text-center">A travez de este espacio podras subir la informacion, 
 												visualizar tus asignaciones, horarios, materias, aulas y instituciones.</p>
 											<div class="clearfix"></div>
 											<p class="text-muted mb-4 text-center">Estaremos atentos a cualquier dificultad que tengas o se te presente</p>

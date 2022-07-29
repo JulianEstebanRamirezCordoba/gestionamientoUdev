@@ -8408,6 +8408,12 @@ table.dataTable tbody > tr.selected td.select-checkbox:after, table.dataTable tb
     box-shadow: 0 0 0 1px #e2e5e8;
 }
 
+.ocultarId{
+    width: 0px;
+    overflow: hidden;
+    text-indent: -999px;
+}
+
 .tab-content > .tab-pane {
     display: none;
 }

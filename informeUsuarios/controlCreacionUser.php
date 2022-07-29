@@ -99,49 +99,38 @@ function actualizarDatos(){
     $institutoActualizado);
 
     $condicion = "usu_id";
-
-    if(isset($_POST['id'])){
-        $idUsuario = $_POST['id'];
-        $accion = $utilModelo->actualizarDatos(TABLA, $campoActualizarDataBase, $valoresActualizar, $condicion, $idUsuario);
-    
+    if(isset($_POST['idActualizar'])){
+        $idConsult = $_POST['idActualizar'];
+        $accion = $utilModelo->actualizarDatos(TABLA, $campoActualizarDataBase, $valoresActualizar, $condicion, $idConsult);
         if($accion == 1){
-            $_SESSION['actualizar'] = "Ok vista";
+            $_SESSION['actualizar'] = "Bien actualizo";
+            header("Location: visualInforUser.php");
 
         }else{
-            $_SESSION['actualizar'] = "Error actualizar";
+            $_SESSION['errorActualizar'] = "Error actualizar";
+            header("Location: visualInforUser.php");
 
         }
 
     }else{
+
         echo "<body>
         <script src=\"//cdn.jsdelivr.net/npm/sweetalert2@11\"></script>";
         echo " <script>
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-              confirmButton: 'btn btn-success',
-              cancelButton: 'btn btn-danger'
-            },
-            buttonsStyling: false
-          })
-          
-          swalWithBootstrapButtons.fire({
-            title: 'Error al modificar usuario',
-            text: 'Usuario no encontrado intente de nuevo mas tarde',
+        Swal.fire({
+            title: 'Error al editar datos',
+            text: 'Se presento errores al actualizar tus datos',
             icon: 'error',
-            showCancelButton: true,
-            cancelButtonText: 'Salir',
-            reverseButtons: false
-          }).then((result) => {
-            if (
-              result.dismiss === Swal.DismissReason.cancel
-            ) {
+            showCancelButton: false,
+            confirmButtonColor: '#ff5733',
+            confirmButtonText: 'Ok'
+            }).then((result) => {
+            if (result.isConfirmed) {
                 window.location.href='visualInfoUser.php';
-              )
             }
-          })
+            })
             </script>
             </body>";
-
     }
 
 }

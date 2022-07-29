@@ -28,7 +28,6 @@ require_once "../navegador/menuOrquestador.php";
                                                     <input class="form-control" id = "buscar" name = "buscar" type="text" placeholder="Buscar. . .">
                                                 </div>
                                             </form>
-
                                         </div>
                                         <div class="main-search open">
                                         <div class="card-body table-border-style">
@@ -63,6 +62,39 @@ require_once "../navegador/menuOrquestador.php";
             </div>
         </div>
     </section>
+        <?php
+        if(isset($_SESSION['actualizar'])) {
+  	    ?>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  		    <script>
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Se realizo la edicion del usuario',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+            </script>
+  	    <?php
+      	    unset($_SESSION['actualizar']);
+        }else if(isset($_SESSION['errorActualizar'])){
+
+  	    ?>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  		    <script>
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Algo salio mal intentalo de nuevo',
+                    showConfirmButton: false,
+                    timer: 5000
+                })
+            </script>
+  	    <?php
+      	    unset($_SESSION['errorActualizar']);  
+        }
+
+  	    ?>
         <div class="modal fade" id="editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -76,6 +108,7 @@ require_once "../navegador/menuOrquestador.php";
                         <div class="row">
                             <div class="col-md-6"> 
                                 <form action="controlCreacionUser.php" method="POST">
+                                <input type="hidden" class="ocultarId" id="idActualizar" name="idActualizar">
                                 <div class="form-group">
                                     <label>Nombres</label>
                                         <input type="text" class="form-control" id="actualizarNombre" name="actualizarNombre" placeholder="Nombre completo" required>
@@ -132,7 +165,6 @@ require_once "../navegador/menuOrquestador.php";
                 </div>
             </div>
         </div>
-
     <script>
         getDatos()
         document.getElementById('buscar').addEventListener('keyup', getDatos)
@@ -154,8 +186,18 @@ require_once "../navegador/menuOrquestador.php";
             
         }
 
-        function optimizar(infoUser){
+        function sincronizar(infoUser){
+            let admin = infoUser.split(",");
 
+            $('#idActualizar').val(admin[0]);
+            $('#actualizarNombre').val(admin[1]);
+            $('#actualizarApellido').val(admin[2]);
+            $('#actualizarCorreo').val(admin[3]);
+            $('#actualizarIdentificacion').val(admin[4]);
+            $('#actualizarNumeroCel').val(admin[5]);
+            $('#actualizarInstituto').val(admin[6]);
+            $('#actualizarTipo').val(admin[7]);
+            $('#actualizarEstado').val(admin[8]);
         }
     </script>
     <script src="../assets/js/vendor-all.min.js"></script>

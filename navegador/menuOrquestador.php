@@ -74,16 +74,18 @@ session_start();
 						<li class=""><a href="../informeUsuarios/visualCreacionUser.php" class="">Crear Usuarios</a></li>
 					</ul>
 					</li>';
-					$visualCarreras = '<li class="nav-item"><a href="../carrera/carreraVista.php" class="nav-link"><span 
-					class="pcoded-micon"><i class="feather icon-home"></i></span><span 
-					class="pcoded-mtext">Carreras</span></a></li>';
+
+					$visualGrupos = '<li class="nav-item"><a href="../grupo/grupoVista.php" class="nav-link"><span 
+					class="pcoded-micon"><i class="feather icon-users"></i></span><span 
+					class="pcoded-mtext">Grupos</span></a></li>';
+
 					$visualmaterias = '<li class="nav-item"><a href="../materia/materiaVista.php" class="nav-link"><span 
 					class="pcoded-micon"><i class="feather icon-book"></i></span><span 
 					class="pcoded-mtext">Materias</span></a></li>';
 
                     $util->validarVista($admin, $visualDassboard);
                     $util->validarVista($admin, $InformeUsuarios);
-					$util->validarVista($admin, $visualCarreras);
+					$util->validarVista($admin, $visualGrupos);
 					$util->validarVista($admin, $visualmaterias);
 
 					$util->validarVista($docentes, $visualDassboard);

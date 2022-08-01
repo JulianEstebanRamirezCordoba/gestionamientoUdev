@@ -2,7 +2,6 @@
     @session_start();
 	include_once "../navegador/menuOrquestador.php";
 ?>
-
     
     <!-- [ Header ] end -->
     <!-- [ Main Content ] start -->

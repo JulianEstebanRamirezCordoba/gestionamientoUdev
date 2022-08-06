@@ -49,17 +49,24 @@
 
         }
       
-        function consultaTodosDatos($nombreTabla, $camposConsult = " 1 ", $valoresConsult = " 1 "){
+        function consultaTodosDatos($nombreTabla, $camposExtraccion = array("*"), $camposConsult = " 1 ", $valoresConsult = " 1 "){
             global $conexion;
             $condicion = $camposConsult . " = '" . $valoresConsult . "'";
+            $extraccion = "";
 
-            $consulta = "SELECT * 
+            for($indexcamposEx = 0; $indexcamposEx < count($camposExtraccion); $indexcamposEx++){
+                $extraccion = ($indexcamposEx == (count($camposExtraccion) - 1 )) ? $extraccion.
+                $camposExtraccion[$indexcamposEx] : $extraccion. " ". $camposExtraccion[$indexcamposEx]. ", ";
+
+            }
+
+            $consulta = "SELECT $extraccion 
             FROM $nombreTabla 
             WHERE $condicion;";
+
             $query = mysqli_query($conexion, $consulta);
             
             return $query;
-
         } 
 
         function consultaDatosUnicos($nombreTabla = "", $camposExtraccion = array("*"), $camposConsult, $valoresConsult, $limite = ""){

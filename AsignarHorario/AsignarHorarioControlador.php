@@ -4,6 +4,7 @@ include_once "../util/util.php";
 
 $util = new util();
 $utilModelo = new utilModelo();
+define("TABLA_ASIGNAR", "materia_asignada_horario");
 
 if(!isset($_SESSION['usuario'])){
     header("Location: ../inicio/loginVista.php");
@@ -12,8 +13,6 @@ if(!isset($_SESSION['usuario'])){
 if(isset($_POST['guardado'])){
     insertarDatos();
 }
-
-define("TABLA", "materia_asignada_horario");
 
 function insertarDatos(){
     global $utilModelo;
@@ -26,7 +25,18 @@ function insertarDatos(){
 
     $campos = array("id_materia2", "id_horario2", "id_sala1", "id_usuario3", "id_grupo1");
     $valoresEnvio = array($materia, $horario, $sala, $usuario, $grupo);
-    $utilModelo->insertarDatos(TABLA, $campos, $valoresEnvio);
+    $consulta = $utilModelo->insertarDatos(TABLA_ASIGNAR, $campos, $valoresEnvio);
+
+    if($consulta == 1){
+        $_SESSION['enviadoBien'] = "Se a Asignado orrectamente el registro";
+        header("Location: AsignarHorarioVista.php");
+
+    }else{
+        $_SESSION['enviadoIncorrecto'] = "A ocurrido un error intente de nuevo";
+
+    }
+
+ 
 
 }
 

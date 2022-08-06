@@ -83,9 +83,13 @@ session_start();
 					class="pcoded-micon"><i class="feather icon-book"></i></span><span 
 					class="pcoded-mtext">Materias</span></a></li>';
 
-					$visualHorario = '<li class="nav-item"><a href="../AsignarHorario/AsignarHorarioVista.php" class="nav-link"><span 
-					class="pcoded-micon"><i class="feather icon-book"></i></span><span 
-					class="pcoded-mtext">Horario</span></a></li>';
+					$visualHorario = '<li class="nav-item pcoded-hasmenu">
+					<a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-clock"></i></span><span class="pcoded-mtext">Horarios</span></a>
+					<ul class="pcoded-submenu">
+						<li class=""><a href="../AsignarHorario/AsignarHorarioTabla.php" class="">Formato Hoarios</a></li>
+						<li class=""><a href="../AsignarHorario/AsignarHorarioVista.php" class="">Asignar horario</a></li>
+					</ul>
+					</li>';
 
 
 

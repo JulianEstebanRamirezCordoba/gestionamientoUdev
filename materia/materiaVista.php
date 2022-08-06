@@ -2,7 +2,7 @@
     @session_start();
 	include_once "../navegador/menuOrquestador.php";
 ?>
-    
+    <!-- papi jero crea su rama end -->
     <!-- [ Header ] end -->
     <!-- [ Main Content ] start -->
     <section class="pcoded-main-container">
@@ -194,7 +194,6 @@
       </div>
       <div class="modal-body">
       <form class="span8" action="materiaControlador.php" method="post" >
-
 
       <div class="form-group">
                                 <div>

@@ -31,10 +31,10 @@ $utilModelo = new utilModelo();
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <form action="AsignarHorarioControlador.php" method="POST">
+                                                    <form action="controlCreacionUser.php" method="POST">
                                                     <div class="form-group">
                                                         <label for="exampleFormControlSelect1">Materia</label>
-                                                        <select class="form-control" id="tipoMateria" name="tipoMateria" required>
+                                                        <select class="form-control" id="tipoMateria" name="tipoMateria">
                                                             <option selected disabled value="">-</option>
                                                             <?php
                                                                 $tablaMateria = "materia";
@@ -48,14 +48,14 @@ $utilModelo = new utilModelo();
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleFormControlSelect1">Horario</label>
-                                                        <select class="form-control" id="tipoHorario" name="tipoHorario" required>
+                                                        <select class="form-control" id="tipoHorario" name="tipoHorario">
                                                             <option selected disabled value="">-</option>
                                                             <?php
                                                                 $tablaHorario = "horario";
                                                                 $extraccion = array("hor_id", "hor_dia_asignado", "hor_diaHoraEntrada", "hor_diaHoraSalida");
                                                                 $consulta = $utilModelo->consultaTodosDatos($tablaHorario, $extraccion);
                                                                 while($inforHor = $consulta->fetch_assoc()){ 
-                                                                    echo "<option value = ".$inforHor['hor_id'].">".$inforHor['hor_dia_asignado']." - ".$inforHor['hor_diaHoraEntrada']." / ".$inforHor['hor_diaHoraSalida']."</option>";
+                                                                    echo "<option value = ".$inforHor['hor_id'].">".$inforHor['hor_dia_asignado']." - ".$inforHor['hor_diaHoraEntrada']."</option>";
                                                                 }
                                                             ?>
                                                         </select>
@@ -70,7 +70,8 @@ $utilModelo = new utilModelo();
       				                                        <div class="row">
     	  				                                        <div class="col-lg-6">
               				                                        <div class="text-center">
-                      				                                        <div class="alert alert-success" role="alert">
+                      				                                        <div class="ale
+                                                                            srt alert-success" role="alert">
                         		                                        <?php
 						   			                                        echo $_SESSION['enviadoBien'];
 						  		                                        ?>
@@ -106,7 +107,7 @@ $utilModelo = new utilModelo();
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="exampleFormControlSelect1">Salas</label>
-                                                        <select class="form-control" id="tipoSala" name="tipoSala" required>
+                                                        <select class="form-control" id="tipoSala" name="tipoSala">
                                                             <option selected disabled value="">-</option>
                                                             <?php
                                                                 $tablaSala = "sala";
@@ -120,7 +121,7 @@ $utilModelo = new utilModelo();
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleFormControlSelect1">Docente</label>
-                                                        <select class="form-control" id="tipoDocente" name="tipoDocente" required>
+                                                        <select class="form-control" id="tipoDocente" name="tipoDocente">
                                                             <option selected disabled value="">-</option>
                                                             <?php
                                                                 $tablaSala = "usuario";
@@ -136,7 +137,7 @@ $utilModelo = new utilModelo();
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleFormControlSelect1">Grupo</label>
-                                                        <select class="form-control" id="tipoGru" name="tipoGru" required>
+                                                        <select class="form-control" id="tipoGru" name="tipoGru">
                                                             <option selected disabled value="">-</option>
                                                             <?php
                                                                 $tablaGrupo = "grupo";
@@ -167,21 +168,7 @@ $utilModelo = new utilModelo();
 
     <script>
         function validarCampos(){
-            let materia = document.getElementById("tipoMateria").value;
-            let horario = document.getElementById("tipoHorario").value;
-            let docente = document.getElementById("tipoDocente").value;
-            let grupo = document.getElementById("tipoGru").value;
-            let sala = document.getElementById("tipoSala").value;
 
-            if(materia == "" || horario == "" || docente == "" || grupo == "" || sala == ""){
-                Swal.fire({
-                icon: 'alert',
-                title: 'Se tiene que seleccionar',
-                text: 'Llene todos los campos ya que son obligatorios',
-                footer: '<a href="../inicio/manual/index.html">Si tienes dudas en el manejo vea al Manual</a>'
-            })
-                
-            }
 
         }
     </script>

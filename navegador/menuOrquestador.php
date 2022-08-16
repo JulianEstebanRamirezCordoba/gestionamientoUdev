@@ -88,8 +88,13 @@ session_start();
 					<ul class="pcoded-submenu">
 						<li class=""><a href="../AsignarHorario/AsignarHorarioTabla.php" class="">Formato Hoarios</a></li>
 						<li class=""><a href="../AsignarHorario/AsignarHorarioVista.php" class="">Asignar horario</a></li>
-					</ul>
+					    <li class=""><a href="../gestiones/gestionesVista.php" class="">Gestiones</a></li>
+						</ul>
 					</li>';
+					
+
+					
+				
 
 
 
@@ -98,6 +103,7 @@ session_start();
 					$util->validarVista($admin, $visualGrupos);
 					$util->validarVista($admin, $visualHorario);
 					$util->validarVista($admin, $visualmaterias);
+					
 
 					$util->validarVista($docentes, $visualDassboard);
 

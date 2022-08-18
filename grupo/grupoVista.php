@@ -16,9 +16,7 @@
                                                 <h3 class="m-b-10">GRUPOS</h3>
                                             </div>
                                             <ul class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-users"></i></a></li>
-                                                <li class="breadcrumb-item"><a href="#!">Creación de grupos</a></li>
-                                                <li class="breadcrumb-item"><a href="#!">Edición de grupos</a></li>
+                                                <li class="breadcrumb-item"><a href="../complementoDassboard.php"><i class="feather icon-users"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>

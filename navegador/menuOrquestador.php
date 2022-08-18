@@ -90,6 +90,9 @@ session_start();
 						<li class=""><a href="../AsignarHorario/AsignarHorarioVista.php" class="">Asignar horario</a></li>
 					</ul>
 					</li>';
+					$visualSalas = '<li class="nav-item"><a href="../salas/salaVista.php" class="nav-link"><span 
+					class="pcoded-micon"><i class="feather icon-box"></i></span><span 
+					class="pcoded-mtext">Salas</span></a></li>';
 
 
 
@@ -97,6 +100,7 @@ session_start();
                     $util->validarVista($admin, $InformeUsuarios);
 					$util->validarVista($admin, $visualGrupos);
 					$util->validarVista($admin, $visualHorario);
+					$util->validarVista($admin, $visualSalas);
 					$util->validarVista($admin, $visualmaterias);
 
 					$util->validarVista($docentes, $visualDassboard);

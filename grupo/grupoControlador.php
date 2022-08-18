@@ -21,7 +21,7 @@ $camposInsert = array("gru_nombre", "gru_codigo", "gru_ciclo", "gru_cantidadEstu
 
 $valoresInsert = array("$nombre_grupo", "$codigo_grupo", "$ciclo_grupo", "$cantidadEstudiantes_grupo", "$estado");
 
-$nombreTabla = "carrera";
+$nombreTabla = "grupo";
 
 $utilModelo -> insertarDatos($nombreTabla, $camposInsert, $valoresInsert) ;
 

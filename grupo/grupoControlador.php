@@ -15,65 +15,50 @@ $estado = '1';
 
 
 if(isset($_POST['guardarGrupo'])){
-echo "metodo guardar"; 
+    $camposInsert = array("gru_nombre", "gru_codigo", "gru_ciclo", "gru_cantidadEstudiantes", "gru_estado");
+    $valoresInsert = array("$nombre_grupo", "$codigo_grupo", "$ciclo_grupo", "$cantidadEstudiantes_grupo", "$estado");
+    $nombreTabla = "grupo";
+    $utilModelo -> insertarDatos($nombreTabla, $camposInsert, $valoresInsert) ;
 
-$camposInsert = array("gru_nombre", "gru_codigo", "gru_ciclo", "gru_cantidadEstudiantes", "gru_estado");
-
-$valoresInsert = array("$nombre_grupo", "$codigo_grupo", "$ciclo_grupo", "$cantidadEstudiantes_grupo", "$estado");
-
-$nombreTabla = "grupo";
-
-$utilModelo -> insertarDatos($nombreTabla, $camposInsert, $valoresInsert) ;
-
-echo "si funciono";
-$_SESSION['mensajeOk']="Accion realizada";
+    $_SESSION['mensajeOk']="Accion realizada";
     header('Location:grupoVista.php');
 
 }else if(isset($_POST['modificarGrupo'])){
-    echo "modificar <br>"; 
-
     $id = $_POST['id'];
 
+    $camposActualizar = array("gru_nombre", "gru_codigo", "gru_ciclo", "gru_cantidadEstudiantes");
+    $valoresActualizar = array("$nombre_grupo", "$codigo_grupo", "$ciclo_grupo", "$cantidadEstudiantes_grupo");
 
-$camposActualizar = array("gru_nombre", "gru_codigo", "gru_ciclo", "gru_cantidadEstudiantes");
+    $nombreTabla = "grupo";
+    $campoCondicion = "gru_id";
+    $condiconIgual = "$id";
 
-$valoresActualizar = array("$nombre_grupo", "$codigo_grupo", "$ciclo_grupo", "$cantidadEstudiantes_grupo");
-
-$nombreTabla = "grupo";
-$campoCondicion = "gru_id";
-$condiconIgual = "$id";
-
-$utilModelo -> actualizarDatos($nombreTabla, $camposActualizar, $valoresActualizar, $campoCondicion, $condiconIgual);
-$_SESSION['mensajeOk']="Accion realizada";
-header('Location:grupoVista.php');
+    $utilModelo -> actualizarDatos($nombreTabla, $camposActualizar, $valoresActualizar, $campoCondicion, $condiconIgual);
+    $_SESSION['mensajeOk']="Accion realizada";
+    header('Location:grupoVista.php');
 
 
-}else{
+}else{ 
+    $nombreTabla = "grupo";
+    $camposActualizar = array("gru_estado");
+    $id = $_POST['idEliminar'];
+    $estadoActual = $_POST['modificarEstado'];
 
-        echo "Eliminar <br>"; 
+    if($estadoActual == 1){
+        $valoresActualizar = array("0");
 
+    }else{
+        $valoresActualizar = array("1");
+
+    }
+
+    $campoCondicion = "gru_id";
+    $condiconIgual = "$id";
     
-                $nombreTabla = "grupo";
-                $camposActualizar = array("gru_estado");
-                $id = $_POST['idEliminar'];
-                $estadoActual = $_POST['modificarEstado'];
-
-                if($estadoActual == 1){
-
-                    $valoresActualizar = array("0");
-
-                }else{
-
-                    $valoresActualizar = array("1");
-
-                }
-
-                $campoCondicion = "gru_id";
-                $condiconIgual = "$id";
+    $utilModelo -> actualizarDatos($nombreTabla, $camposActualizar, $valoresActualizar, $campoCondicion, $condiconIgual);
     
-                $utilModelo -> actualizarDatos($nombreTabla, $camposActualizar, $valoresActualizar, $campoCondicion, $condiconIgual);
-            $_SESSION['mensajeOk']="Accion realizada"; 
-            header('Location:grupoVista.php');
+    $_SESSION['mensajeOk']="Accion realizada"; 
+    header('Location:grupoVista.php');
     
     }
 

@@ -2,16 +2,12 @@
     @session_start();
 	include_once "../navegador/menuOrquestador.php";
 ?>
-    <!-- papi jero crea su rama end -->
-    <!-- [ Header ] end -->
-    <!-- [ Main Content ] start -->
     <section class="pcoded-main-container">
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
                 <div class="pcoded-inner-content">
                     <div class="main-body">
                         <div class="page-wrapper">
-                            <!-- [ breadcrumb ] start -->
                             <div class="page-header">
                                 <div class="page-block">
                                     <div class="row align-items-center">
@@ -21,24 +17,19 @@
                                             </div>
                                             <ul class="breadcrumb">
                                                 <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-book"></i></a></li>
-                                                <li class="breadcrumb-item"><a href="#!">CreaciÃ³n de materias</a></li>
-                                                <li class="breadcrumb-item"><a href="#!">EdiciÃ³n de materias</a></li>
+                                                <li class="breadcrumb-item"><a href="#!">Creacið³n de materias</a></li>
+                                                <li class="breadcrumb-item"><a href="#!">Edicið³n de materias</a></li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- [ breadcrumb ] end -->
-                            <!-- [ Main Content ] start -->
                             <div class="row">
-                               
-                                <!-- [ dark-table ] start -->
                                 <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-header">
-                                          <!-- Button trigger modal -->
                                           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalGuardar">
-                                            AÃ‘ADIR NUEVA MATERIA                                  
+                                            Að‘ADIR NUEVA MATERIA                                  
                                           </button>
 
                                         <div class="card-body table-border-style">
@@ -102,41 +93,31 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ dark-table ] end -->
-                            <!-- [ Main Content ] end -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- [ Main Content ] end -->
 
-    <!-- Inicio Modal Guardar -->
 <div class="modal fade" id="modalGuardar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">AÃ‘ADIR NUEVA MATERIA</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Að‘ADIR NUEVA MATERIA</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
       <form class="span8" action="materiaControlador.php" method="post" >
-
-
                         <div class="form-group  ">
                             <input   type="text" name="nombre_materia" id="nombre" tabindex="1" class=" form-control span4"
                                     placeholder="Nombre de la materia" value="" required>
-                        </div>                                          
-                       
-
+                        </div>                       
 </div>
 <div class="modal-footer">
-<!-- Cierre modal -->
 <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-<!-- Boton envio datos -->
 <button type="submit" name="guardarMateria" id="guardarMateria"class="btn btn-primary">Guardar</button>
 </div>
 
@@ -145,9 +126,7 @@
     </div>
   </div>
 </div>
-<!-- Fin Modal Guardar -->
 
-<!-- Inicio Modal Editar -->
 <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -180,9 +159,6 @@
     </div>
   </div>
 </div>
-<!-- Fin Modal Editar -->
-
-<!-- Inicio Modal Eliminar -->
 <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

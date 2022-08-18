@@ -2,15 +2,12 @@
     @session_start();
 	include_once "../navegador/menuOrquestador.php";
 ?>
-    <!-- [ Header ] end -->
-    <!-- [ Main Content ] start -->
     <section class="pcoded-main-container">
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
                 <div class="pcoded-inner-content">
                     <div class="main-body">
                         <div class="page-wrapper">
-                            <!-- [ breadcrumb ] start -->
                             <div class="page-header">
                                 <div class="page-block">
                                     <div class="row align-items-center">
@@ -27,15 +24,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- [ breadcrumb ] end -->
-                            <!-- [ Main Content ] start -->
+                            
                             <div class="row">
-                               
-                                <!-- [ dark-table ] start -->
                                 <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-header">
-                                          <!-- Button trigger modal -->
                                           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalGuardar">
                                             AÑADIR NUEVO GRUPO                                  
                                           </button>
@@ -92,9 +85,9 @@
                                                                       <td> $fila[3] </td>
                                                                       <td> $fila[4] </td>
                                                                       <td> $estado </td>    
-                                                                      <td class=\"td-actions\"><a  data-toggle=\"modal\" href=\"#modalEditar\" onclick=\"agregarForm('$datos');
-                                                                      \" class=\"btn btn-small btn-info\"><i class=\"feather icon-edit\"></i></a>
-                                                                      <a href=\"#modalEliminar\" onclick=\"agregarForm('$datos');
+                                                                      <td class=\"td-actions\"><a  data-toggle=\"modal\" href=\"#modalEditar\" style=\"width: 55px\" style=\"height: 40px\" onclick=\"agregarForm('$datos');
+                                                                      \" class=\"btn btn-info\"><i class=\"feather icon-edit\"></i></a>
+                                                                      <a href=\"#modalEliminar\" style=\"width: 55px\" style=\"height: 40px\" onclick=\"agregarForm('$datos');
                                                                       \" data-toggle=\"modal\" class=\"btn btn-danger btn-small\"><i class=\"feather icon-trash\"> </i></a></td>
                                                                   </tr>";
 
@@ -109,17 +102,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ dark-table ] end -->
-                            <!-- [ Main Content ] end -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- [ Main Content ] end -->
-
-    <!-- Inicio Modal Guardar -->
 <div class="modal fade" id="modalGuardar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -152,9 +140,7 @@
 
 </div>
 <div class="modal-footer">
-<!-- Cierre modal -->
 <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-<!-- Boton envio datos -->
 <button type="submit" name="guardarGrupo" id="guardarGrupo"class="btn btn-primary">Guardar</button>
 </div>
 
@@ -163,9 +149,6 @@
     </div>
   </div>
 </div>
-<!-- Fin Modal Guardar -->
-
-<!-- Inicio Modal Editar -->
 <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -213,9 +196,7 @@
     </div>
   </div>
 </div>
-<!-- Fin Modal Editar -->
 
-<!-- Inicio Modal Eliminar -->
 <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -249,54 +230,6 @@
   </div>
 </div>
 
-    <!-- Warning Section start -->
-    <!-- Older IE warning message -->
-    <!--[if lt IE 11]>
-        <div class="ie-warning">
-            <h1>Warning!!</h1>
-            <p>You are using an outdated version of Internet Explorer, please upgrade
-               <br/>to any of the following web browsers to access this website.
-            </p>
-            <div class="iew-container">
-                <ul class="iew-download">
-                    <li>
-                        <a href="http://www.google.com/chrome/">
-                            <img src="../assets/images/browser/chrome.png" alt="Chrome">
-                            <div>Chrome</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.mozilla.org/en-US/firefox/new/">
-                            <img src="../assets/images/browser/firefox.png" alt="Firefox">
-                            <div>Firefox</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.opera.com">
-                            <img src="../assets/images/browser/opera.png" alt="Opera">
-                            <div>Opera</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.apple.com/safari/">
-                            <img src="../assets/images/browser/safari.png" alt="Safari">
-                            <div>Safari</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                            <img src="../assets/images/browser/ie.png" alt="">
-                            <div>IE (11 & above)</div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <p>Sorry for the inconvenience!</p>
-        </div>
-    <![endif]-->
-    <!-- Warning Section Ends -->
-
-    <!-- Required Js -->
     <script src="../assets/js/vendor-all.min.js"></script>
     <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="../assets/js/pcoded.min.js"></script>
@@ -304,15 +237,15 @@
     <script type="text/javascript">
 
     function agregarForm(datos){
-      d=datos.split("||");
+    d=datos.split("||");
 
-       $("#codigoE").val(d[0]);
-       $("#idEliminar").val(d[0]);
-       $("#nombre_grupo").val(d[1]);
-       $("#codigo_grupo").val(d[2]);
-       $("#ciclo_grupo").val(d[3]);
-       $("#cantidadEstudiantes_grupo").val(d[4]);
-       $("#modificarEstado").val(d[5]);
+    $("#codigoE").val(d[0]);
+    $("#idEliminar").val(d[0]);
+    $("#nombre_grupo").val(d[1]);
+    $("#codigo_grupo").val(d[2]);
+    $("#ciclo_grupo").val(d[3]);
+    $("#cantidadEstudiantes_grupo").val(d[4]);
+    $("#modificarEstado").val(d[5]);
     }
 
   </script>

@@ -11,6 +11,7 @@ session_start();
 		if($_SESSION['usuario'] != null || $_SESSION['usuario'][0] != null){
 			define("nombreUsuario", $_SESSION['datosUsuarios'][0]);
 			define("apellidoUsuario", $_SESSION['datosUsuarios'][1]);
+			define("tipoUser", $_SESSION['usuario'][3]);
 			$admin = 0;
 			$docentes = 1;
 			$monitor = 2;
@@ -64,6 +65,12 @@ session_start();
 					</li>
 
 					<?php
+
+
+					$asignarHorarios = "";
+					if(tipoUser == $admin){
+					$asignarHorarios = '<li class=""><a href="../AsignarHorario/AsignarHorarioVista.php" class="">Asignar horario</a></li>';
+					}
 					$visualDassboard = '<li class="nav-item"><a href="../complementoDassboard/dassboard.php" 
 					class="nav-link"><span class="pcoded-micon"><i class="feather icon-home"></i>
 		    		</span><span class="pcoded-mtext">Inicio</span></a></li>';
@@ -85,11 +92,12 @@ session_start();
 
 					$visualHorario = '<li class="nav-item pcoded-hasmenu">
 					<a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-clock"></i></span><span class="pcoded-mtext">Horarios</span></a>
-					<ul class="pcoded-submenu">
-						<li class=""><a href="../AsignarHorario/AsignarHorarioTabla.php" class="">Formato Hoarios</a></li>
-						<li class=""><a href="../AsignarHorario/AsignarHorarioVista.php" class="">Asignar horario</a></li>
-					</ul>
+					<ul class="pcoded-submenu">'
+						.'<li class=""><a href="../AsignarHorario/AsignarHorarioTabla.php" class="">Formato Hoarios</a></li>'
+						.$asignarHorarios.
+					'</ul>
 					</li>';
+
 					$visualSalas = '<li class="nav-item"><a href="../salas/salaVista.php" class="nav-link"><span 
 					class="pcoded-micon"><i class="feather icon-box"></i></span><span 
 					class="pcoded-mtext">Salas</span></a></li>';
@@ -102,6 +110,7 @@ session_start();
 					$util->validarVista($admin, $visualHorario);
 					$util->validarVista($admin, $visualSalas);
 					$util->validarVista($admin, $visualmaterias);
+					
 
 					$util->validarVista($docentes, $visualDassboard);
 
@@ -130,7 +139,7 @@ session_start();
 								</span>
 							</div>
 							<ul class="pro-body">
-								<li><a href="../cambiarPassword/visualCambiarPass.php" class="dropdown-item"><i class="feather icon-edit"></i> Cambiar contraseÃ±a</a></li>
+								<li><a href="../cambiarPassword/visualCambiarPass.php" class="dropdown-item"><i class="feather icon-edit"></i> Cambiar contraseð±a</a></li>
 								<li><a href="../inicio/cierreSesion.php" class="dropdown-item"><i class="feather icon-log-in"></i> Cerrar Sesion</a></li>
 							</ul>
 						</div>

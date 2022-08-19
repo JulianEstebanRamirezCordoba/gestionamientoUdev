@@ -17,8 +17,8 @@
                                             </div>
                                             <ul class="breadcrumb">
                                                 <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-book"></i></a></li>
-                                                <li class="breadcrumb-item"><a href="#!">Creacið³n de materias</a></li>
-                                                <li class="breadcrumb-item"><a href="#!">Edicið³n de materias</a></li>
+                                                <li class="breadcrumb-item"><a href="#!">Creaciï¿½n de materias</a></li>
+                                                <li class="breadcrumb-item"><a href="#!">Ediciï¿½n de materias</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -29,7 +29,7 @@
                                     <div class="card">
                                         <div class="card-header">
                                           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalGuardar">
-                                            Að‘ADIR NUEVA MATERIA                                  
+                                            Aï¿½ADIR NUEVA MATERIA                                  
                                           </button>
 
                                         <div class="card-body table-border-style">
@@ -104,7 +104,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Að‘ADIR NUEVA MATERIA</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Aï¿½ADIR NUEVA MATERIA</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

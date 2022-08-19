@@ -61,8 +61,14 @@ $util = new util();
             $visual .= '<td>'.$informe['sal_nombre'].'</td>';
             $visual .= '<td>'.$informe['gru_nombre'].'</td>';
            
-            $visual .= "<td><a data-toggle=\"modal\" href=\"#editar\" onclick=\"sincronizar('$informacionMateriaHorario')\">Editar</a></td>";
-            $visual .= '</tr>';
+            if($_SESSION['usuario'][3] == 0){
+                $visual .= "<td><a data-toggle=\"modal\" href=\"#editar\" onclick=\"sincronizar('$informacionMateriaHorario')
+                \">Editar</a></td>";
+        
+            }else{
+                
+            }
+              $visual .= '</tr>';
         }
     }else{
         $visual .= '<tr>';

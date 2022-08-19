@@ -35,12 +35,22 @@ require_once "../navegador/menuOrquestador.php";
                                                 <table class="table table-striped">
                                                     <thead>
                                                         <tr>
-                                                            <th>ID</th>
+                                                            <th>Identificador</th>
+                                                            <th>Nombre completo</th>
                                                             <th>Materia</th>
-                                                            <th>Horario</th>
-                                                            <th>Aula</th>   
-                                                            <th>Grupo</th>                                                          
-                                                            <th>Editado</th>
+                                                            <th>Dia</th>   
+                                                            <th>Hora entrada y salida</th>                                                          
+                                                            <th>Aula</th>
+                                                            <th>Grupo</th>
+                                                            <?php
+                                                            if($_SESSION['usuario'][3] == 0){
+                                                                echo "<th>Editado</th>";
+                                                            }else{
+                                                                
+                                                            }
+                                                            ?>
+
+                                                            
                                                         </tr>
                                                     </thead>
                                                     <tbody id="tabla">

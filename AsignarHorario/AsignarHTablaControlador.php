@@ -3,10 +3,9 @@ require_once "../conexion.php";
 include_once "../util/util.php";
 
 $util = new util();
-    define("TABLA_MH", "materia_asignada_horario");
-
-    $column = ['mah_id','id_materia2', 'id_horario2', 'id_sala1', 'id_usuario3', 'id_grupo1'];
-    $porBusqueda = ['id_usuario3'];
+    $column = ['mah_id', 'usu_nombre', 'usu_apellido', 'mat_nombre', 'hor_dia_asignado', 'hor_diaHoraEntrada', 'hor_diaHoraSalida', 
+    'sal_nombre', 'gru_nombre'];
+    $porBusqueda = ['mat_nombre', 'usu_nombre','sal_nombre','gru_nombre','hor_dia_asignado','usu_apellido'];
 
     $campoBusqueda = isset($_POST['buscar']) ? $conexion->real_escape_string($_POST['buscar']) : null;
 
@@ -25,9 +24,19 @@ $util = new util();
     }
 
     $camposExtraccion = implode(", ", $column);
-
+     
     $consulta = "SELECT $camposExtraccion 
-    FROM " . TABLA_MH.
+    FROM materia_asignada_horario AS tabla_primaria
+    LEFT JOIN materia AS m
+    ON m.mat_id = tabla_primaria.id_materia2
+    LEFT JOIN horario AS h 
+    ON h.hor_id = tabla_primaria.id_horario2
+    LEFT JOIN sala AS s 
+    ON s.sal_id = tabla_primaria.id_sala1
+    LEFT JOIN usuario AS usu
+    ON usu.usu_id = tabla_primaria.id_usuario3
+    LEFT JOIN grupo AS g 
+    ON g.gru_id = tabla_primaria.id_grupo1 ".
     $where; 
 
     $result = $conexion->query($consulta);
@@ -38,19 +47,19 @@ $util = new util();
         while($informe = $result->fetch_array()){
             if($informe != null){
                 $informacionMateriaHorario = $informe[0] . "," . $informe[1] . "," . $informe[2] . ","
-                . $informe[3] . "," . $informe[4] . "," . $informe[5];
+                . $informe[3] . "," . $informe[4] . "," . $informe[5] . "," . $informe[6] . "," . 
+                $informe[7] . "," . $informe[8];
 
             }
 
-            $instituto = converInstituto($informe['id_materia2']);
-
             $visual .= '<tr>';
             $visual .= '<td>'.$informe['mah_id'].'</td>';
-            $visual .= '<td>'.$instituto.'</td>';
-            $visual .= '<td>'.$informe['id_horario2'].'</td>';
-            $visual .= '<td>'.$informe['id_sala1'].'</td>';
-            $visual .= '<td>'.$informe['id_usuario3'].'</td>';
-            $visual .= '<td>'.$informe['id_grupo1'].'</td>';
+            $visual .= '<td>'.$informe['usu_nombre'] . ' ' . $informe['usu_apellido'] . '</td>';
+            $visual .= '<td>'.$informe['mat_nombre'].'</td>';
+            $visual .= '<td>'.$informe['hor_dia_asignado'].'</td>';
+            $visual .= '<td>'.$informe['hor_diaHoraEntrada'] . ' / ' . $informe['hor_diaHoraSalida'] . '</td>';
+            $visual .= '<td>'.$informe['sal_nombre'].'</td>';
+            $visual .= '<td>'.$informe['gru_nombre'].'</td>';
            
             $visual .= "<td><a data-toggle=\"modal\" href=\"#editar\" onclick=\"sincronizar('$informacionMateriaHorario')\">Editar</a></td>";
             $visual .= '</tr>';
@@ -63,26 +72,5 @@ $util = new util();
     }
 
 echo json_encode($visual, JSON_UNESCAPED_UNICODE);
-
-function converInstituto($instituto){
-    switch ($instituto) {
-        case 0:
-            $valorResult = "Udev";
-            break;
-        case 1:
-            $valorResult = "Compubuga";
-            break;
-        case 19:
-            $valorResult = "Moscati";
-            break;      
-        default:
-            $valorResult = "Extra O instituto externa";
-            break;
-    }
-return $valorResult; 
-
-}
-
-
 
 ?>

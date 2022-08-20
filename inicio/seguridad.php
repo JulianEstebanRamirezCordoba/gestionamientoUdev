@@ -17,6 +17,11 @@
 
         $email = filter_input(INPUT_POST, "email");
         $password = filter_input(INPUT_POST, "password");
+
+        if($password){
+
+        }
+
         define("ESTADO_USUARIOS", 1);
 
         define("TABLA_DATA_BASE", "usuario");

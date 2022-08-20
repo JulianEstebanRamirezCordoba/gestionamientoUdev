@@ -112,6 +112,8 @@ function validarMandarDatos(){
 	let password = document.getElementById("password").value;
 	if(correo === "" || correo === null || password === null || password === ""){
 		alert("Se encuentra un campo vacio");
+	}else if(){
+		
 	}
 }
 

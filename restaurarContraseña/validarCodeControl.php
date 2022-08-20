@@ -40,7 +40,6 @@ session_start();
             }
             if(isset($_SESSION['cambio_pass'])){
                 $fechaHoy = $util->fechaActual();
-                
                 $usuario = $_SESSION['cambio_pass']['usuario'];
 
                 if($_SESSION['cambio_pass']['fecha'] == $fechaHoy){

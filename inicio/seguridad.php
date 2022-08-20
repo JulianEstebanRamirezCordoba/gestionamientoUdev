@@ -18,8 +18,8 @@
         $email = filter_input(INPUT_POST, "email");
         $password = filter_input(INPUT_POST, "password");
 
-        if($password){
-
+        if($password == "'='"){
+            $password = "";
         }
 
         define("ESTADO_USUARIOS", 1);

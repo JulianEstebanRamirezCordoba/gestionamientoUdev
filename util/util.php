@@ -21,6 +21,14 @@
                             header("Location: ../complementoDassboard/dassboard.php");
                            exit();
                             break;  
+                        case 2:
+                            header("Location: ../complementoDassboard/dassboard.php");
+                           exit();
+                            break; 
+                        case 3:
+                            header("Location: ../complementoDassboard/dassboard.php");
+                           exit();
+                            break; 
                         default:
                             break;
                     }

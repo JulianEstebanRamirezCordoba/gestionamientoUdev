@@ -144,7 +144,7 @@ session_start();
 								</span>
 							</div>
 							<ul class="pro-body">
-								<li><a href="../cambiarPassword/visualCambiarPass.php" class="dropdown-item"><i class="feather icon-edit"></i> Cambiar contrase�a</a></li>
+								<li><a href="../cambiarPassword/visualCambiarPass.php" class="dropdown-item"><i class="feather icon-edit"></i> Cambiar contraseña</a></li>
 								<li><a href="../inicio/cierreSesion.php" class="dropdown-item"><i class="feather icon-log-in"></i> Cerrar Sesion</a></li>
 							</ul>
 						</div>

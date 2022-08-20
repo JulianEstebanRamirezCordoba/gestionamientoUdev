@@ -48,17 +48,17 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="feather icon-mail"></i></span>
 							</div>
-							<input type="email" name = "email" id = "email" class="form-control" placeholder="correo o Ususario electronico">
+							<input type="email" name = "email" id = "email" class="form-control" placeholder="Correo o Usuario electronico">
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="feather icon-lock"></i></span>
 							</div>
-							<input type="password" name = password id = "password" class="form-control" placeholder="contraseña">
+							<input type="password" name = password id = "password" class="form-control" placeholder="Contraseña">
 						</div>  
 						<button type = "input" class="btn btn-primary mb-3" name="btnGuardar" onclick="validarMandarDatos()" id="guardar">Iniciar sesion</button>
                         </form>
-						<p class="mb-3 text-muted">Olvidastes tu contaseña ?   <a href="../restaurarContraseña/visualEnvioCorr.php" class="f-w-450"> Restablecer mi contraceña</a></p>
+						<p class="mb-3 text-muted">Olvidastes tu contraseña ?   <a href="../restaurarContraseña/visualEnvioCorr.php" class="f-w-450"> Restablecer mi contraseña</a></p>
 					
 						<?php
       						if(isset($_SESSION['errorInicio'])) {
@@ -100,8 +100,8 @@
     </div>
     <div class="fab-hover">
         <ul class="list-unstyled">
-            <li><a href="../creadores.html" target="_blank" data-text="Creadores Time Admin" class="btn btn-icon btn-rounded btn-info m-0"><i class="feather icon-layers"></i></a></li>
-            <li><a href="manual/index.html" target="_blank" data-text="Manual Time Admin" class="btn btn-icon btn-rounded btn-primary m-0"><i class="feather icon feather icon-book"></i></a></li>
+            <li><a href="../creadores.html" target="_blank" data-text="Creadores" class="btn btn-icon btn-rounded btn-info m-0"><i class="feather icon-layers"></i></a></li>
+            <li><a href="manual/index.html" target="_blank" data-text="Manual" class="btn btn-icon btn-rounded btn-primary m-0"><i class="feather icon feather icon-book"></i></a></li>
         </ul>
     </div>
 </div>

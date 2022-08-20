@@ -63,10 +63,8 @@ $util = new util();
            
             if($_SESSION['usuario'][3] == 0){
                 $visual .= "<td><a data-toggle=\"modal\" href=\"#editar\" onclick=\"sincronizar('$informacionMateriaHorario')
-                \">Editar</a></td>";
+                \">Eliminar</a></td>";
         
-            }else{
-                
             }
               $visual .= '</tr>';
         }

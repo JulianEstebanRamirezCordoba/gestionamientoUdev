@@ -44,9 +44,7 @@ require_once "../navegador/menuOrquestador.php";
                                                             <th>Grupo</th>
                                                             <?php
                                                             if($_SESSION['usuario'][3] == 0){
-                                                                echo "<th>Editado</th>";
-                                                            }else{
-                                                                
+                                                                echo "<th>Eliminar</th>";
                                                             }
                                                             ?>
 

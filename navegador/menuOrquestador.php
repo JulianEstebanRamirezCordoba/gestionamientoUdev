@@ -113,8 +113,13 @@ session_start();
 					
 
 					$util->validarVista($docentes, $visualDassboard);
+					$util->validarVista($docentes, $visualHorario);
+					
 
 					$util->validarVista($monitor, $visualDassboard);
+					$util->validarVista($monitor, $visualHorario);
+
+					$util->validarVista($extra, $visualDassboard);
 
 					?>
 				</ul>
@@ -139,7 +144,7 @@ session_start();
 								</span>
 							</div>
 							<ul class="pro-body">
-								<li><a href="../cambiarPassword/visualCambiarPass.php" class="dropdown-item"><i class="feather icon-edit"></i> Cambiar contraseğ±a</a></li>
+								<li><a href="../cambiarPassword/visualCambiarPass.php" class="dropdown-item"><i class="feather icon-edit"></i> Cambiar contraseï¿½a</a></li>
 								<li><a href="../inicio/cierreSesion.php" class="dropdown-item"><i class="feather icon-log-in"></i> Cerrar Sesion</a></li>
 							</ul>
 						</div>

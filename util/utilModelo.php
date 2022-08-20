@@ -127,6 +127,20 @@
         return $query;
 
         }
+
+        function eliminar($nombreTabla, $condicion_tabla, $campoCondicion, $valorCondicion){
+            global $conexion;
+
+            $consultaQuery = "DELETE 
+            FROM $nombreTabla
+            WHERE $condicion_tabla.$campoCondicion = $valorCondicion";
+            echo $consultaQuery;
+            die();
+
+            $query = mysqli_query($conexion, $consultaQuery);
+
+            return $query;
+        }
     }
 
 ?>

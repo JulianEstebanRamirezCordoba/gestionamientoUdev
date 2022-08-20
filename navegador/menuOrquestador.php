@@ -93,7 +93,7 @@ session_start();
 					$visualHorario = '<li class="nav-item pcoded-hasmenu">
 					<a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-clock"></i></span><span class="pcoded-mtext">Horarios</span></a>
 					<ul class="pcoded-submenu">'
-						.'<li class=""><a href="../AsignarHorario/AsignarHorarioTabla.php" class="">Formato Hoarios</a></li>'
+						.'<li class=""><a href="../AsignarHorario/AsignarHorarioTabla.php" class="">Formato Horarios</a></li>'
 						.$asignarHorarios.
 					'</ul>
 					</li>';

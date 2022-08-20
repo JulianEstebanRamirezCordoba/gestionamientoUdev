@@ -80,7 +80,7 @@ require_once "../navegador/menuOrquestador.php";
                             <form action="AsignarHorarioControlador.php" method="POST">
                                     <input type="text" class="ocultarId" id="Eliminar" name="Eliminar">
                                 <div class="form-group">
-                                    <h5>Esta seguro de realizar esta accion</h5>
+                                    <h5>¿Esta seguro de realizar esta accion?</h5>
                                 </div>
                                 <br>
                                 <p class="text-muted mb-4 text-center">Recuerde que esta accion no sera revertible eliminara totalmente la informacion que desea depurar</p>

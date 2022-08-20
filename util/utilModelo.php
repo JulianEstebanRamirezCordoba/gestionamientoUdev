@@ -69,7 +69,7 @@
             return $query;
         } 
 
-        function consultaDatosUnicos($nombreTabla = "", $camposExtraccion = array("*"), $camposConsult, $valoresConsult, $limite = ""){
+        function consultaDatosUnicos($nombreTabla = "", $camposExtraccion, $camposConsult, $valoresConsult, $limite = ""){
             global $conexion;
             $condicion = "WHERE";
             $extraccion = "";
@@ -128,14 +128,12 @@
 
         }
 
-        function eliminar($nombreTabla, $condicion_tabla, $campoCondicion, $valorCondicion){
+        function eliminarDatos($nombreTabla, $condicion_tabla, $campoCondicion, $valorCondicion){
             global $conexion;
 
             $consultaQuery = "DELETE 
             FROM $nombreTabla
             WHERE $condicion_tabla.$campoCondicion = $valorCondicion";
-            echo $consultaQuery;
-            die();
 
             $query = mysqli_query($conexion, $consultaQuery);
 

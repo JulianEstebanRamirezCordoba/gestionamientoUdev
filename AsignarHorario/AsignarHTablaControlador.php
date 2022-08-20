@@ -62,7 +62,7 @@ $util = new util();
             $visual .= '<td>'.$informe['gru_nombre'].'</td>';
            
             if($_SESSION['usuario'][3] == 0){
-                $visual .= "<td><a data-toggle=\"modal\" href=\"#editar\" onclick=\"sincronizar('$informacionMateriaHorario')
+                $visual .= "<td><a data-toggle=\"modal\" href=\"#eliminar\" onclick=\"sincronizar('$informacionMateriaHorario')
                 \">Eliminar</a></td>";
         
             }

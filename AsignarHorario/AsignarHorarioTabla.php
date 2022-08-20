@@ -66,6 +66,33 @@ require_once "../navegador/menuOrquestador.php";
             </div>
         </div>
     </section>
+    <div class="modal fade" id="eliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modificar Informacion</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <form action="AsignarHorarioControlador.php" method="POST">
+                                    <input type="text" class="ocultarId" id="Eliminar" name="Eliminar">
+                                <div class="form-group">
+                                    <h5>Esta seguro de realizar esta accion</h5>
+                                </div>
+                                <br>
+                                <p class="text-muted mb-4 text-center">Recuerde que esta accion no sera revertible eliminara totalmente la informacion que desea depurar</p>
+                                <div class="form-group">
+                                    <center><button type="submit" name="eliminarAsignacion" id="eliminarAsignacion"class="btn btn-primary">Eliminar</button></center>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <script>
         getDatos()
         document.getElementById('buscar').addEventListener('keyup', getDatos)
@@ -85,6 +112,11 @@ require_once "../navegador/menuOrquestador.php";
              content.innerHTML = data
             }).catch(err => console.log(err))
             
+        }
+
+        function sincronizar(infoData){
+            let admininstrarData = infoData.split(",");
+            $('#Eliminar').val(admininstrarData[0]);
         }
 
     </script>

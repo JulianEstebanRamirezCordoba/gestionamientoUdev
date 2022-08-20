@@ -31,7 +31,7 @@ $utilModelo = new utilModelo();
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <form action="controlCreacionUser.php" method="POST">
+                                                    <form action="AsignarHorarioControlador.php" method="POST">
                                                     <div class="form-group">
                                                         <label for="exampleFormControlSelect1">Materia</label>
                                                         <select class="form-control" id="tipoMateria" name="tipoMateria">
@@ -64,7 +64,7 @@ $utilModelo = new utilModelo();
                                                         <button type="submit" name="guardado" id="guardado" onclick="validarCampos()" class="btn btn-primary">Asignar</button>
                                                         </div>
                                                         <?php
-      				                                        if(isset($_SESSION['enviadoBien'])) {
+      				                                        if(isset($_SESSION['Ok_insert'])) {
   				                                        ?>
   				                                        <div class="form-group">
       				                                        <div class="row">
@@ -73,7 +73,7 @@ $utilModelo = new utilModelo();
                       				                                        <div class="ale
                                                                             srt alert-success" role="alert">
                         		                                        <?php
-						   			                                        echo $_SESSION['enviadoBien'];
+						   			                                        echo $_SESSION['Ok_insert'];
 						  		                                        ?>
                       				                                        </div>
                   				                                        </div>
@@ -81,8 +81,8 @@ $utilModelo = new utilModelo();
           				                                        </div>
       				                                        </div>
   				                                        <?php
-      					                                        unset($_SESSION['enviadoBien']);
-      				                                        }else if(isset($_SESSION['enviadoIncorrecto'])){
+      					                                        unset($_SESSION['Ok_insert']);
+      				                                        }else if(isset($_SESSION['Error_insert'])){
 
   				                                        ?>
   				                                            <div class="form-group">
@@ -91,7 +91,7 @@ $utilModelo = new utilModelo();
               				                                            <div class="text-center">
                       				                                            <div class="alert alert-warning" role="alert">
                         		                                            <?php
-						   			                                            echo $_SESSION['enviadoIncorrecto'];
+						   			                                            echo $_SESSION['Error_insert'];
 						  		                                            ?>
                       				                                            </div>
                   				                                            </div>
@@ -99,7 +99,7 @@ $utilModelo = new utilModelo();
           				                                            </div>
       				                                            </div>
   				                                        <?php
-      					                                    unset($_SESSION['enviadoIncorrecto']);
+      					                                    unset($_SESSION['Error_insert']);
       				                                        }
 
   				                                        ?>
@@ -126,7 +126,7 @@ $utilModelo = new utilModelo();
                                                             <?php
                                                                 $tablaSala = "usuario";
                                                                 $extraccion = array("usu_id", "usu_nombre", "usu_identificacion");
-                                                                $campoCondicion = "usu_institucion";
+                                                                $campoCondicion = "tipo_usuario";
                                                                 $valorCondicion = 1;
                                                                 $consulta = $utilModelo->consultaTodosDatos($tablaSala, $extraccion, $campoCondicion, $valorCondicion);
                                                                 while($inforUsu = $consulta->fetch_assoc()){ 

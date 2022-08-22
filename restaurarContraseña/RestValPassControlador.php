@@ -68,10 +68,30 @@
                 $campoConsulta = "usu_id";
                 $valorConsulta = $id;
 
-                $utilModelo->actualizarDatos(TABLA, $campoActu, $valoresActu, $campoConsulta, $valorConsulta);
-                unset($_SESSION['cambio_pass']);
-                                                            
-                header("Location: ../inicio/cierresesion.php");
+                $consulta = $utilModelo->actualizarDatos(TABLA, $campoActu, $valoresActu, $campoConsulta, $valorConsulta);
+                
+                if($consulta == 1){
+                    unset($_SESSION['cambio_pass']);                                         
+                    header("Location: ../inicio/cierresesion.php");
+                }else{
+                    echo "<body>
+                    <script src=\"//cdn.jsdelivr.net/npm/sweetalert2@11\"></script>";
+                    echo " <script>
+                    Swal.fire({
+                        title: 'Error al modificar datos',
+                        text: 'Se presento error al cambiar tu contraseña',
+                        icon: 'error',
+                        showCancelButton: false,
+                        confirmButtonColor: '#ff5733',
+                        confirmButtonText: 'Ok'
+                        }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href='../inicio/cierreSesion.php';
+                        }
+                        })
+                        </script>
+                        </body>";
+                }
 
             }else{
                 echo "<body>

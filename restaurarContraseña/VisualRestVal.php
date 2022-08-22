@@ -61,16 +61,14 @@ if($_SESSION['cambio_pass'] == null || $_SESSION['cambio_pass'] == ""){
 		let passIni = document.getElementById('password').value;
 		let passConfi = document.getElementById('passwordConfi').value;
 		let confi = document.getElementById("errConfi");
-		let ErrorConfi = document.querySelector('.Erro');
 		
 			if(passIni != null && passConfi != null){
-				if(passIni == passConfi && passIni.length <= 6){
+				if(passIni == passConfi && passIni.length >= 6){
 					document.getElementById('modificarPass').disabled = false;
 					confi.textContent = "";
 
 				}else{
 					confi.textContent = "Las contraseñas de confirmacion no conciden ";
-				    ErrorConfi.classList.toggle('Errores');
 					document.getElementById('modificarPass').disabled = true;
 				}
 			}

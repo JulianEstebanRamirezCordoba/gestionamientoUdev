@@ -40,13 +40,8 @@ class enviarCorreos{
                 <br> $e";
             
             return false;
-
             }
-
         return false;
-
     }
 }
 ?>
-
-

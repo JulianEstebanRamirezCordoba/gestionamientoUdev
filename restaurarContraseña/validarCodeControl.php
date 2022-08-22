@@ -40,43 +40,44 @@ session_start();
             }
             if(isset($_SESSION['cambio_pass'])){
                 $fechaHoy = $util->fechaActual();
-                
+                $code = $util->generarCodigo();
+                $camposActualizar = array("res_fecha", "res_codigo");
+                $valoresActualizar = array($fechaHoy $code);
                 $usuario = $_SESSION['cambio_pass']['usuario'];
+                $actualizar = $utilModelo->actualizarDatos(TABLA_RES, $camposActualizar, $valoresActualizar, RES_USU2, $usuario);
+                unset($_SESSION['validarID']);
+                header("Location: VisualRestVal.php");
 
-                if($_SESSION['cambio_pass']['fecha'] == $fechaHoy){
-                  $camposActualizar = array(RES_CODE, "res_fecha");
-                  $valoresActualizar = array(000, $fechaHoy);
-                  $utilModelo->actualizarDatos(TABLA_RES, $camposActualizar, $valoresActualizar, RES_USU2, $usuario);
-                  unset($_SESSION['validarID']);
-
-                  header("Location: VisualRestVal.php");
-
-                }else{ 
-                  $valorCode = array(000);
-                  $actualizar = array(RES_CODE);
-                  $utilModelo->actualizarDatos(TABLA_RES, $actualizar, $valorCode, RES_USU2, $usuario);
-
-                  unset($_SESSION['validarID']);
-                  unset($_SESSION['cambio_pass']);
-
-                    echo "<body>
-                    <script src=\"//cdn.jsdelivr.net/npm/sweetalert2@11\"></script>";
-                    echo " <script>
-                    Swal.fire({
-                        title: 'Alerta caducacion del codigo',
-                        text: 'El codigo se vuelve no util despues de que el servicio se actualize que es cada madrugada al finaliar dia presente',
-                        icon: 'alert',
-                        showCancelButton: false,
-                        confirmButtonColor: '#ff5733',
-                        confirmButtonText: 'Ok'
-                      }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href='visualEnviarCorr.php';
-                        }
-                      })
-                        </script>
-                        </body>";  
-
+                }else{
+                  echo "<body>
+                <script src=\"//cdn.jsdelivr.net/npm/sweetalert2@11\"></script>";
+                echo " <script>
+                const swalWithBootstrapButtons = Swal.mixin({
+                    customClass: {
+                      confirmButton: 'btn btn-success',
+                      cancelButton: 'btn btn-danger'
+                    },
+                    buttonsStyling: false
+                  })
+                  
+                  swalWithBootstrapButtons.fire({
+                    title: 'Tu codigo no a sido enviado',
+                    text: 'Por favor comunicate con el area encargada para que te 
+                    cambien la contraseña o validen tu estado',
+                    icon: 'error',
+                    showCancelButton: true,
+                    cancelButtonText: 'Salir',
+                    reverseButtons: false
+                  }).then((result) => {
+                    if (
+                      result.dismiss === Swal.DismissReason.cancel
+                    ) {
+                        window.location.href='../inicio/cierreSesion.php';
+                      )
+                    }
+                  })
+                    </script>
+                    </body>";
                 }
             }else{
                 echo "<body>
@@ -91,7 +92,7 @@ session_start();
                   })
                   
                   swalWithBootstrapButtons.fire({
-                    title: 'Error al enviado odtenr tus datos ',
+                    title: 'Error al enviado o odtener tus datos ',
                     text: 'Por favor llamar a administracion para arreglar el problema',
                     icon: 'error',
                     showCancelButton: true,
@@ -108,11 +109,6 @@ session_start();
                     </script>
                     </body>";
 
-            }
-        }else{
-          unset($_SESSION['validarID']);
-          header("Location: visualEnvioCorr.php");
-
-        }      
-    }
+            } 
+        } 
 ?>

@@ -206,7 +206,7 @@ session_start();
         $seEnvia = $corresponsal->enviarCodigo($correoUsuario, $asunto, $contenidoMensaje);
 
         if($seEnvia == true){ 
-            header("Location: visualCode.php");
+            header("Location: visualcode.php");
 
         }else{
             echo "<body>

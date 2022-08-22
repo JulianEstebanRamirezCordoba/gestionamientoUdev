@@ -10,7 +10,7 @@
         function activoUsuario($tipoUsuario){
             if(isset($_SESSION['usuario'])){
                 if($_SESSION['usuario'][POSICION_UTIL] == $tipoUsuario){
-                      header("Location: ");
+                      header("Location: ../complementoDassboard/dassboard.php");
                 }else{
                     switch($_SESSION['usuario'][POSICION_UTIL]){
                         case 0:
@@ -35,7 +35,7 @@
                 }
 
             }else{
-                $_SESSION['errorInicio'] = "Correo o contraseña errornea verifique";
+                $_SESSION['errorInicio'] = "Correo o contraseña erronea verifique nuevamente";
                 header('Location: ../index.php');
                 exit();
 

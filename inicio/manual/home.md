@@ -9,9 +9,9 @@ dadas esta informacion se te dara una serie de pasos  donde te enseñaremnos dic
 
 ## Paso A Paso 
 
-   1-¿ Como Inciar Sesion?
+   1-¿ Como Iniciar Sesion?
 
-   *  Ingresar el correo eletronico dado por los administrativos " Personal o laboral"
+   *  Ingresar el correo electronico dado por los administrativos " Personal o laboral"
    *  Ingresar la contraseña dado por los administrativos "Esta contraseña puede ser cambiada "
 
    Para iniciar a la aplicacion nos dirigimos al icono "Iniciar Sesion" de la pagina principal

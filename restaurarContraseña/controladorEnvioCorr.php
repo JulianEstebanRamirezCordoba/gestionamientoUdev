@@ -117,7 +117,6 @@ session_start();
                 $utilModelo->insertarDatos(TABLARESTABLECER, $camposEnvio, $valoresEnvio);
 
                 return true;
-    
             }else{
                 while($id_rest = mysqli_fetch_assoc($cosnultaExistencia)){
                     if($id_rest != null){
@@ -126,9 +125,10 @@ session_start();
                 }
                 $campoEditado = array('res_fecha', 'res_codigo');
                 $valoresEditado = array($fechaCambio, $codigoEnvio);
-                $campoConsultaEdita = "id_usuario2";
-                $utilModelo->actualizarDatos(TABLARESTABLECER, $campoEditado, $valoresEditado, $campoConsultaEdita, $idValida['id']);
-        
+
+                $campoConsultaEdita = "res_id";
+                $editado = $utilModelo->actualizarDatos(TABLARESTABLECER, $campoEditado, $valoresEditado, $campoConsultaEdita, $idValida['id']);
+
                 return true;  
             }
         }

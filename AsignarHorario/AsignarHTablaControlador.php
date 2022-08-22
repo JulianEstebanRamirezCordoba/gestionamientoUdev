@@ -5,7 +5,7 @@ include_once "../util/util.php";
 $util = new util();
     $column = ['mah_id', 'usu_nombre', 'usu_apellido', 'mat_nombre', 'hor_dia_asignado', 'hor_diaHoraEntrada', 'hor_diaHoraSalida', 
     'sal_nombre', 'gru_nombre'];
-    $porBusqueda = ['mat_nombre', 'usu_nombre','sal_nombre','gru_nombre','hor_dia_asignado','usu_apellido'];
+    $porBusqueda = [ 'usu_nombre','gru_nombre'];
 
     $campoBusqueda = isset($_POST['buscar']) ? $conexion->real_escape_string($_POST['buscar']) : null;
 
@@ -70,7 +70,7 @@ $util = new util();
         }
     }else{
         $visual .= '<tr>';
-        $visual .= '<td colspan="7" class="mb-2 f-w-500 text-center">Sin resultados en la busqueda</td>';
+        $visual .=  '<td colspan="7" class="mb-2 f-w-500 text-center">Sin resultados en la busqueda</td>';
         $visual .= '</tr>'; 
 
     }

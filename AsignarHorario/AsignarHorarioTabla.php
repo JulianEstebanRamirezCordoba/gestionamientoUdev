@@ -23,7 +23,7 @@ require_once "../navegador/menuOrquestador.php";
                                     <div class="card">
                                         <div class="card-header">
                                             <h6 class="row">Sistema Gestion Udev</h6>
-                                            <form action="AsignarHTablaControlador.php" method="post">
+                                            <form action="" method="post">
                                                 <div class="col-md-5">
                                                     <input class="form-control" id = "buscar" name = "buscar" type="text" placeholder="Buscar. . .">
                                                 </div>
@@ -78,7 +78,7 @@ require_once "../navegador/menuOrquestador.php";
                     <div class="modal-body">
                         <div class="row">
                             <form action="AsignarHorarioControlador.php" method="POST">
-                                    <input type="text" class="ocultarId" id="Eliminar" name="Eliminar">
+                                    <input  type="hidden"class="ocultarId" id="Eliminar" name="Eliminar">
                                 <div class="form-group">
                                     <h5>¿Esta seguro de realizar esta accion?</h5>
                                 </div>

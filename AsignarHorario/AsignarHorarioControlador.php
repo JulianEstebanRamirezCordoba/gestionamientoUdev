@@ -34,10 +34,10 @@ function insertarDatos(){
     
         if($inserto == 1){
             $_SESSION['Ok_insert'] = "Se Asigno el horario correctamente";
-            header("AsignarHorarioVista.php");
+            header("Location: AsignarHorarioVista.php");
         }else{
             $_SESSION['Error_insert'] = "Se Asigno incorrectamente por favor intentelo despues";
-            header("AsignarHorarioVista.php");
+            header("Location: AsignarHorarioVista.php");
         }
     }else{
         $_SESSION['Error_insert'] = "Se Asigno incorrectamente por favor intentelo despues";

@@ -21,16 +21,17 @@
         if($password == "'='"){
             $password = "";
         }
+        
 
         define("ESTADO_USUARIOS", 1);
-
+        
         define("TABLA_DATA_BASE", "usuario");
         define("CAMPOS_EXTRACCION", array("usu_id", "usu_institucion", "usu_estado", "tipo_usuario",
         "usu_nombre", "usu_apellido"));
         define("CAMPOS_DATA_BASE", array("usu_email", "usu_password", "usu_estado"));
         $valoresConsulta = array($email, $password, ESTADO_USUARIOS);
         $limit = "LIMIT 1";
-
+       
         $consulta = $utilModelo->consultaDatosUnicos(TABLA_DATA_BASE, CAMPOS_EXTRACCION, CAMPOS_DATA_BASE, $valoresConsulta, $limit);
 
             while($estrutura = mysqli_fetch_array($consulta)){
@@ -43,8 +44,9 @@
             }
    
         $util -> activoUsuario($usuarioDefect);
+       
 
     }
 
-
+    
 ?>

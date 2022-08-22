@@ -16,7 +16,7 @@
                                                 <h3 class="m-b-10">GRUPOS</h3>
                                             </div>
                                             <ul class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="../complementoDassboard.php"><i class="feather icon-users"></i></a></li>
+                                                <li class="breadcrumb-item"><a href="../complementoDassboard.php"><i class=""></i></a></li>
                                             </ul>
                                         </div>
                                     </div>

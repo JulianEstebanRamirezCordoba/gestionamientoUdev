@@ -33,7 +33,7 @@
 
                                         <div class="card-body table-border-style">
                                             <div class="table-responsive">
-                                                <table class="table table-triped" border = "2">
+                                                <table class="table table-striped">
                                                     <thead>
                                                         <tr>
                                                           <th scope="col">IDENTIFICADOR GRUPO</th>

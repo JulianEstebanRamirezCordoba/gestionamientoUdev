@@ -43,7 +43,7 @@
 
                                         <div class="card-body table-border-style">
                                             <div class="table-responsive">
-                                                <table class="table table-triped" border = "2">
+                                                <table class="table table-striped">
                                                     <thead>
                                                         <tr>
                                                           <th scope="col">IDENTIFICADOR SALA</th>
@@ -99,9 +99,9 @@
                                                                   <td> $fila[3] </td>
                                                                   <td> $institucion </td>
                                                                   <td> $estado </td>       
-                                                                      <td class=\"td-actions\"><a  data-toggle=\"modal\" href=\"#modalEditar\" onclick=\"agregarForm('$datos');
+                                                                      <td class=\"td-actions\"><a  data-toggle=\"modal\" href=\"#modalEditar\"style=\"width: 55px\" style=\"height: 40px\ onclick=\"agregarForm('$datos');
                                                                       \" class=\"btn btn-small btn-info\"><i class=\"feather icon-edit\"></i></a>
-                                                                      <a href=\"#modalEliminar\" onclick=\"agregarForm('$datos');
+                                                                      <a href=\"#modalEliminar\" style=\"width: 55px\" style=\"height: 40px\onclick=\"agregarForm('$datos');
                                                                       \" data-toggle=\"modal\" class=\"btn btn-danger btn-small\"><i class=\"feather icon-trash\"> </i></a></td>
                                                                   </tr>";
 

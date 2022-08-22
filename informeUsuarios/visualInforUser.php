@@ -22,7 +22,7 @@ require_once "../navegador/menuOrquestador.php";
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h6 class="row">Sistema Gestion Udevo</h6>
+                                            <h6 class="row">Sistema Gestion Udev</h6>
                                             <form action="" method="post">
                                                 <div class="col-md-5">
                                                     <input class="form-control" id = "buscar" name = "buscar" type="text" placeholder="Buscar. . .">

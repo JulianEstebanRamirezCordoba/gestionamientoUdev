@@ -76,9 +76,9 @@
                                                                       <td> $fila[0] </td>
                                                                       <td> $fila[1] </td>                                                                     
                                                                       <td> $estado </td>    
-                                                                      <td class=\"td-actions\"><a  data-toggle=\"modal\" href=\"#modalEditar\" style=\"width: 55px\" style=\"height: 40px\onclick=\"agregarForm('$datos');
+                                                                      <td class=\"td-actions\"><a  data-toggle=\"modal\" href=\"#modalEditar\" onclick=\"agregarForm('$datos');
                                                                       \" class=\"btn btn-small btn-info\"><i class=\"feather icon-edit\"></i></a>
-                                                                      <a href=\"#modalEliminar\" style=\"width: 55px\" style=\"height: 40px\onclick=\"agregarForm('$datos');
+                                                                      <a href=\"#modalEliminar\" onclick=\"agregarForm('$datos');
                                                                       \" data-toggle=\"modal\" class=\"btn btn-danger btn-small\"><i class=\"feather icon-trash\"> </i></a></td>
                                                                   </tr>";
 

@@ -39,15 +39,14 @@ function insertarDatos(){
             $_SESSION['Error_insert'] = "Se Asigno incorrectamente por favor intentelo despues";
             header("Location: AsignarHorarioVista.php");
         }
-    }else{
-        $_SESSION['Error_insert'] = "Se Asigno incorrectamente por favor intentelo despues";
-        header("Location: AsignarHorarioVista.php");
     }
     
 }
 
 function validarInfo($campoMateria, $campoHorario, $campoSala, $campoUsuario, $campoGrupo){
     global $utilModelo;
+
+    $retorno_Val = 0;
 
     $campoExtracion = array("*");
     $campoVal = array("id_usuario3", "id_horario2");
@@ -73,7 +72,7 @@ function validarInfo($campoMateria, $campoHorario, $campoSala, $campoUsuario, $c
             </script>
             </body>";
 
-            return false;
+            return $retorno_Val;
 
     }
 
@@ -101,10 +100,38 @@ function validarInfo($campoMateria, $campoHorario, $campoSala, $campoUsuario, $c
             </script>
             </body>";
 
-            return false;
+            return $retorno_Val;
+
     }
 
-    return true;
+    $campoExtracion = array("*");
+    $campoVal = array("id_grupo1", "id_horario2");
+    $valorVal = array($campoGrupo, $campoHorario);
+    $consultaValhoario = $utilModelo->consultaDatosUnicos(TABLA_MAH, $campoExtracion, $campoVal, $valorVal);
+
+    if($consultaValhoario->num_rows >= 1){
+        echo "<body>
+        <script src=\"//cdn.jsdelivr.net/npm/sweetalert2@11\"></script>";
+        echo " <script>
+        Swal.fire({
+            title: 'Alerta de Incoherrencia',
+            text: 'El grupo ya tiene asignado este horario con un docente aasignado',
+            icon: 'alert',
+            showCancelButton: false,
+            confirmButtonColor: '#ff5733',
+            confirmButtonText: 'OK'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href='AsignarHorarioVista.php';
+            }
+            })
+            </script>
+            </body>";
+
+            return $retorno_Val;
+
+    }
+    return 1;
 
 }
 

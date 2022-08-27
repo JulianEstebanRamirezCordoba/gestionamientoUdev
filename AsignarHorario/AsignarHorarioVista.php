@@ -55,7 +55,7 @@ $utilModelo = new utilModelo();
                                                                 $extraccion = array("hor_id", "hor_dia_asignado", "hor_diaHoraEntrada", "hor_diaHoraSalida");
                                                                 $consulta = $utilModelo->consultaTodosDatos($tablaHorario, $extraccion);
                                                                 while($inforHor = $consulta->fetch_assoc()){ 
-                                                                    echo "<option value = ".$inforHor['hor_id'].">".$inforHor['hor_dia_asignado']." - ".$inforHor['hor_diaHoraEntrada']."</option>";
+                                                                    echo "<option value = ".$inforHor['hor_id'].">".$inforHor['hor_dia_asignado']." - ".$inforHor['hor_diaHoraEntrada']."/".$inforHor['hor_diaHoraSalida']."</option>";
                                                                 }
                                                             ?>
                                                         </select>
@@ -114,7 +114,7 @@ $utilModelo = new utilModelo();
                                                                 $extraccion = array("sal_id", "sal_nombre", "sal_capacidadMaxima");
                                                                 $consulta = $utilModelo->consultaTodosDatos($tablaSala, $extraccion);
                                                                 while($inforSal = $consulta->fetch_assoc()){ 
-                                                                    echo "<option value = ".$inforSal['sal_id'].">".$inforSal['sal_id']." - ".$inforSal['sal_nombre']."</option>";
+                                                                    echo "<option value = ".$inforSal['sal_id'].">".$inforSal['sal_id']." - ".$inforSal['sal_nombre']." - CAP_MAX =".$inforSal['sal_capacidadMaxima']."</option>";
                                                                 }
                                                             ?>
                                                         </select>
@@ -168,7 +168,7 @@ $utilModelo = new utilModelo();
 
     <script>
         function validarCampos(){
-
+            
 
         }
     </script>

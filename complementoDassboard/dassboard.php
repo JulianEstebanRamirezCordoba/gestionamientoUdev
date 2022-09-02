@@ -118,13 +118,14 @@
 										</div>
 										<div class="card-body">
 											<br>
-											<p class="text-muted mb-4 text-center">A travez de este espacio podras subir la informacion, 
-												visualizar tus asignaciones, horarios, materias, aulas y instituciones.</p>
-											<div class="clearfix"></div>
-											<p class="text-muted mb-4 text-center">Estaremos atentos a cualquier dificultad que tengas o se te presente</p>
-											<div class="clearfix"></div>
-											<p class="text-muted mb-0 text-center">Para informacion mas detallada sobre el manejo de la plataforma consulte el manual o contactate con administracion
+											<p class="text-muted mb-4 text-center">
+											A través de este espacio podrás subir la información, visualizar tus asignaciones, 
+											horarios, materias, aulas e instituciones. 
+											Estaremos atentos a cualquier dificultad que tengas o se te presente. 
+											Para información más detallada sobre el manejo de la plataforma 
+											consulte el manual o contáctate con administración
 											</p>
+											
 										</div>
 									</div>
 								</div>

@@ -117,14 +117,15 @@
 											<img src="" alt="">
 										</div>
 										<div class="card-body">
-											<br>
-											<p class="text-muted mb-4 text-center">
+											
+											<h5 class="text-muted mb-4 text-center">
 											A través de este espacio podrás subir la información, visualizar tus asignaciones, 
 											horarios, materias, aulas e instituciones. 
 											Estaremos atentos a cualquier dificultad que tengas o se te presente. 
 											Para información más detallada sobre el manejo de la plataforma 
-											consulte el manual o contáctate con administración
-											</p>
+											consulte el <a href="./../inicio/manual/index.html">manual</a> 
+											o contáctate con administración
+											</h5>
 											
 										</div>
 									</div>

@@ -48,7 +48,7 @@
 												</div>
 											</div>
 											<p class="m-b-0 text-white"><span class="label label-primary m-r-10"><?php
-											echo $porsentajes['porsentajeUdev']; ?> % </span>De Usuarios totales</p>
+											echo number_format($porsentajes['porsentajeUdev'], 2); /* @d */  ?> % </span>De Usuarios totales</p>
 										</div>
 									</div>
 								</div>
@@ -66,7 +66,7 @@
 												</div>
 											</div>
 											<p class="m-b-0 text-white"><span class="label label-info m-r-10"><?php
-											echo $porsentajes['porsentajeCompubuga']?> %</span>De Usuarios Totales</p>
+											echo number_format($porsentajes['porsentajeCompubuga'], 2); /* @d */ ?> %</span>De Usuarios Totales</p>
 										</div>
 									</div>
 								</div>
@@ -85,7 +85,7 @@
 												</div>
 											</div>
 											<p class="m-b-0 text-white"><span class="label label-success m-r-10"><?php
-											echo $porsentajes['porsentjeMoscati']; ?> % </span>De Usuarios totales</p>
+											echo number_format($porsentajes['porsentjeMoscati'], 2); /* @d */ ?> % </span>De Usuarios totales</p>
 				                       	</div>
 			                        </div>
                                 </div>	
@@ -104,7 +104,7 @@
 												</div>
 											</div>
 											<p class="m-b-0 text-white"><span class="label label-danger m-r-10"><?php
-											echo $porsentajes['porsentajeDesactivos']; ?> % </span>De Usuarios totales</p>
+											echo number_format($porsentajes['porsentajeDesactivos'], 2); /* @d */ ?> % </span>De Usuarios totales</p>
 				                       	 	</div>
 			                        	</div>
 									</div>

@@ -1445,7 +1445,8 @@ pre[class*=language-]:before {
 }
 
 .f-w-500 {
-    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
 }
 
 .f-w-600 {

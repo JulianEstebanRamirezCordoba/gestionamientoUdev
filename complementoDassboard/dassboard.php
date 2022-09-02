@@ -113,8 +113,7 @@
 							<div class="col-sm-12">
 									<div class="card">
 										<div class="card-header">
-											<img src="" alt="">
-											<h3 class="mb-2 f-w-500 text-center">Bienvenidos</h3>
+											<h1 class="mb-2 f-w-500 text-center">Bienvenidos</h1>
 											<img src="" alt="">
 										</div>
 										<div class="card-body">

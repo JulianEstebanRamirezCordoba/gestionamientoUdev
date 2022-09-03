@@ -113,8 +113,9 @@
 							<div class="col-sm-12">
 									<div class="card">
 										<div class="card-header">
+											<img class="img-titulo" src="./../assets/img/img_Agregadas/logo_moscati.png" alt="moscatti">
 											<h1 class="mb-2 f-w-500 text-center">Bienvenidos</h1>
-											<img src="" alt="">
+											<img class="img-titulo" src="./../assets/img/img_Agregadas/logo-compubuga.png" alt="compubuga">
 										</div>
 										<div class="card-body">
 											

@@ -40,7 +40,7 @@
 			<div class="row align-items-center">
 				<div class="col-md-6">
 					<div class="card-body">
-						<img src="../assets/img/logo-udev.png" alt="" class="img-fluid mb-4">
+						<img src="../assets/img/udev-logo.jpg" alt="" class="img-fluid mb-4">
 						<h4 class="mb-2 f-w-450">Inicio sesion en tu cuenta</h4>
 
                         <form action="seguridad.php" method="post">

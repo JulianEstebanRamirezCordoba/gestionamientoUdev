@@ -75,7 +75,7 @@
 										<div class="card-body">
 											<div class="row align-items-center m-b-15">
 												<div class="col">
-													<h6 class="m-b-5 text-white">Usuarios Familia Moscaty</h6>
+													<h6 class="m-b-5 text-white">Usuarios Familia Moscati</h6>
 													<h3 class="m-b-0 text-white"><?php
 													echo $numeroMoscati;
 													?></h3>
@@ -94,7 +94,7 @@
 										<div class="card-body">
 											<div class="row align-items-center m-b-15">
 												<div class="col">
-													<h6 class="m-b-5 text-white">Usuarios Desactivos Udev</h6>
+													<h6 class="m-b-5 text-white">Usuarios Desactivos UDEV</h6>
 													<h3 class="m-b-0 text-white"><?php
 													echo $numeroDesactivos;
 													?></h3>

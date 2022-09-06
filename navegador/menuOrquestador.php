@@ -52,9 +52,8 @@ session_start();
 	 <nav class="pcoded-navbar menupos-fixed menu-light brand-blue ">
 		<div class="navbar-wrapper ">
 			<div class="navbar-brand header-logo">
-				<a href="dassboard.php" class="b-brand">
-					<img src="" alt="" class="logo images">
-					<img src="" alt="" class="logo-thumb images">
+				<a href="../complementoDassboard/dassboard.php" class="b-brand">
+					<img src="../assets/img/udev-logo-dassboart.png" alt="" class="logo images">
 				</a>
 				<a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
 			</div>

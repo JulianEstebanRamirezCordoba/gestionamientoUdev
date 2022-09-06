@@ -24,9 +24,7 @@ require_once "../navegador/menuOrquestador.php";
                                         <div class="card-header">
                                             <h6 class="row">Sistema Gestion Udev</h6>
                                             <form action="" method="post">
-                                                <div class="col-md-5">
                                                     <input class="form-control" id = "buscar" name = "buscar" type="text" placeholder="Buscar. . .">
-                                                </div>
                                             </form>
                                         </div>
                                         <div class="main-search open">

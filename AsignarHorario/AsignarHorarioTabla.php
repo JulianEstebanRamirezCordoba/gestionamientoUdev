@@ -21,14 +21,16 @@ require_once "../navegador/menuOrquestador.php";
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div class="card">
-                                        <div class="card-header">
-                                            <h6 class="row">Sistema Gestion Udev</h6>
+                                        <br>
+                                        <div class="col-md-5">
+                                            <h6>Sistema Gestion Udev</h6>
+                                        </div> 
                                             <form action="" method="post">
-                                                <div class="col-md-5">
+                                                <div class="col-md-7">
                                                     <input class="form-control" id = "buscar" name = "buscar" type="text" placeholder="Buscar. . .">
                                                 </div>
                                             </form>
-                                        </div>
+                                        
                                         <div class="main-search open">
                                         <div class="card-body table-border-style">
                                             <div class="table-responsive">

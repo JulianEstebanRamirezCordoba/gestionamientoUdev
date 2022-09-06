@@ -21,12 +21,17 @@ require_once "../navegador/menuOrquestador.php";
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div class="card">
-                                        <div class="card-header">
-                                            <h6 class="row">Sistema Gestion Udev</h6>
-                                            <form action="" method="post">
-                                                    <input class="form-control" id = "buscar" name = "buscar" type="text" placeholder="Buscar. . .">
-                                            </form>
+                                        <br>
+                                        <div class='col-md-6'>
+                                            <h5>Sistema Gestion Udevo</h5>
                                         </div>
+                                            <form action="controlInforUser.php" method="post">
+                                                <div class="col-md-6">
+                                                    <input class="form-control" id = "buscar" name = "buscar" type="text" placeholder="Buscar. . .">
+                                                </div>
+                                            </form>
+                                        
+                                        
                                         <div class="main-search open">
                                         <div class="card-body table-border-style">
                                             <div class="table-responsive">
@@ -42,7 +47,7 @@ require_once "../navegador/menuOrquestador.php";
                                                             <th>Instuticion</th>
                                                             <th>Tipo Usuario</th>
                                                             <th>Estado Usuario</th>
-                                                            <th>Editado</th>
+                                                            <th>Opciones</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="tabla">

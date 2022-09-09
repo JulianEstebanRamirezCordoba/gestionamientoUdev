@@ -35,11 +35,13 @@
                                 <!-- [ dark-table ] start -->
                                 <div class="col-md-12">
                                     <div class="card">
-                                        <div class="card-header">
-                                          <!-- Button trigger modal -->
+                                    <div class='col-md-6'>
+                                      <br>
                                           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalGuardar">
                                             AÑADIR NUEVA SALA                                  
                                           </button>
+                                      </div>
+                                          
 
                                         <div class="card-body table-border-style">
                                             <div class="table-responsive">

@@ -29,7 +29,7 @@ require_once "../navegador/menuOrquestador.php";
                                             <h5>Formulario registro usuario</h5>
                                         </div>
                                         <div class="card-body">
-                                            <h5>Ingresar un usuario nuevo</h5>
+                                            <h5>Inscribir Cuenta Nueva</h5>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-md-6">

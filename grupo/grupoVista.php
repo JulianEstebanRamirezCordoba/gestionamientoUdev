@@ -26,10 +26,13 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="card">
-                                        <div class="card-header">
-                                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalGuardar">
-                                            AÑADIR NUEVO GRUPO                                  
-                                          </button>
+                                      <br>
+                                      <div class='col-md-6'>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalGuardar">
+                                        AÑADIR NUEVO GRUPO                                  
+                                        </button>
+                                      </div>
+                                          
 
                                         <div class="card-body table-border-style">
                                             <div class="table-responsive">

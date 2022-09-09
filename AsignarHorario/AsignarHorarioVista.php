@@ -26,7 +26,7 @@ $utilModelo = new utilModelo();
                                 <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Formulario Asignar</h5>
+                                            <h5>Formulario Asignacion Horarios</h5>
                                         </div>
                                         <div class="card-body">
                                             <div class="row">
